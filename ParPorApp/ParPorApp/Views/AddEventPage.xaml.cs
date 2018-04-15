@@ -19,7 +19,7 @@ namespace ParPorApp.Views
 		public AddEventPage ()
 		{
 			InitializeComponent ();
-		    
+		    //BindingContext = new GroupsViewModel();
         }
 
 	    private void DatePicker_StartDateSelected(object sender, DateChangedEventArgs e)
