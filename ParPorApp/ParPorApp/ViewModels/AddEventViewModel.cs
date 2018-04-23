@@ -21,10 +21,13 @@ namespace ParPorApp.ViewModels
 	    public string LocationId { get; set; }
 	    public string StartDateTime { get; set; }
 	    public string Name { get; set; }
+        public string LocationName { get; set; }
+        public string Longitude { get; set; }
+        public string Latitude { get; set; }
 
         public ICommand AddEventCommand
 	    {
-		    get
+            get
 		    {
 				return new Command(async () =>
 				{
@@ -36,7 +39,9 @@ namespace ParPorApp.ViewModels
                             Description = Description,
 							StartDateTime = StartDateTime,
 							EndDateTime = EndDateTime,
-                            GroupId = GroupId
+                            GroupId = GroupId,
+                            LocationId = LocationId,
+                            Longitude = Longitude
 						};
 						await _apiServices.PostEventAsync(events, Settings.AccessToken);
 					

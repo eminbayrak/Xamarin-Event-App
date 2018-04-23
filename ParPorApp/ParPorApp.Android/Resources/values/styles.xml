@@ -5,7 +5,7 @@
   <style name="MainTheme" parent="MainTheme.Base">
   </style>
   <!-- Base theme applied no matter what API -->
-  <style name="MainTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+  <style name="MainTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
     <!--If you are using revision 22.1 please use just windowNoTitle. Without android:-->
     <item name="windowNoTitle">true</item>
     <!--We will be using the toolbar so no need to show ActionBar-->
@@ -23,6 +23,10 @@
     <item name="windowActionModeOverlay">true</item>
     <item name="android:textAllCaps">false</item>
     <item name="android:datePickerDialogTheme">@style/AppCompatDialogStyle</item>
+    
+    <!--Transparent statusbar-->
+    <item name="android:windowTranslucentStatus">false</item>
+    
   </style>
 
   <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">

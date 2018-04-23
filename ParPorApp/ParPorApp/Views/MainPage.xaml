@@ -7,7 +7,7 @@
              Icon="ic_menu.png"
              NavigationPage.HasNavigationBar="False">
   <MasterDetailPage.Master>
-    <pages:MainPageMaster x:Name="MasterPage" />
+    <pages:UserProfilePage x:Name="MasterPage" />
   </MasterDetailPage.Master>
   <MasterDetailPage.Detail>
     <NavigationPage>

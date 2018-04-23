@@ -29,17 +29,17 @@ namespace ParPorApp.Views
             var date = StartDate.Text = e.NewDate.Month.ToString() + "/" + e.NewDate.Day.ToString() + "/" + e.NewDate.Year.ToString();
             TimeSpan pickertime = StartTime.Time;
 	        var dt = Convert.ToDateTime(pickertime.ToString());
-	        var time = dt.ToString("hh:mm tt");
+	        var time = dt.ToString("h:mm tt");
 	        var sourceDataText = date + " " + time;
 	        StartDate.Text = sourceDataText;
 	    }
 
 	    private void DatePicker_FinishDateSelected(object sender, DateChangedEventArgs e)
 	    {
-	        var date = StartDate.Text = e.NewDate.Month.ToString() + "/" + e.NewDate.Day.ToString() + "/" + e.NewDate.Year.ToString();
+	        var date = FinishDate.Text = e.NewDate.Month.ToString() + "/" + e.NewDate.Day.ToString() + "/" + e.NewDate.Year.ToString();
 	        TimeSpan pickertime = EndTime.Time;
 	        var dt = Convert.ToDateTime(pickertime.ToString());
-	        var time = dt.ToString("hh:mm tt");
+	        var time = dt.ToString("h:mm tt");
 	        var sourceDataText = date + " " + time;
 	        FinishDate.Text = sourceDataText;
         }

@@ -57,8 +57,13 @@
             <ContentView HeightRequest="1" BackgroundColor="Transparent"/>
             <Label Text="Location" FontAttributes="Bold" />
         <Entry Text="{Binding LocationId}" Placeholder="input the location address"/>
+        
+            
+                <!--<Entry Text="{Binding LocationName}" Placeholder="Location Name" />-->
+            
+       
 
-        <ContentView HeightRequest="1" BackgroundColor="Transparent"/>
+            <ContentView HeightRequest="1" BackgroundColor="Transparent"/>
         <Button Command="{Binding AddEventCommand}"
                 Clicked="ReturnEventPage_Clicked"
                 Style="{StaticResource MessageButton}"

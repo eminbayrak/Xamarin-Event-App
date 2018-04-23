@@ -18,10 +18,30 @@
         </xfGloss:Gradient>
     </xfGloss:ContentPageGloss.BackgroundGradient>-->
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:TypeArguments="x:String" x:Key="AwesomeFont">
+                <On Platform="Android" Value="fontawesome.ttf#FontAwesome" />
+                <On Platform="UWP" Value="/Assets/fontawesome.ttf#FontAwesome" />
+                <On Platform="iOS" Value="FontAwesome" />
+            </OnPlatform>
+
+            <Style x:Key="FontAwesomeIconStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource AwesomeFont}" />
+
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
         <Grid ColumnSpacing="0" RowSpacing="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="AUTO" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="AUTO" />
                 <RowDefinition Height="AUTO" />
                 <RowDefinition Height="*" />
@@ -30,50 +50,49 @@
 
             <!--  header background  -->
             <!--<Image Aspect="AspectFill" Source="{Binding GameIcon}" />-->
+            <Image BackgroundColor="{StaticResource HeaderBackgroundColor}" Aspect="AspectFill" />
 
 
             <!--  profile image  -->
-            <abstractions:CircleImage Grid.Row="0"
-                                      HeightRequest="40"
-                                      HorizontalOptions="Center"
-                                      Source="{Binding ImageUrl}"
-                                      TranslationY="40"
-                                      VerticalOptions="End"
-                                      WidthRequest="50" />
 
             <!--  Game Info Section  -->
-            <StackLayout Grid.Row="1" Padding="0,40,0,00" Margin="20,0" HorizontalOptions="Center">
-                <Label Text="{Binding Name}" />
-                <Label  Text="{Binding EventDate}" FontAttributes="Bold"/>
-                <Label  Grid.Row="3" Text="{Binding Location}" />
+            <StackLayout Grid.Row="1" Padding="0,30,0,00" Margin="20,0" HorizontalOptions="Center">
+
+                <Label Text="{Binding EventDate}" FontAttributes="Bold" />
+                <Label Grid.Row="3" Text="{Binding Location}" />
 
             </StackLayout>
 
             <!--<BoxView Grid.Row="0" HeightRequest="120" VerticalOptions="Center" BackgroundColor="White" Opacity="0.9"></BoxView>-->
-            <Grid Grid.Row="0" Margin="0,10" Padding="30" ColumnSpacing="0" RowSpacing="0">
+            <Grid Grid.Row="0" Padding="30" ColumnSpacing="30" RowSpacing="0"
+                  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
                 <StackLayout>
                     <Image Source="{Binding HomeTeamLogo}"
-                           WidthRequest="30" HeightRequest="30" />
-                    <Label Style="{StaticResource StatsCaptionLabel}" Text="{Binding HomeTeamName}" />
+                           WidthRequest="50" HeightRequest="50" />
+                    <Label Style="{StaticResource StatsCaptionLabel}" TextColor="White" FontAttributes="Bold"
+                           Text="{Binding HomeTeamName}" />
                 </StackLayout>
 
                 <StackLayout Grid.Column="1">
                     <Label Style="{StaticResource StatsNumberLabel}" Grid.RowSpan="2" Margin="0,20"
-                           VerticalOptions="Center" FontSize="20" Text="{Binding VS}" />
+                           VerticalOptions="Center" TextColor="White" FontAttributes="Bold, Italic" FontSize="20"
+                           Text="{Binding StartTime}" />
 
                 </StackLayout>
 
                 <StackLayout Grid.Column="2">
                     <Image Source="{Binding AwayTeamLogo}"
-                           WidthRequest="30" HeightRequest="30" />
-                    <Label Style="{StaticResource StatsCaptionLabel}" Text="{Binding AwayTeamName}" />
+                           WidthRequest="50" HeightRequest="50" />
+                    <Label Style="{StaticResource StatsCaptionLabel}" TextColor="White" FontAttributes="Bold"
+                           Text="{Binding AwayTeamName}" />
                 </StackLayout>
+
             </Grid>
 
 

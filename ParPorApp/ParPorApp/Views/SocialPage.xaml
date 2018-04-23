@@ -28,7 +28,7 @@
                 <views:EventsPage />
             </x:Arguments>
         </NavigationPage>
-        <NavigationPage Title="Groups" Icon="ic_groups.png">
+        <NavigationPage Title="Groups" Icon="ic_group.png">
             <x:Arguments>
                 <views:GroupPage />
             </x:Arguments>
@@ -38,11 +38,11 @@
                 <views:FABPage />
             </x:Arguments>
         </NavigationPage>
-        <NavigationPage Title="Profile" Icon="ic_face.png" >
+        <!--<NavigationPage Title="Profile" Icon="ic_face.png" >
             <x:Arguments>
                 <views:UserProfilePage />
             </x:Arguments>
-        </NavigationPage>
+        </NavigationPage>-->
     </xamarinForms:BottomBarPage.Children>
 
 </xamarinForms:BottomBarPage>

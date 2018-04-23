@@ -556,9 +556,6 @@
     <BundleResource Include="Resources\ic_girlsswimming.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\bg.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\ic_chat_3x.png" />
   </ItemGroup>
   <ItemGroup>

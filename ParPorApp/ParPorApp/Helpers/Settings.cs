@@ -2,6 +2,7 @@
 using Plugin.Settings;
 using Plugin.Settings.Abstractions;
 using System;
+using ParPorApp.ViewModels;
 
 namespace ParPorApp.Helpers
 {
@@ -40,6 +41,20 @@ namespace ParPorApp.Helpers
             }
         }
 
+
+        private const string LongitudeKey = "Longitude_key";
+        private static readonly double LangitudeDefaultKey = 0;
+        public static double LongitudeKeySettings
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(LongitudeKey, LangitudeDefaultKey);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(SettingsKey, value);
+            }
+        }
         public static string LastUsedEmail
         {
             get

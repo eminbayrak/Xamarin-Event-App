@@ -8637,43 +8637,43 @@ namespace ParPorApp.Droid
 			public const int ic_share = 2130837839;
 			
 			// aapt resource value: 0x7f020150
-			public const int ic_successstatus = 2130837840;
+			public const int ic_splogo = 2130837840;
 			
 			// aapt resource value: 0x7f020151
-			public const int ic_vol_type_speaker_dark = 2130837841;
+			public const int ic_successstatus = 2130837841;
 			
 			// aapt resource value: 0x7f020152
-			public const int ic_vol_type_speaker_group_dark = 2130837842;
+			public const int ic_vol_type_speaker_dark = 2130837842;
 			
 			// aapt resource value: 0x7f020153
-			public const int ic_vol_type_speaker_group_light = 2130837843;
+			public const int ic_vol_type_speaker_group_dark = 2130837843;
 			
 			// aapt resource value: 0x7f020154
-			public const int ic_vol_type_speaker_light = 2130837844;
+			public const int ic_vol_type_speaker_group_light = 2130837844;
 			
 			// aapt resource value: 0x7f020155
-			public const int ic_vol_type_tv_dark = 2130837845;
+			public const int ic_vol_type_speaker_light = 2130837845;
 			
 			// aapt resource value: 0x7f020156
-			public const int ic_vol_type_tv_light = 2130837846;
+			public const int ic_vol_type_tv_dark = 2130837846;
 			
 			// aapt resource value: 0x7f020157
-			public const int ic_volleyball = 2130837847;
+			public const int ic_vol_type_tv_light = 2130837847;
 			
 			// aapt resource value: 0x7f020158
-			public const int ic_weather = 2130837848;
+			public const int ic_volleyball = 2130837848;
 			
 			// aapt resource value: 0x7f020159
-			public const int ic_wrestling = 2130837849;
+			public const int ic_weather = 2130837849;
 			
 			// aapt resource value: 0x7f02015a
-			public const int icon = 2130837850;
+			public const int ic_wrestling = 2130837850;
 			
 			// aapt resource value: 0x7f02015b
-			public const int LaunchView = 2130837851;
+			public const int icon = 2130837851;
 			
 			// aapt resource value: 0x7f02015c
-			public const int logo = 2130837852;
+			public const int LaunchView = 2130837852;
 			
 			// aapt resource value: 0x7f02015d
 			public const int milford = 2130837853;

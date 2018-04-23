@@ -12,59 +12,7 @@
     <ContentPage.BindingContext>
         <viewModels:UserViewModel />
     </ContentPage.BindingContext>
-
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <OnPlatform x:TypeArguments="x:String" x:Key="AwesomeFont">
-                <On Platform="Android" Value="fontawesome.ttf#FontAwesome" />
-                <On Platform="UWP" Value="/Assets/fontawesome.ttf#FontAwesome" />
-                <On Platform="iOS" Value="FontAwesome" />
-            </OnPlatform>
-            <Style x:Key="FontAwesomeTextStyle" TargetType="Label">
-                <Setter Property="TextColor" Value="White" />
-                <Setter Property="Opacity" Value="0.90" />
-            </Style>
-            <Style x:Key="FontAwesomeStyle" TargetType="Label">
-                <Setter Property="FontFamily" Value="{StaticResource AwesomeFont}" />
-                
-                <Setter Property="TextColor" Value="Black" />
-                <Setter Property="Opacity" Value="1" />
-                <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="HorizontalTextAlignment" Value="Center" />
-                <Setter Property="VerticalTextAlignment" Value="Center" />
-            </Style>
-            <Style x:Key="FontAwesomeIconStyle" TargetType="Label">
-                <Setter Property="FontFamily" Value="{StaticResource AwesomeFont}" />
-               
-                <Setter Property="TextColor" Value="Black" />
-                <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="HorizontalTextAlignment" Value="Center" />
-                <Setter Property="VerticalTextAlignment" Value="Center" />
-            </Style>
-            <Style x:Key="FontAwesomeStyleBtn" TargetType="Label">
-                <Setter Property="FontFamily" Value="{StaticResource AwesomeFont}" />
-                
-                <Setter Property="TextColor" Value="White" />
-                <Setter Property="VerticalOptions" Value="Start" />
-                <Setter Property="HorizontalOptions" Value="End" />
-                <Setter Property="HorizontalTextAlignment" Value="Start" />
-                <Setter Property="VerticalTextAlignment" Value="Start" />
-                <Setter Property="BackgroundColor" Value="Transparent" />
-            </Style>
-            <Style x:Key="FontAwesomeStyleBtnBot" TargetType="Label">
-                <Setter Property="FontFamily" Value="{StaticResource AwesomeFont}" />
-                
-                <Setter Property="TextColor" Value="Black" />
-                <Setter Property="VerticalOptions" Value="End" />
-                <Setter Property="HorizontalOptions" Value="Start" />
-                <Setter Property="HorizontalTextAlignment" Value="Start" />
-                <Setter Property="VerticalTextAlignment" Value="Start" />
-                <Setter Property="BackgroundColor" Value="Transparent" />
-            </Style>
-        </ResourceDictionary>
-    </ContentPage.Resources>
+  
     <ScrollView>
         <Grid ColumnSpacing="0" RowSpacing="0">
             <Grid.RowDefinitions>
@@ -75,7 +23,7 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <BoxView Grid.Row="0" BackgroundColor="CornflowerBlue"/>
+            <BoxView Grid.Row="0" BackgroundColor="{StaticResource HeaderBackgroundColor}"/>
             <ListView ItemsSource="{Binding Users}"
                           Grid.Row="0"
                           Margin="0,50,0,00"

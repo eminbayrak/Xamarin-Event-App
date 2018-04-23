@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:ParPorApp.ViewModels;assembly=ParPorApp"
+             x:Class="ParPorApp.Views.EventDetailPage"
+             Title="Event Detail">
+
+    <ContentPage.BindingContext>
+        <viewModels:EventsViewModel />
+    </ContentPage.BindingContext>
+
+    
+
+    <ContentPage.Content>
+
+        <ListView HasUnevenRows="True"
+                  ItemsSource="{Binding Event}"
+                  SeparatorVisibility="None"
+                  CachingStrategy="RecycleElement">
+
+            <ListView.ItemTemplate>
+
+                <DataTemplate>
+
+                    <ViewCell>
+                        <Grid ColumnSpacing="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="AUTO" />
+                                <RowDefinition Height="AUTO" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="AUTO" />
+                            </Grid.RowDefinitions>
+
+                            <!--  header background  -->
+                            <!--<Image Aspect="AspectFill" Source="{Binding GameIcon}" />-->
+                            <Image BackgroundColor="{StaticResource HeaderBackgroundColor}" Aspect="AspectFill" />
+
+
+                            <!--  profile image  -->
+
+                            <!--  Game Info Section  -->
+                            <StackLayout Grid.Row="1" Padding="0,30,0,00" Margin="20,0" HorizontalOptions="Center">
+
+                                <Label Text="{Binding EventDate}" FontAttributes="Bold" />
+                                <Label Grid.Row="3" Text="{Binding Name}" />
+
+                            </StackLayout>
+
+                            <!--<BoxView Grid.Row="0" HeightRequest="120" VerticalOptions="Center" BackgroundColor="White" Opacity="0.9"></BoxView>-->
+                            <Grid Grid.Row="0" Padding="30" ColumnSpacing="30" RowSpacing="0"
+                                  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackLayout>
+                                    <Image Source="{Binding HomeTeamLogo}"
+                                           WidthRequest="50" HeightRequest="50" />
+                                    <Label x:Name="lan"
+                                           Style="{StaticResource StatsCaptionLabel}" TextColor="White"
+                                           FontAttributes="Bold"
+                                           Text="{Binding Longitude}" />
+                                </StackLayout>
+
+                                <StackLayout Grid.Column="1">
+                                    <Label Style="{StaticResource StatsNumberLabel}" Grid.RowSpan="2" Margin="0,20"
+                                           VerticalOptions="Center" TextColor="White" FontAttributes="Bold, Italic"
+                                           FontSize="20"
+                                           Text="{Binding StartDateTime, Mode=TwoWay}" />
+
+                                </StackLayout>
+
+                                <StackLayout Grid.Column="2">
+                                    <Image Source="{Binding AwayTeamLogo}"
+                                           WidthRequest="50" HeightRequest="50" />
+                                    <Label Style="{StaticResource StatsCaptionLabel}" TextColor="White"
+                                           FontAttributes="Bold"
+                                           Text="{Binding AwayTeamName}" />
+                                </StackLayout>
+
+                            </Grid>
+
+
+                            <Label Margin="30,20" Grid.Row="3" FontAttributes="Italic" Text="{Binding LocationName}" />
+                            <!--  send message button  -->
+                            <Grid Grid.Row="4" Margin="0,10" Padding="30" ColumnSpacing="0" RowSpacing="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackLayout>
+                                    <Button Grid.Row="4" HorizontalOptions="Center" BackgroundColor="Transparent"
+                                            Image="ic_share.png"
+                                            Text="Share" Clicked="Share_onClicked" />
+                                </StackLayout>
+
+                                <StackLayout Grid.Column="1">
+                                    <Button HorizontalOptions="Center"
+                                            Clicked="TakeMeThere_Clicked"
+                                            BackgroundColor="Transparent"
+                                            Image="ic_navigation.png"
+                                            Text="Navigate" />
+
+                                    <!--<Button HorizontalOptions="Center"
+                            Command="{Binding NavigateCommand}"
+                            Image="ic_navigation.png"
+                            TextColor="Black"
+                            Text="Navigate">
+                    </Button>-->
+
+                                </StackLayout>
+
+                                <StackLayout Grid.Column="2">
+                                    <Button HorizontalOptions="Center" Text="Weather" BackgroundColor="Transparent"
+                                            Image="ic_weather.png" Clicked="Weather_OnClicked" />
+                                </StackLayout>
+                            </Grid>
+
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

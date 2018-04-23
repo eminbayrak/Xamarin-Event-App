@@ -13,7 +13,7 @@ using Xamarin.Forms;
 
 namespace ParPorApp.ViewModels
 {
-    internal class EventsViewModel : INotifyPropertyChanged
+    public class EventsViewModel : INotifyPropertyChanged
     {
         private readonly ApiServices _apiServices = new ApiServices();
         private List<Event> _events;
@@ -38,6 +38,7 @@ namespace ParPorApp.ViewModels
               {
 	              var accessToken = Settings.AccessToken;
 				  Event = await _apiServices.GetEventsAsync(accessToken);
+
               });
             }
         }

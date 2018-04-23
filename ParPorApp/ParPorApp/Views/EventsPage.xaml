@@ -18,9 +18,10 @@
         <ToolbarItem Icon="ic_search.png"
                      Priority="1"/>
     </ContentPage.ToolbarItems>
-    <ListView 
+    <ListView x:Name="eventListView"
               HasUnevenRows="True"
               ItemsSource="{Binding Event}"
+              ItemSelected="EventList_ItemSelected"
               SeparatorVisibility = "None" 
               CachingStrategy="RecycleElement">
 
@@ -64,22 +65,6 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
 
-                                <!--<StackLayout Orientation="Horizontal" VerticalOptions="Start">
-                                    <abstractions:CircleImage Source="{Binding ImageUrl}"
-                                                              VerticalOptions="Start" HeightRequest="30"
-                                                              WidthRequest="30" />
-                                    <Label FontAttributes="None" Grid.Row="0"
-                                           HorizontalTextAlignment="Start"
-                                           VerticalTextAlignment="Center"
-                                           FontSize="12"
-                                           Text="{Binding First}" TextColor="Gray" />
-                                    <Label FontAttributes="None" Grid.Row="0"
-                                           HorizontalTextAlignment="End"
-                                           VerticalTextAlignment="Center"
-                                           FontSize="12"
-                                           Text="{Binding PostDate}" TextColor="Gray" />
-                                </StackLayout>-->
-
                                 <Grid Grid.Row="0">
 
                                     <StackLayout Orientation="Horizontal">
@@ -108,7 +93,7 @@
                                 <Grid Grid.Row="3" Grid.Column="0">
 
                                     <StackLayout Orientation="Horizontal">
-                                        <Label Text="{Binding  StartDateTime, StringFormat='\{0:ddd, MMM d \\a\\t h:mm tt\}'}"
+                                        <Label Text="{Binding  StartDateTime}"
                                                Font="Bold, 16"
                                                HorizontalOptions="Start" VerticalOptions="Start"/>
                                     </StackLayout>
@@ -124,9 +109,10 @@
 
                                 <Grid Grid.Row="3" Grid.Column="1">
                                     <StackLayout Orientation="Horizontal">
-                                        <Label Text="{Binding EndDateTime, StringFormat='{}{0:hh\\:mm}'}" Font="Bold, 16"/>
+                                        <Label Text="{Binding EndDateTime}" Font="Bold, 16"/>
                                     </StackLayout>
                                 </Grid>
+                                
 
                                 <!--<Grid Grid.Row="3" BackgroundColor="Transparent" Padding="5">
                                     <Grid.ColumnDefinitions>

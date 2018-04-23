@@ -166,9 +166,9 @@ namespace ParPorApp.Services
 			var response = await client.PostAsync(Constants.BaseApiAddress + "api/events", content);
 		    if (response.IsSuccessStatusCode)
 		    {
-			    using (UserDialogs.Instance.Loading("Please wait...", null, null, true, MaskType.Black))
+			    using (UserDialogs.Instance.Loading("Hang on...", null, null, true, MaskType.Black))
 			    {
-				    await UserDialogs.Instance.AlertAsync(string.Format("Event created :)"));
+				    await UserDialogs.Instance.AlertAsync(string.Format("You did it! :)"));
 				}
 				
 			}

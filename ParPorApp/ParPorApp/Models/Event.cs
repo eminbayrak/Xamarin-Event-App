@@ -36,5 +36,14 @@ namespace ParPorApp.Models
 
         [JsonProperty("PostDate")]
         public string PostDate { get; set; }
+
+        [JsonProperty("LocationName")]
+        public string LocationName { get; set; }
+
+        [JsonProperty("Longitude")]
+        public string Longitude { get; set; }
+
+        [JsonProperty("Latitude")]
+        public string Latitude { get; set; }
     }
 }
