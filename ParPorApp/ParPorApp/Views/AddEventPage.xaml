@@ -1,76 +1,90 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ParPorApp.Views.AddEventPage"
              xmlns:viewModels="clr-namespace:ParPorApp.ViewModels;assembly=ParPorApp"
-             xmlns:viewGroup="clr-namespace:ParPorApp.ViewModels;assembly=ParPorApp"
              xmlns:system="clr-namespace:System;assembly=netstandard"
+             xmlns:placesSearchBar="clr-namespace:DurianCode.PlacesSearchBar;assembly=DurianCode.PlacesSearchBar"
+             xmlns:abstractions="clr-namespace:IconEntry.FormsPlugin.Abstractions;assembly=IconEntry.FormsPlugin.Abstractions"
              Title="Add a new event">
+
     <ContentPage.BindingContext>
-        <viewModels:AddEventViewModel/>
+        <viewModels:AddEventViewModel />
     </ContentPage.BindingContext>
-    <!--<ContentPage.Resources>
-        
-        <viewGroup:GroupsViewModel x:Key="GroupsViewModel"/>
-    </ContentPage.Resources>-->
+
     <ScrollView>
-    <StackLayout VerticalOptions="Center" Padding ="20" Spacing="10">
-        
-        <Label Text="Event Type" FontAttributes="Bold">Event Type</Label>
-        <Picker SelectedItem="{Binding Name}" Title="select the event type">
-            <Picker.Items>
-                <x:String>Game</x:String>
-                <x:String>Training</x:String>
-            </Picker.Items>
-        </Picker>
-        <ContentView HeightRequest="1" BackgroundColor="Transparent"/>
-        <Label Text="Description" FontAttributes="Bold"></Label>
-        <Entry Text="{Binding Description}" Placeholder="enter a detail"/>
-        <ContentView HeightRequest="1" BackgroundColor="Transparent"/>
-
-            <Grid HorizontalOptions="Center">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Label Text="Start Date" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" /> 
-            <Label Text="Finish Date" FontAttributes="Bold" Grid.Row="0" Grid.Column="1" />
-            <TimePicker x:Name="StartTime" Grid.Row="1" Grid.Column="0" />
-            <TimePicker x:Name="EndTime"  Grid.Row="1" Grid.Column="1" />
-            <DatePicker DateSelected="DatePicker_StartDateSelected" Grid.Column="0" Grid.Row="2" MinimumDate="{x:Static system:DateTime.UtcNow}" />
-            <DatePicker DateSelected="DatePicker_FinishDateSelected" Grid.Column="1" Grid.Row="2" MinimumDate="{x:Static system:DateTime.UtcNow}" />
-
-                <Label x:Name="StartDate" Grid.Row="3" Grid.Column="0" FontAttributes="Bold"   Text="{Binding StartDateTime, Mode=TwoWay}" />
-                <Label x:Name="FinishDate" Grid.Row="3" Grid.Column="1" FontAttributes="Bold"  Text="{Binding EndDateTime, Mode=TwoWay}" />
-        </Grid>
-
-        <!--<BoxView WidthRequest="5" BackgroundColor="Transparent"/>
-        <Label Text="Group" FontAttributes="Bold" />
-        <Picker Title="Select a group" BindingContext="{StaticResource GroupsViewModel}" />-->
-
-            <ContentView HeightRequest="1" BackgroundColor="Transparent"/>
-            <Label Text="Location" FontAttributes="Bold" />
-        <Entry Text="{Binding LocationId}" Placeholder="input the location address"/>
-        
+        <StackLayout Margin="20,0,20,0">
+            <StackLayout Spacing="0" Padding="0" Margin="0,20,0,0">
+                <placesSearchBar:PlacesBar x:Name="search_bar" Placeholder="Search for the location..." />
+                <Image Source="powered_by_google_on_white.png" HeightRequest="10" HorizontalOptions="End" />
+                <ActivityIndicator x:Name="spinner" IsRunning="false" />
+                <ListView x:Name="results_list" IsVisible="false">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Name}" Detail="{Binding Description}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Label x:Name="selectedLocation" Text="{Binding LocationAddress, Mode=TwoWay}" />
+                <Label x:Name="locLatitude" Text="{Binding LocationLatitude, Mode=TwoWay}" IsVisible="False" />
+                <Label x:Name="locLongitude" Text="{Binding LocationLongitude, Mode=TwoWay}" IsVisible="False" />
+                <Label x:Name="locPlaceId" Text="{Binding PlaceId, Mode=TwoWay}" IsVisible="False" />
+                <Label Text="Event Type" FontAttributes="Bold">Event Type</Label>
+            </StackLayout>
+            <StackLayout>
+                
+                <Picker x:Name="pickerEvent" SelectedItem="{Binding EventType}" Title="Select the event type...">
+                    <Picker.Items>
+                        <x:String>Game</x:String>
+                        <x:String>Training</x:String>
+                    </Picker.Items>
+                </Picker>
+                <!--<Label x:Name="eventTypeIcon" Text="{Binding EventIcon, Source={x:Reference EventType}, Mode=TwoWay}" IsVisible="False" />-->
+                <ContentView HeightRequest="1" BackgroundColor="Transparent" />
+               
+                <Grid HorizontalOptions="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Time" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" />
+                    <Label Text="Date" FontAttributes="Bold" Grid.Row="0" Grid.Column="1" />
+                    <TimePicker x:Name="EventTime" Grid.Row="1" Grid.Column="0" />
+                    <DatePicker DateSelected="DatePicker_DateSelected" Grid.Column="1" Grid.Row="1"
+                                MinimumDate="{x:Static system:DateTime.UtcNow}" />
+                    <Label x:Name="Time" Grid.Row="2" Grid.Column="0" FontAttributes="Bold" HorizontalOptions="Center"
+                           Text="{Binding EventTime, Mode=TwoWay}" />
+                    <Label x:Name="EventDate" Grid.Row="2" Grid.Column="1" FontAttributes="Bold"
+                           HorizontalOptions="Center"
+                           Text="{Binding EventDate, Mode=TwoWay}" />
+                </Grid>
+                <TableView>
+                    <TableRoot>
+                        <TableSection Title="Event Detail">
+                            <EntryCell Label="Team Name: " Text="{Binding TeamName}" Keyboard="Text"/>
+                            <EntryCell Label="Oponent Team: " Text="{Binding OpponentTeamName}" Keyboard="Text"/>
+                            <EntryCell Label="Note: " Text="{Binding Note}" Keyboard="Text"/>
+                        </TableSection>
+                    </TableRoot>
+                </TableView>
+                <Button Command="{Binding AddEventCommand}"
+                        Clicked="ReturnEventPage_Clicked"
+                        BackgroundColor="YellowGreen"
+                        TextColor="White"
+                        CornerRadius="2"
+                        Text="Save" />
+            </StackLayout>
+            <ContentView HeightRequest="1" BackgroundColor="Transparent" />
             
-                <!--<Entry Text="{Binding LocationName}" Placeholder="Location Name" />-->
             
-       
-
-            <ContentView HeightRequest="1" BackgroundColor="Transparent"/>
-        <Button Command="{Binding AddEventCommand}"
-                Clicked="ReturnEventPage_Clicked"
-                Style="{StaticResource MessageButton}"
-                VerticalOptions="End"
-                Text="Add Event"/>
-
         </StackLayout>
     </ScrollView>
-     
+
 </ContentPage>

@@ -10,13 +10,12 @@ using FFImageLoading.Forms.Droid;
 using IconEntry.FormsPlugin.Android;
 using Microsoft.WindowsAzure.MobileServices;
 using Plugin.LocalNotifications;
-using ScnViewGestures.Plugin.Forms.Droid.Renderers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
 namespace ParPorApp.Droid
 {
-    [Activity(Label = "ParPorApp", Icon = "@drawable/ic_launcher", Theme = "@style/MainTheme", MainLauncher = false,
+    [Activity(Label = "SportiveParent", Icon = "@drawable/ic_launcher", Theme = "@style/MainTheme", MainLauncher = false,
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : FormsAppCompatActivity
     {
@@ -29,9 +28,8 @@ namespace ParPorApp.Droid
 
             Forms.Init(this, bundle);
             IconEntryRenderer.Init();
-            LocalNotificationsImplementation.NotificationIconId = Resource.Drawable.ic_logo;
+            LocalNotificationsImplementation.NotificationIconId = Resource.Drawable.ic_launcher;
             CachedImageRenderer.Init(true);
-            ViewGesturesRenderer.Init();
             //Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
             Forms.Init(this, bundle);
             CurrentPlatform.Init();

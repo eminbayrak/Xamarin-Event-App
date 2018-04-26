@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using FFImageLoading.Forms.Touch;
 using Foundation;
-using ScnViewGestures.Plugin.Forms.iOS.Renderers;
 using UIKit;
 using UserNotifications;
 
@@ -53,7 +52,6 @@ namespace ParPorApp.iOS
             CachedImageRenderer.Init();
             UINavigationBar.Appearance.BarTintColor = UIColor.FromRGB(255, 20, 153);
             UINavigationBar.Appearance.TintColor = UIColor.White;
-            ViewGesturesRenderer.Init();
             LoadApplication(new App());
             return base.FinishedLaunching(app, options);
             

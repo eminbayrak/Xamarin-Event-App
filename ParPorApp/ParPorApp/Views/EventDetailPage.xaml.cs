@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using Android.Icu.Text;
-using Android.Locations;
+using System.Windows.Input;
+using Acr.UserDialogs;
+using Android.App.Usage;
+using ParPorApp.Helpers;
 using ParPorApp.Models;
 using ParPorApp.ViewModels;
 using Plugin.ExternalMaps;
-using Plugin.ExternalMaps.Abstractions;
+using Plugin.Geolocator;
+using Plugin.Geolocator.Abstractions;
 using Plugin.Share;
-using ScnPage.Plugin.Forms;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -21,39 +18,54 @@ namespace ParPorApp.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class EventDetailPage : ContentPage
 	{
-	    EventsViewModel eventsViewModel;
-        public EventDetailPage ()
+	    public EventDetailPage (Event item)
 		{
             InitializeComponent ();
-		    BindingContext = eventsViewModel = new EventsViewModel();
-		    
-		    //Debug.WriteLine(_event);
-		}
+            BindingContext = item ?? throw new ArgumentNullException();
+        }
 
-	    //public string NavName
-     //   {
-     //       get => Event.Name;
-     //   }
-
-        protected override void OnAppearing()
-	    {
-	        base.OnAppearing();
-	        eventsViewModel.GetEventsCommand.Execute(null);
-	        
-	    }
         
 
-        //private double lat = -122.3491;
-        private async void TakeMeThere_Clicked(object sender, EventArgs e)
+	    //public ICommand TakeMeThereCommand
+     //   {
+	    //    get
+	    //    {
+	    //        return new Command(async () =>
+	    //        {
+	    //            var latitude = fullAddress.Text;
+	                
+     //               Console.WriteLine(latitude);
+
+
+	    //        });
+	    //    }
+	    //}
+        private void TakeMeThere_Clicked(object sender, EventArgs e)
         {
-            var _event = new Event();
-            BindingContext = _event;
-            double longt = Convert.ToDouble(_event.Longitude);
-            var loc = string.Format("{0},{1}", _event.Latitude, _event.Longitude);
-            await CrossExternalMaps.Current.NavigateTo(_event.Name, longt, Helpers.Settings.LongitudeKeySettings);
-            //await CrossExternalMaps.Current.NavigateTo(_event.Name, _event.EndDateTime, "City", "State", "ZipCode", "Country", "Country");
+            var longitude = fullAddress.Text;
+            string[] words = longitude.Split(',');
+            foreach (var word in words)
+            {
+                System.Console.WriteLine($"<{word}>");
+            }
+
+            try
+            {
+
+                //CrossExternalMaps.Current.NavigateTo(longitude);
+            }
+            catch (Exception ex)
+            {
+                UserDialogs.Instance.Toast(ex.Message);
+            }
         }
-	    private void Share_onClicked(object sender, EventArgs e)
+
+        //private double lat = -122.3491;
+        //private async Task TakeMeThere_Clicked(Event nav)
+        //{
+        //       await CrossExternalMaps.Current.NavigateTo(nav.Name, "Adress", "City", "State", "ZipCode", "Country", "Country");
+        //}
+        private void Share_onClicked(object sender, EventArgs e)
 	    {
 	        CrossShare.Current.Share(new Plugin.Share.Abstractions.ShareMessage
 	        {

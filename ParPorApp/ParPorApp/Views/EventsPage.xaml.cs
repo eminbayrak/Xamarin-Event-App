@@ -20,7 +20,7 @@ namespace ParPorApp.Views
             InitializeComponent();
 	        
 	        BindingContext = eventsViewModel = new EventsViewModel();
-           
+            
         }
 
         protected override void OnAppearing()
@@ -37,6 +37,12 @@ namespace ParPorApp.Views
 			await Navigation.PushAsync(new AddEventPage());
 		}
 
+        //void ItemTapped(object sender, ItemTappedEventArgs e)
+        //{
+        //    Navigation.PushAsync(new EventDetailPage() { BindingContext = eventsViewModel = new EventsViewModel((Event)e.Item) });
+
+        //    ((ListView)sender).SelectedItem = null;
+        //}
         private async Task EventList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             using (UserDialogs.Instance.Loading("Loading...", null, null, true, MaskType.Black))
@@ -44,8 +50,8 @@ namespace ParPorApp.Views
                 await Task.Delay(100);
                 if (e.SelectedItem == null)
                     return;
-                var contact = e.SelectedItem as MembersDetail;
-                await Navigation.PushAsync(new EventDetailPage());
+                var item = e.SelectedItem as Event;
+                await Navigation.PushAsync(new EventDetailPage(item));
                 eventListView.SelectedItem = null;
             }
         }

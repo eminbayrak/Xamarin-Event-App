@@ -3,27 +3,18 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:ParPorApp.ViewModels;assembly=ParPorApp"
+             xmlns:views="clr-namespace:ParPorApp.Views;assembly=ParPorApp"
              x:Class="ParPorApp.Views.EventDetailPage"
              Title="Event Detail">
 
     <ContentPage.BindingContext>
-        <viewModels:EventsViewModel />
+        <views:EventsPage />
     </ContentPage.BindingContext>
 
-    
 
     <ContentPage.Content>
 
-        <ListView HasUnevenRows="True"
-                  ItemsSource="{Binding Event}"
-                  SeparatorVisibility="None"
-                  CachingStrategy="RecycleElement">
-
-            <ListView.ItemTemplate>
-
-                <DataTemplate>
-
-                    <ViewCell>
+        
                         <Grid ColumnSpacing="0" RowSpacing="0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
@@ -60,10 +51,10 @@
                                 <StackLayout>
                                     <Image Source="{Binding HomeTeamLogo}"
                                            WidthRequest="50" HeightRequest="50" />
-                                    <Label x:Name="lan"
+                                    <Label x:Name="fullAddress"
                                            Style="{StaticResource StatsCaptionLabel}" TextColor="White"
                                            FontAttributes="Bold"
-                                           Text="{Binding Longitude}" />
+                                           Text="{Binding FullAddress}" />
                                 </StackLayout>
 
                                 <StackLayout Grid.Column="1">
@@ -102,6 +93,7 @@
 
                                 <StackLayout Grid.Column="1">
                                     <Button HorizontalOptions="Center"
+                                            CommandParameter="{Binding Path=Text, Source={x:Reference fullAddress}}"
                                             Clicked="TakeMeThere_Clicked"
                                             BackgroundColor="Transparent"
                                             Image="ic_navigation.png"
@@ -121,11 +113,7 @@
                                             Image="ic_weather.png" Clicked="Weather_OnClicked" />
                                 </StackLayout>
                             </Grid>
-
                         </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                    
     </ContentPage.Content>
 </ContentPage>

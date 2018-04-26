@@ -17,6 +17,16 @@ namespace ParPorApp.ViewModels
     {
         private readonly ApiServices _apiServices = new ApiServices();
         private List<Event> _events;
+        private Event item;
+
+        public EventsViewModel()
+        {
+        }
+
+        public EventsViewModel(Event item)
+        {
+            this.item = item;
+        }
 
 
         //public string AccessToken { get; set; }
@@ -38,6 +48,7 @@ namespace ParPorApp.ViewModels
               {
 	              var accessToken = Settings.AccessToken;
 				  Event = await _apiServices.GetEventsAsync(accessToken);
+                  
 
               });
             }

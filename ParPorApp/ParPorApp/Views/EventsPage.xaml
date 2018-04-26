@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:ParPorApp.ViewModels;assembly=ParPorApp"
@@ -14,22 +15,17 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Clicked="AddEvent_Clicked"
                      Icon="ic_add.png"
-                     Priority="2"/>
-        <ToolbarItem Icon="ic_search.png"
-                     Priority="1"/>
+                     Priority="1" />
+
     </ContentPage.ToolbarItems>
     <ListView x:Name="eventListView"
               HasUnevenRows="True"
               ItemsSource="{Binding Event}"
               ItemSelected="EventList_ItemSelected"
-              SeparatorVisibility = "None" 
+              SeparatorVisibility="None"
               CachingStrategy="RecycleElement">
-
-
         <ListView.ItemTemplate>
-
             <DataTemplate>
-
                 <ViewCell>
                     <Frame IsClippedToBounds="True"
                            HasShadow="True"
@@ -47,7 +43,7 @@
                             <OnPlatform x:TypeArguments="Thickness"
                                         Android="5" iOS="7" />
                         </Frame.Padding>
-                        <StackLayout Orientation="Horizontal" Padding="10">
+                        <StackLayout>
 
                             <Grid VerticalOptions="CenterAndExpand"
                                   Padding="0"
@@ -57,76 +53,45 @@
                                     <RowDefinition Height="Auto" />
                                     <RowDefinition Height="Auto" />
                                     <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
-
-                                <Grid Grid.Row="0">
-
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="{Binding  Name}"
-                                               Style="{StaticResource ProfileNameLabel}"
-                                               HorizontalOptions="Start" VerticalOptions="Start"/>
-
-                                    </StackLayout>
+                                <StackLayout x:Name="firstItem" Grid.Row="0" Padding="10" Grid.Column="0"
+                                             BackgroundColor="YellowGreen" Grid.RowSpan="3" WidthRequest="50"
+                                             HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Label Text="{Binding GroupDate, StringFormat='{0:dddd}'}" TextColor="White"
+                                           Style="{StaticResource ProfileTagLabel}" />
+                                    <Label Text="{Binding EventDate, StringFormat='{0:MMMM}'}" TextColor="White"
+                                           Style="{StaticResource ProfileTagLabel}" />
+                                    <Label Text="{Binding EventDate, StringFormat='{0:dd}'}" TextColor="White"
+                                           FontSize="28" FontAttributes="Bold" HorizontalOptions="Center" />
+                                </StackLayout>
+                                <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
+                                    <Label Text="{Binding EventIcon, Source={Binding EventType}}" />
+                                    <Label Text="{Binding  EventType, StringFormat='Upcoming: {0}'}"
+                                           Style="{StaticResource ProfileTagLabel}"
+                                           HorizontalOptions="Start" VerticalOptions="Start" />
                                 </Grid>
-                                <Grid Grid.Row="1">
-
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="{Binding  Description}"
-                                               Style="{StaticResource ProfileTagLabel}"
-                                               HorizontalOptions="Start" VerticalOptions="Start"/>
-                                    </StackLayout>
-                                </Grid>
-                                <Grid Grid.Row="2" Grid.Column="0">
-
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Start Date"
-                                               Style="{StaticResource ProfileTagLabel}"
-                                               HorizontalOptions="Start" VerticalOptions="Start"/>
-                                    </StackLayout>
-                                </Grid>
-                                <Grid Grid.Row="3" Grid.Column="0">
-
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="{Binding  StartDateTime}"
-                                               Font="Bold, 16"
-                                               HorizontalOptions="Start" VerticalOptions="Start"/>
-                                    </StackLayout>
-                                </Grid>
+                                <BoxView HeightRequest="1" Grid.Row="1" HorizontalOptions="FillAndExpand"
+                                         Grid.Column="1" Grid.ColumnSpan="3" BackgroundColor="#DDDDDD" />
                                 <Grid Grid.Row="2" Grid.Column="1">
-
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="End Date"
-                                               Style="{StaticResource ProfileTagLabel}"
-                                               HorizontalOptions="Start" VerticalOptions="Start"/>
-                                    </StackLayout>
+                                    <Label Text="{Binding  TeamName}"
+                                           Font="Bold" />
                                 </Grid>
-
-                                <Grid Grid.Row="3" Grid.Column="1">
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="{Binding EndDateTime}" Font="Bold, 16"/>
-                                    </StackLayout>
+                                <Grid Grid.Row="2" Grid.Column="2"
+                                      HorizontalOptions="Center">
+                                    <Label Text="{Binding EventTime}"
+                                           Font="Bold"
+                                           Style="{StaticResource ProfileNameLabel}" />
                                 </Grid>
-                                
-
-                                <!--<Grid Grid.Row="3" BackgroundColor="Transparent" Padding="5">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
-                                    </Grid.RowDefinitions>
-
-                                    <Image Grid.Row="0" Grid.Column="0" HeightRequest="200" Source="{Binding GameIcon}"
-                                           Aspect="AspectFill" />
-                                </Grid>-->
-
-
+                                <Grid Grid.Row="2" Grid.Column="3">
+                                    <Label Text="{Binding  OpponentTeamName}"
+                                           Font="Bold" />
+                                </Grid>
                             </Grid>
                         </StackLayout>
                     </Frame>
@@ -134,23 +99,4 @@
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
-    <!--<StackLayout Padding="20">
-        <ListView ItemsSource="{Binding Event}"
-                  HasUnevenRows="True">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Padding="0,10">
-                            <Label Text="{Binding Description}"
-                                   FontSize="24"
-                                   TextColor="RoyalBlue" />
-                            <Label Text="{Binding StartDateTime}" />
-                            <Label Text="{Binding EndDateTime}" />
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>-->
-
 </ContentPage>

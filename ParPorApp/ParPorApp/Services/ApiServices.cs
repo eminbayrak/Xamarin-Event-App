@@ -168,13 +168,13 @@ namespace ParPorApp.Services
 		    {
 			    using (UserDialogs.Instance.Loading("Hang on...", null, null, true, MaskType.Black))
 			    {
-				    await UserDialogs.Instance.AlertAsync(string.Format("You did it! :)"));
+				    UserDialogs.Instance.Toast(string.Format("Event created! :)"));
 				}
 				
 			}
 		    else
 		    {
-				await UserDialogs.Instance.AlertAsync(string.Format("Uh oh :(", "something went wrong", "Try again"));
+				UserDialogs.Instance.Alert(string.Format("Uh oh :(", "something went wrong", "please try again"));
 			    Debug.Write(response);
 			}
 			
