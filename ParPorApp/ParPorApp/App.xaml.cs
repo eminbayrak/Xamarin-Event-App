@@ -28,7 +28,7 @@ namespace ParPorApp
                     loginViewModel.LoginCommand.Execute(null);
                 }
                 MainPage = new NavigationPage(new MainPage()){
-                    BarBackgroundColor = Color.Accent
+                    //BarBackgroundColor = Color.Accent
                 };
             }
             else if (!string.IsNullOrEmpty(Settings.Username)

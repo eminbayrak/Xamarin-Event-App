@@ -3,8 +3,6 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:ParPorApp.ViewModels;assembly=ParPorApp"
-             xmlns:abstractions="clr-namespace:IconEntry.FormsPlugin.Abstractions;assembly=IconEntry.FormsPlugin.Abstractions"
-             xmlns:xfGloss="clr-namespace:XFGloss;assembly=XFGloss"
              xmlns:constant="clr-namespace:ParPorApp.Constant;assembly=ParPorApp"
              x:Class="ParPorApp.Views.LoginPage"
              BackgroundColor="White"
@@ -19,7 +17,7 @@
         <OnPlatform x:TypeArguments="Thickness">
             <OnPlatform.Platforms>
                 <On Platform="iOS" Value="0, 20, 0, 0" />
-                <On Platform="Android" Value="0, 0, 0, 0" />
+                <On Platform="Android" Value="0, 20, 0, 0" />
                 <On Platform="UWP" Value="0, 0, 0, 0" />
             </OnPlatform.Platforms>
         </OnPlatform>
@@ -142,12 +140,7 @@
                         <Label Text="Don't have an account? Sign up." VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
                     </StackLayout>-->
                 </Grid>
-                <!--<StackLayout Padding="30">
-                    <abstractions:IconEntry Text="{Binding Username}" Icon="ic_email.png" x:Name="EmailEntry" Placeholder="Email" Keyboard="Email"/>
-                    <abstractions:IconEntry Text="{Binding Password}" Icon="ic_https.png" x:Name="PasswordEntry" Placeholder="Password" IsPassword="True"/>
-                    <Button x:Name="LoginButton" Command="{Binding LoginCommand}" Style="{StaticResource MessageButton}" Text="Log In" />
-                    <Button Text="Forgot password?" BackgroundColor="Transparent" Clicked="ForgotPwdButton_OnClicked"/>
-                </StackLayout>-->
+                
 
             </StackLayout>
         </ScrollView>

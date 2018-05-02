@@ -50,11 +50,11 @@
             <Style x:Key="FontAwesomeStyleBtn" TargetType="Label">
                 <Setter Property="FontFamily" Value="{StaticResource AwesomeFont}" />
 
-                <Setter Property="TextColor" Value="White" />
-                <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="TextColor"/>
+                <!--<Setter Property="VerticalOptions" Value="Start" />
                 <Setter Property="HorizontalOptions" Value="End" />
                 <Setter Property="HorizontalTextAlignment" Value="Start" />
-                <Setter Property="VerticalTextAlignment" Value="Start" />
+                <Setter Property="VerticalTextAlignment" Value="Start" />-->
                 <Setter Property="BackgroundColor" Value="Transparent" />
             </Style>
             <Style x:Key="FontAwesomeStyleBtnBot" TargetType="Label">
@@ -71,9 +71,9 @@
             <!--  colors  -->
             <Color x:Key="HeaderTextColor">Black</Color>
             <Color x:Key="BodyTextColor">Black</Color>
-            <Color x:Key="ButtonBackgroundColor">#0099FF</Color>
+            <Color x:Key="ButtonBackgroundColor">#b1cfff</Color>
             <Color x:Key="BackgroundColor">White</Color>
-            <Color x:Key="HeaderBackgroundColor">#2196F3</Color>
+            <Color x:Key="HeaderBackgroundColor">#b1cfff</Color>
 
             <!--  font families  -->
             <OnPlatform x:Key="RegularFontFamily" x:TypeArguments="x:String">
@@ -137,11 +137,11 @@
             </Style>
 
             <Style x:Key="LoginButton" TargetType="Button">
-                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="BackgroundColor" Value="#ffc7f4" />
                 <Setter Property="TextColor" Value="Black" />
                 <Setter Property="HeightRequest" Value="50" />
-                <Setter Property="BorderColor" Value="#ffc7f4" />
-                <Setter Property="BorderWidth" Value="2" />
+                <Setter Property="BorderColor" Value="#bababa" />
+                <Setter Property="BorderWidth" Value="1" />
                 <Setter Property="BorderRadius" Value="8" />
                 <Setter Property="FontFamily" Value="{StaticResource MediumFontFamily}" />
                 <Setter Property="FontSize" Value="{StaticResource ButtonFontSize}" />
@@ -157,8 +157,51 @@
             </Style>
             <!--<Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource Accent}" />
-                --><!--<Setter Property="BarTextColor" Value="Black" />--><!--
+                -->
+            <!--<Setter Property="BarTextColor" Value="Black" />-->
+            <!--
             </Style>-->
+            <!-- Styles for common elements -->
+            <Style TargetType="Label">
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <OnPlatform.iOS>HelveticaNeue</OnPlatform.iOS>
+                            <OnPlatform.Android>Roboto-Regular.ttf#Roboto</OnPlatform.Android>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style TargetType="Label" x:Key="BoldLabel">
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <OnPlatform.iOS>HelveticaNeue-Bold</OnPlatform.iOS>
+                            <OnPlatform.Android>Roboto-Bold.ttf#Roboto Bold</OnPlatform.Android>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+
+            <Style TargetType="Label" x:Key="FALabel">
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <OnPlatform.iOS>FontAwesome</OnPlatform.iOS>
+                            <OnPlatform.Android>fontawesome.ttf#FontAwesome</OnPlatform.Android>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="AddButtonStyleAndroid" TargetType="RelativeLayout">
+                <Setter Property="RelativeLayout.HeightConstraint" Value="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=60}"/>
+                <Setter Property="RelativeLayout.WidthConstraint" Value="{ConstraintExpression Type=RelativeToParent, Property=Width,Factor=0,Constant=60}"/>
+                <Setter Property="RelativeLayout.YConstraint" Value="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.20,Constant=0}"/>
+                <Setter Property="RelativeLayout.XConstraint" Value="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.26, Constant=0}"/>
+            </Style>
 
         </ResourceDictionary>
     </Application.Resources>

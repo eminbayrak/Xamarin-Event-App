@@ -232,6 +232,9 @@
     <PackageReference Include="PCLCrypto">
       <Version>2.0.147</Version>
     </PackageReference>
+    <PackageReference Include="Plugin.ProXamTabs">
+      <Version>1.5.6</Version>
+    </PackageReference>
     <PackageReference Include="Plugin.Share">
       <Version>7.1.1</Version>
     </PackageReference>
@@ -267,9 +270,6 @@
     </PackageReference>
     <PackageReference Include="Validation">
       <Version>2.4.18</Version>
-    </PackageReference>
-    <PackageReference Include="Xam.FormsPlugin.IconEntry">
-      <Version>1.0.1</Version>
     </PackageReference>
     <PackageReference Include="Xam.FormsPlugin.Iconize">
       <Version>1.0.10</Version>
@@ -310,8 +310,8 @@
     <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms">
       <Version>2.3.6</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="2.5.1.444934" />
-    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.8" />
+    <PackageReference Include="Xamarin.Forms" Version="3.0.0.427558-pre4" />
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.1.2" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ParPorApp\ParPorApp.csproj">

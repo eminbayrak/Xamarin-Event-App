@@ -7,7 +7,6 @@ using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
 using FFImageLoading.Forms.Droid;
-using IconEntry.FormsPlugin.Android;
 using Microsoft.WindowsAzure.MobileServices;
 using Plugin.LocalNotifications;
 using Xamarin.Forms;
@@ -25,9 +24,8 @@ namespace ParPorApp.Droid
             ToolbarResource = Resource.Layout.Toolbar;
             UserDialogs.Init(this);
             base.OnCreate(bundle);
-
+            this.Window.AddFlags(WindowManagerFlags.TranslucentStatus);
             Forms.Init(this, bundle);
-            IconEntryRenderer.Init();
             LocalNotificationsImplementation.NotificationIconId = Resource.Drawable.ic_launcher;
             CachedImageRenderer.Init(true);
             //Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();

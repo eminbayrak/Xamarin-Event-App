@@ -5,16 +5,15 @@
   <style name="MainTheme" parent="MainTheme.Base">
   </style>
   <!-- Base theme applied no matter what API -->
-  <style name="MainTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+  <style name="MainTheme.Base" parent="Theme.AppCompat.Light">
     <!--If you are using revision 22.1 please use just windowNoTitle. Without android:-->
     <item name="windowNoTitle">true</item>
-    <!--We will be using the toolbar so no need to show ActionBar-->
-    <item name="windowActionBar">false</item>
+    
     <!-- Set theme colors from http://www.google.com/design/spec/style/color.html#color-color-palette -->
     <!-- colorPrimary is used for the default action bar background -->
-    <item name="colorPrimary">#2196F3</item>
+    <item name="colorPrimary">#FEFEFE</item>
     <!-- colorPrimaryDark is used for the status bar -->
-    <item name="colorPrimaryDark">#2196F3</item>
+    <item name="colorPrimaryDark">#DDDDDD</item>
     <!-- colorAccent is used as the default value for colorControlActivated
          which is used to tint widgets -->
     <item name="colorAccent">#FF4081</item>
@@ -23,18 +22,23 @@
     <item name="windowActionModeOverlay">true</item>
     <item name="android:textAllCaps">false</item>
     <item name="android:datePickerDialogTheme">@style/AppCompatDialogStyle</item>
-    
-    <!--Transparent statusbar-->
+    <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+    <!--Transparent statusbar - already enabled in MainActivity.cs-->
     <item name="android:windowTranslucentStatus">false</item>
     
+  </style>
+  <!--Changing navigationbar icon color-->
+  <style name="DrawerArrowStyle" parent="@style/Widget.AppCompat.DrawerArrowToggle">
+    <item name="spinBars">true</item>
+    <item name="color">#FF4081</item>
   </style>
 
   <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
     <item name="colorAccent">#FF4081</item>
   </style>
-  <style name="DrawerIcon" parent="Widget.AppCompat.DrawerArrowToggle">
+  <!--<style name="DrawerIcon" parent="Widget.AppCompat.DrawerArrowToggle">
     <item name="color">@android:color/white</item>
-  </style>
+  </style>-->
   <style name="LaunchTheme" parent="Theme.AppCompat.NoActionBar">
     <item name="windowActionModeOverlay">true</item>
     <item name="android:windowFullscreen">true</item>

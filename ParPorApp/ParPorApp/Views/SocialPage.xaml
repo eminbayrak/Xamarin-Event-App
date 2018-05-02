@@ -4,36 +4,37 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:xamarinForms="clr-namespace:BottomBar.XamarinForms;assembly=BottomBar.XamarinForms"
             xmlns:views="clr-namespace:ParPorApp.Views;assembly=ParPorApp"
+            xmlns:shared="clr-namespace:Plugin.ProXamTabs.Shared;assembly=Plugin.ProXamTabs"
             x:Class="ParPorApp.Views.SocialPage"
-                            BarTextColor="WhiteSmoke"
+                            BarTextColor="Black"
             NavigationPage.HasBackButton="False">
 
     <!--<ContentPage xamarinForms:BottomBarPageExtensions.TabColor="#cfefa7"/>-->
     <!--<xamarinForms:BottomBarPage.BarTextColor>WhiteSmoke</xamarinForms:BottomBarPage.BarTextColor>-->
-    <xamarinForms:BottomBarPage.Children >
+    
             <!--<NavigationPage Title="Home" Icon="ic_home.png" 
                             xamarinForms:BottomBarPageExtensions.TabColor="MediumSlateBlue">
             <x:Arguments>
                 <views:NewsfeedPage/>
             </x:Arguments>
             </NavigationPage>-->
-        <NavigationPage Title="Home" Icon="ic_home.png">
-            <x:Arguments>
-                <views:NewsfeedPage/>
-            </x:Arguments>
-        </NavigationPage>
-        <NavigationPage Title="Events" Icon="ic_event_black.png">
+    <NavigationPage BarTextColor="Black" Icon="ic_home.png">
+        <x:Arguments>
+            <views:NewsfeedPage/>
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage BarTextColor="Black" Icon="ic_event_black.png">
             
             <x:Arguments>
                 <views:EventsPage />
             </x:Arguments>
         </NavigationPage>
-        <NavigationPage Title="Groups" Icon="ic_group.png">
+    <NavigationPage BarTextColor="Black" Icon="ic_group.png">
             <x:Arguments>
                 <views:GroupPage />
             </x:Arguments>
         </NavigationPage>
-        <NavigationPage Title="Chat" Icon="ic_message.png" >
+    <NavigationPage BarTextColor="Black" Icon="ic_message.png" >
             <x:Arguments>
                 <views:FABPage />
             </x:Arguments>
@@ -43,6 +44,6 @@
                 <views:UserProfilePage />
             </x:Arguments>
         </NavigationPage>-->
-    </xamarinForms:BottomBarPage.Children>
 
+    
 </xamarinForms:BottomBarPage>
