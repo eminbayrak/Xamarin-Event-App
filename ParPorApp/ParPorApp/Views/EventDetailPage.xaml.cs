@@ -22,6 +22,8 @@ namespace ParPorApp.Views
 		{
             InitializeComponent ();
             BindingContext = item ?? throw new ArgumentNullException();
+		    ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.FromHex("#b1cfff");
+		    ((NavigationPage)Application.Current.MainPage).BarTextColor = Color.OrangeRed;
         }
 
         

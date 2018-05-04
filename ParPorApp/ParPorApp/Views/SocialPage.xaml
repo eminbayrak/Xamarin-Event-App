@@ -18,23 +18,24 @@
                 <views:NewsfeedPage/>
             </x:Arguments>
             </NavigationPage>-->
-    <NavigationPage BarTextColor="Black" Icon="ic_home.png">
+    <!--<views:NewsfeedPage Title="Home" Icon="ic_home.png"></views:NewsfeedPage>-->
+    <NavigationPage BarTextColor="Black" Title="Home" Icon="ic_home.png">
         <x:Arguments>
             <views:NewsfeedPage/>
         </x:Arguments>
     </NavigationPage>
-    <NavigationPage BarTextColor="Black" Icon="ic_event_black.png">
+    <NavigationPage BarTextColor="Black" Title="Events" Icon="ic_event_black.png">
             
             <x:Arguments>
                 <views:EventsPage />
             </x:Arguments>
         </NavigationPage>
-    <NavigationPage BarTextColor="Black" Icon="ic_group.png">
+    <NavigationPage BarTextColor="Black" Title="Group" Icon="ic_group.png">
             <x:Arguments>
                 <views:GroupPage />
             </x:Arguments>
         </NavigationPage>
-    <NavigationPage BarTextColor="Black" Icon="ic_message.png" >
+    <NavigationPage BarTextColor="Black" Title="Social" Icon="ic_message.png" >
             <x:Arguments>
                 <views:FABPage />
             </x:Arguments>

@@ -14,10 +14,13 @@ namespace ParPorApp.Views
     {
         public SocialPage()
         {
+            
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            BarTextColor = Color.FromHex("#FF4081"); // Setting Color of selected Text and Icon
+            // Setting Color of selected Text and Icon
+            BarTextColor = Color.FromHex("#FF4081"); 
             FixedMode = true;
+            
             //Dark theme for bottom navigation bar
             //BarTheme = BottomBarPage.BarThemeTypes.DarkWithAlpha;
 
@@ -30,5 +33,7 @@ namespace ParPorApp.Views
 
             //NavigationPage.SetHasNavigationBar(this, false);
         }
+
+        
     }
 }

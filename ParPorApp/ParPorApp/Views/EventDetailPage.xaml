@@ -4,7 +4,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:ParPorApp.ViewModels;assembly=ParPorApp"
              xmlns:views="clr-namespace:ParPorApp.Views;assembly=ParPorApp"
+             xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              x:Class="ParPorApp.Views.EventDetailPage"
+             xmlns:abstractions="clr-namespace:SVG.Forms.Plugin.Abstractions;assembly=SVG.Forms.Plugin.Abstractions"
              Title="Event Detail">
 
     <ContentPage.BindingContext>
@@ -14,106 +16,64 @@
 
     <ContentPage.Content>
 
-        
-                        <Grid ColumnSpacing="0" RowSpacing="0">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="AUTO" />
-                                <RowDefinition Height="AUTO" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="AUTO" />
-                            </Grid.RowDefinitions>
 
-                            <!--  header background  -->
-                            <!--<Image Aspect="AspectFill" Source="{Binding GameIcon}" />-->
-                            <Image BackgroundColor="{StaticResource HeaderBackgroundColor}" Aspect="AspectFill" />
-
-
-                            <!--  profile image  -->
-
-                            <!--  Game Info Section  -->
-                            <StackLayout Grid.Row="1" Padding="0,30,0,00" Margin="20,0" HorizontalOptions="Center">
-
-                                <Label Text="{Binding EventDate}" FontAttributes="Bold" />
-                                <Label Grid.Row="3" Text="{Binding Name}" />
-
-                            </StackLayout>
-
-                            <!--<BoxView Grid.Row="0" HeightRequest="120" VerticalOptions="Center" BackgroundColor="White" Opacity="0.9"></BoxView>-->
-                            <Grid Grid.Row="0" Padding="30" ColumnSpacing="30" RowSpacing="0"
-                                  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
-
-                                <StackLayout>
-                                    <Image Source="{Binding HomeTeamLogo}"
-                                           WidthRequest="50" HeightRequest="50" />
-                                    <Label x:Name="fullAddress"
-                                           Style="{StaticResource StatsCaptionLabel}" TextColor="White"
-                                           FontAttributes="Bold"
-                                           Text="{Binding FullAddress}" />
-                                </StackLayout>
-
-                                <StackLayout Grid.Column="1">
-                                    <Label Style="{StaticResource StatsNumberLabel}" Grid.RowSpan="2" Margin="0,20"
-                                           VerticalOptions="Center" TextColor="White" FontAttributes="Bold, Italic"
-                                           FontSize="20"
-                                           Text="{Binding StartDateTime, Mode=TwoWay}" />
-
-                                </StackLayout>
-
-                                <StackLayout Grid.Column="2">
-                                    <Image Source="{Binding AwayTeamLogo}"
-                                           WidthRequest="50" HeightRequest="50" />
-                                    <Label Style="{StaticResource StatsCaptionLabel}" TextColor="White"
-                                           FontAttributes="Bold"
-                                           Text="{Binding AwayTeamName}" />
-                                </StackLayout>
-
-                            </Grid>
-
-
-                            <Label Margin="30,20" Grid.Row="3" FontAttributes="Italic" Text="{Binding LocationName}" />
-                            <!--  send message button  -->
-                            <Grid Grid.Row="4" Margin="0,10" Padding="30" ColumnSpacing="0" RowSpacing="0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
-
-                                <StackLayout>
-                                    <Button Grid.Row="4" HorizontalOptions="Center" BackgroundColor="Transparent"
-                                            Image="ic_share.png"
-                                            Text="Share" Clicked="Share_onClicked" />
-                                </StackLayout>
-
-                                <StackLayout Grid.Column="1">
-                                    <Button HorizontalOptions="Center"
-                                            CommandParameter="{Binding Path=Text, Source={x:Reference fullAddress}}"
-                                            Clicked="TakeMeThere_Clicked"
-                                            BackgroundColor="Transparent"
-                                            Image="ic_navigation.png"
-                                            Text="Navigate" />
-
-                                    <!--<Button HorizontalOptions="Center"
-                            Command="{Binding NavigateCommand}"
-                            Image="ic_navigation.png"
-                            TextColor="Black"
-                            Text="Navigate">
-                    </Button>-->
-
-                                </StackLayout>
-
-                                <StackLayout Grid.Column="2">
-                                    <Button HorizontalOptions="Center" Text="Weather" BackgroundColor="Transparent"
-                                            Image="ic_weather.png" Clicked="Weather_OnClicked" />
-                                </StackLayout>
-                            </Grid>
-                        </Grid>
+        <StackLayout Padding="20">
+            
+            <Grid Padding="0" BackgroundColor="Transparent" VerticalOptions="Center" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                   
+                </Grid.ColumnDefinitions>
+                
+                <!--<Image Grid.Row="0" Grid.Column="0" Source="ic_schedule.png"/>-->
+                <forms:SvgCachedImage Grid.Row="0" Grid.Column="0" WidthRequest="16" HeightRequest="16" HorizontalOptions="Center" Source="resource://ParPorApp.Resources.date.svg"/>
+                <forms:SvgCachedImage Grid.Row="1" Grid.Column="0" WidthRequest="16" HeightRequest="16" HorizontalOptions="Center" Source="resource://ParPorApp.Resources.location.svg"/>
+                <forms:SvgCachedImage Grid.Row="2" Grid.Column="0" WidthRequest="16" HeightRequest="16" HorizontalOptions="Center" Source="resource://ParPorApp.Resources.message.svg"/>
+                    <!--<Image Grid.Row="1" Grid.Column="0" Source="ic_navigation.png"/>-->
+                
+                
+                    <!--<Label Text="{Binding EventIcon, Source={Binding EventType}}" />-->
+                <Label Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Center" FontAttributes="Bold" Text="{Binding EventDate, StringFormat='{0:dddd - MMMM dd, yyyy}'}"/>
+                <Label Grid.Row="1" Grid.Column="1" x:Name="fullAddress"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Start"
+                       VerticalOptions="Center"
+                           Text="{Binding LocationAddress}" />
+                <Label Grid.Row="2" Grid.Column="1"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"
+                       Text="{Binding Note}" />
                     
+
+                    <!--<Label Text="{Binding  EventType, StringFormat='Upcoming: {0}'}"
+                                           Style="{StaticResource ProfileTagLabel}"
+                                           HorizontalOptions="Start" VerticalOptions="Start" />-->
+                
+                <!--<BoxView HeightRequest="1" Grid.Row="1" HorizontalOptions="FillAndExpand"
+                                         Grid.Column="1" Grid.ColumnSpan="3" BackgroundColor="#DDDDDD" />
+                <Grid Grid.Row="2" Grid.Column="1">
+                    <Label Text="{Binding  TeamName}"
+                                           Font="Bold" />
+                </Grid>
+                <Grid Grid.Row="2" Grid.Column="2"
+                                      HorizontalOptions="Center">
+                    <Label Text="{Binding EventTime}"
+                                           Font="Bold"
+                                           Style="{StaticResource ProfileNameLabel}" />
+                </Grid>
+                <Grid Grid.Row="2" Grid.Column="3">
+                    <Label Text="{Binding  OpponentTeamName}"
+                                           Font="Bold" />
+                </Grid>-->
+            </Grid>
+        </StackLayout>
+
     </ContentPage.Content>
 </ContentPage>

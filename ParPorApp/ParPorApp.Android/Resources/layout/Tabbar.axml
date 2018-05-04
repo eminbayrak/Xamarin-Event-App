@@ -8,4 +8,3 @@
     app:tabIndicatorColor="#FF4081"
     app:tabGravity="fill"
     app:tabMode="fixed" />
-

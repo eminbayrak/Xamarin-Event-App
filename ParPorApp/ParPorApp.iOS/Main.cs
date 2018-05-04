@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using FFImageLoading.Forms.Touch;
+using FFImageLoading.Svg.Forms;
 using Foundation;
-using IconEntry.FormsPlugin.iOS;
 using UIKit;
 
 namespace ParPorApp.iOS
@@ -16,7 +16,8 @@ namespace ParPorApp.iOS
             // if you want to use a different Application Delegate class from "AppDelegate"
             // you can specify it here.
             UIApplication.Main(args, null, "AppDelegate");
-            IconEntryRenderer.Init();
+            CachedImageRenderer.Init();
+            var ignore = typeof(SvgCachedImage);
         }
     }
 }

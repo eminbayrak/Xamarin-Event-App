@@ -7,6 +7,7 @@ using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
 using FFImageLoading.Forms.Droid;
+using FFImageLoading.Svg.Forms;
 using Microsoft.WindowsAzure.MobileServices;
 using Plugin.LocalNotifications;
 using Xamarin.Forms;
@@ -28,6 +29,8 @@ namespace ParPorApp.Droid
             Forms.Init(this, bundle);
             LocalNotificationsImplementation.NotificationIconId = Resource.Drawable.ic_launcher;
             CachedImageRenderer.Init(true);
+            
+            var ignore = typeof(SvgCachedImage);
             //Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
             Forms.Init(this, bundle);
             CurrentPlatform.Init();

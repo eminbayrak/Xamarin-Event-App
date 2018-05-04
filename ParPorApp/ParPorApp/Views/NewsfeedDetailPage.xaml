@@ -2,22 +2,9 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
-             xmlns:viewModels="clr-namespace:ParPorApp.ViewModels;assembly=ParPorApp"
-             xmlns:xfGloss="clr-namespace:XFGloss;assembly=XFGloss"
              x:Class="ParPorApp.Views.NewsfeedDetailPage"
              Title="Detail">
-    <!--<ContentPage.BindingContext>
-        <viewModels:NewsfeedViewModel />
-    </ContentPage.BindingContext>-->
-    <!--<xfGloss:ContentPageGloss.BackgroundGradient>
-        <xfGloss:Gradient Rotation="150">
-            <xfGloss:GradientStep StepColor="White" StepPercentage="0" />
-            <xfGloss:GradientStep StepColor="White" StepPercentage=".5" />
-            <xfGloss:GradientStep StepColor="#ccd9ff" StepPercentage="1" />
-        </xfGloss:Gradient>
-    </xfGloss:ContentPageGloss.BackgroundGradient>-->
-
+    
     <ContentPage.Resources>
         <ResourceDictionary>
             <OnPlatform x:TypeArguments="x:String" x:Key="AwesomeFont">
