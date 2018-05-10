@@ -5,75 +5,172 @@
              xmlns:viewModels="clr-namespace:ParPorApp.ViewModels;assembly=ParPorApp"
              xmlns:views="clr-namespace:ParPorApp.Views;assembly=ParPorApp"
              xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:constant="clr-namespace:ParPorApp.Constant;assembly=ParPorApp"
              x:Class="ParPorApp.Views.EventDetailPage"
-             xmlns:abstractions="clr-namespace:SVG.Forms.Plugin.Abstractions;assembly=SVG.Forms.Plugin.Abstractions"
+             BackgroundColor="#8bc34a"
              Title="Event Detail">
 
     <ContentPage.BindingContext>
         <views:EventsPage />
     </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" Priority="0" />
+        <ToolbarItem Text="Cancel" Priority="1" />
+    </ContentPage.ToolbarItems>
 
-
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <OnPlatform.Platforms>
+                <On Platform="iOS" Value="0, 20, 0, 0" />
+                <On Platform="Android" Value="0, 20, 0, 0" />
+                <On Platform="UWP" Value="0, 0, 0, 0" />
+            </OnPlatform.Platforms>
+        </OnPlatform>
+    </ContentPage.Padding>
     <ContentPage.Content>
-
-
-        <StackLayout Padding="20">
-            
-            <Grid Padding="0" BackgroundColor="Transparent" VerticalOptions="Center" >
+        <StackLayout Padding="0" BackgroundColor="#FFFFFF">
+            <Grid BackgroundColor="Transparent" VerticalOptions="Center">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="35" />
-                    <RowDefinition Height="35" />
-                    <RowDefinition Height="35" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
-                   
                 </Grid.ColumnDefinitions>
-                
-                <!--<Image Grid.Row="0" Grid.Column="0" Source="ic_schedule.png"/>-->
-                <forms:SvgCachedImage Grid.Row="0" Grid.Column="0" WidthRequest="16" HeightRequest="16" HorizontalOptions="Center" Source="resource://ParPorApp.Resources.date.svg"/>
-                <forms:SvgCachedImage Grid.Row="1" Grid.Column="0" WidthRequest="16" HeightRequest="16" HorizontalOptions="Center" Source="resource://ParPorApp.Resources.location.svg"/>
-                <forms:SvgCachedImage Grid.Row="2" Grid.Column="0" WidthRequest="16" HeightRequest="16" HorizontalOptions="Center" Source="resource://ParPorApp.Resources.message.svg"/>
-                    <!--<Image Grid.Row="1" Grid.Column="0" Source="ic_navigation.png"/>-->
-                
-                
-                    <!--<Label Text="{Binding EventIcon, Source={Binding EventType}}" />-->
-                <Label Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Center" FontAttributes="Bold" Text="{Binding EventDate, StringFormat='{0:dddd - MMMM dd, yyyy}'}"/>
-                <Label Grid.Row="1" Grid.Column="1" x:Name="fullAddress"
-                           FontAttributes="Bold"
-                           HorizontalOptions="Start"
-                       VerticalOptions="Center"
-                           Text="{Binding LocationAddress}" />
-                <Label Grid.Row="2" Grid.Column="1"
-                       FontAttributes="Bold"
-                       VerticalOptions="Center"
-                       HorizontalOptions="Start"
-                       Text="{Binding Note}" />
+                <!--<Grid Grid.Row="0" Padding="20" BackgroundColor="#8bc34a">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <forms:SvgCachedImage WidthRequest="16" HeightRequest="16" Grid.Column="0" HorizontalOptions="Start"
+                                          Source="resource://ParPorApp.Resources.ic_close.svg">
+                        <forms:SvgCachedImage.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ClosePageIcon_Tabbed" />
+                        </forms:SvgCachedImage.GestureRecognizers>
+                    </forms:SvgCachedImage>
+                    <forms:SvgCachedImage Grid.Column="0" WidthRequest="16" HeightRequest="16" HorizontalOptions="EndAndExpand" VerticalOptions="End"
+                                          Source="resource://ParPorApp.Resources.ic_share.svg">
+                        <forms:SvgCachedImage.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Share_onClicked" />
+                        </forms:SvgCachedImage.GestureRecognizers>
+                    </forms:SvgCachedImage>
+                </Grid>-->
+                <Grid Grid.Row="1" Padding="30" ColumnSpacing="20" Margin="0,-20" BackgroundColor="#8bc34a">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="{Binding TeamName}" Grid.Column="0" Grid.Row="1" HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center" TextColor="White" />
+                    <forms:SvgCachedImage Grid.Column="0" Grid.Row="0" HorizontalOptions="Center" HeightRequest="50" WidthRequest="30"
+                                          Source="resource://ParPorApp.Resources.ic_teambadge.svg">
+                    </forms:SvgCachedImage>
+                    <forms:SvgCachedImage Grid.Column="2" Grid.Row="0" HorizontalOptions="Center" HeightRequest="50" WidthRequest="30"
+                                          Source="resource://ParPorApp.Resources.ic_teambadge.svg">
+                    </forms:SvgCachedImage>
+                    <Label x:Name="eventType" Text="{Binding EventType}" Grid.Column="1" Grid.Row="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                           TextColor="#FFF" FontAttributes="Bold" FontSize="18" />
+                    <Label x:Name="eventTime" Text="{Binding EventTime}" Grid.Column="1" Grid.Row="1" HorizontalOptions="Center"
+                           VerticalOptions="Center" TextColor="White" FontSize="20" FontAttributes="Bold" />
+                    <Label Text="{Binding OpponentTeamName}" Grid.Row="1" Grid.Column="2" HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center" TextColor="White" />
+                </Grid>
+                <Grid Grid.Row="2" Grid.Column="0" Padding="20" ColumnSpacing="20" BackgroundColor="#FFFFFF">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <forms:SvgCachedImage Grid.Row="0" Grid.Column="0" WidthRequest="18" HeightRequest="18"
+                                          HorizontalOptions="Center" Source="resource://ParPorApp.Resources.date.svg" />
+                    <forms:SvgCachedImage Grid.Row="2" Grid.Column="0" WidthRequest="18" HeightRequest="18"
+                                          HorizontalOptions="Center"
+                                          Source="resource://ParPorApp.Resources.location.svg" />
+                    <Label x:Name="locationLatitude" Text="{Binding LocationLatitude}" IsVisible="False" />
+                    <Label x:Name="locationLongitude" Text="{Binding LocationLongitude}" IsVisible="False" />
+                    <Label x:Name="eventFullAddress" Text="{Binding LocationAddress}" IsVisible="False" />
                     
-
-                    <!--<Label Text="{Binding  EventType, StringFormat='Upcoming: {0}'}"
-                                           Style="{StaticResource ProfileTagLabel}"
-                                           HorizontalOptions="Start" VerticalOptions="Start" />-->
-                
-                <!--<BoxView HeightRequest="1" Grid.Row="1" HorizontalOptions="FillAndExpand"
-                                         Grid.Column="1" Grid.ColumnSpan="3" BackgroundColor="#DDDDDD" />
-                <Grid Grid.Row="2" Grid.Column="1">
-                    <Label Text="{Binding  TeamName}"
-                                           Font="Bold" />
+                    <BoxView Grid.Row="1" Grid.Column="0" BackgroundColor="#E4E4E4" HeightRequest="1"
+                             Grid.ColumnSpan="3" />
+                    <BoxView Grid.Row="3" Grid.Column="0" BackgroundColor="#E4E4E4" HeightRequest="1"
+                             Grid.ColumnSpan="3" />
+                    <forms:SvgCachedImage Grid.Row="2" Grid.Column="2" WidthRequest="40" HeightRequest="40"
+                                          HorizontalOptions="Center"
+                                          Source="resource://ParPorApp.Resources.ic_navigation.svg">
+                        <forms:SvgCachedImage.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TakeMeThere_Clicked" />
+                        </forms:SvgCachedImage.GestureRecognizers>
+                    </forms:SvgCachedImage>
+                    <forms:SvgCachedImage Grid.Row="0" Grid.Column="2" WidthRequest="40" HeightRequest="40"
+                                          HorizontalOptions="Center"
+                                          Source="resource://ParPorApp.Resources.ic_weather.svg">
+                        <forms:SvgCachedImage.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Weather_OnClicked" />
+                        </forms:SvgCachedImage.GestureRecognizers>
+                    </forms:SvgCachedImage>
+                    <Label x:Name="eventDate" Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Center"
+                           FontSize="18" FontAttributes="Bold"
+                           Text="{Binding EventDate, StringFormat='{0:dddd - MMMM dd, yyyy}'}" />
+                    <Label Grid.Row="2" Grid.Column="1"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center"
+                           Text="{Binding LocationAddress}" />
+                    <forms:SvgCachedImage Grid.Row="4" Grid.Column="0"  WidthRequest="18" HeightRequest="18"
+                                          HorizontalOptions="Center"
+                                          Source="resource://ParPorApp.Resources.ic_coachhat.svg" />
+                    <ScrollView Grid.Row="4" Grid.Column="1">
+                        <Label Text="{Binding Note}" FontAttributes="Bold"
+                               FontSize="18"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center"/>
+                    </ScrollView>
                 </Grid>
-                <Grid Grid.Row="2" Grid.Column="2"
-                                      HorizontalOptions="Center">
-                    <Label Text="{Binding EventTime}"
-                                           Font="Bold"
-                                           Style="{StaticResource ProfileNameLabel}" />
-                </Grid>
-                <Grid Grid.Row="2" Grid.Column="3">
-                    <Label Text="{Binding  OpponentTeamName}"
-                                           Font="Bold" />
+                <!--<Grid Grid.Row="4" Grid.Column="0" BackgroundColor="#FFFFFF" Padding="30">
+                    
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    --><!--<Entry Placeholder="Add a comment" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="14" />
+                    <forms:SvgCachedImage Grid.Row="0" Grid.Column="1" WidthRequest="18" HeightRequest="18" Margin="0,0,6,0" HorizontalOptions="End" Source="resource://ParPorApp.Resources.ic_send.svg">
+                        <forms:SvgCachedImage.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding AddEventCommand}" />
+                        </forms:SvgCachedImage.GestureRecognizers>
+                    </forms:SvgCachedImage>--><!--
+                    <forms:SvgCachedImage Grid.Row="0" Grid.Column="0" WidthRequest="16" HeightRequest="16"
+                                          HorizontalOptions="Start"
+                                          Source="resource://ParPorApp.Resources.ic_clipboard.svg" />
+                    <Label Text="Comments:" Grid.Row="0" Grid.Column="1" FontSize="14" BackgroundColor="#E4E4E4"
+                           HorizontalOptions="Start" VerticalOptions="Center" />
+                    <ScrollView Grid.Row="1" Grid.Column="1">
+                        <Label Text="{Binding Note}" />
+                    </ScrollView>
+                    <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="Add a comment" TextColor="Black"
+                            Clicked="AddCommentButton_Clicked" VerticalOptions="End" />
                 </Grid>-->
             </Grid>
+            
         </StackLayout>
-
     </ContentPage.Content>
 </ContentPage>

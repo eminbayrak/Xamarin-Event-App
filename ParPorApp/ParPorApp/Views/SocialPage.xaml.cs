@@ -18,7 +18,7 @@ namespace ParPorApp.Views
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             // Setting Color of selected Text and Icon
-            BarTextColor = Color.FromHex("#FF4081"); 
+            BarTextColor = Color.FromHex("#8bc34a"); 
             FixedMode = true;
             
             //Dark theme for bottom navigation bar

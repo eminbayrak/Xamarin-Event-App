@@ -3,6 +3,8 @@ using ParPorApp.Helpers;
 using ParPorApp.ViewModels;
 using Xamarin.Forms;
 using System;
+using System.Globalization;
+
 //using Com.OneSignal;
 
 namespace ParPorApp

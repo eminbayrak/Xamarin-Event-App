@@ -168,8 +168,11 @@ namespace ParPorApp.Services
 		    {
 			    using (UserDialogs.Instance.Loading("Hang on...", null, null, true, MaskType.Black))
 			    {
-				    UserDialogs.Instance.Toast(string.Format("Event created! :)"));
-				}
+			        ToastConfig toastConfig = new ToastConfig("Event created :)");
+			        toastConfig.SetDuration(3000);
+			        toastConfig.SetBackgroundColor(Color.FromHex("#8bc34a"));
+			        UserDialogs.Instance.Toast(toastConfig);
+                }
 				
 			}
 		    else

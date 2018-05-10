@@ -16,7 +16,7 @@
     <item name="colorPrimaryDark">#DDDDDD</item>
     <!-- colorAccent is used as the default value for colorControlActivated
          which is used to tint widgets -->
-    <item name="colorAccent">#FF4081</item>
+    <item name="colorAccent">#8bc34a</item>
     <!-- You can also set colorControlNormal, colorControlActivated
          colorControlHighlight and colorSwitchThumbNormal. -->
     <item name="windowActionModeOverlay">true</item>
@@ -32,11 +32,11 @@
   <!--Changing navigationbar icon color-->
   <style name="DrawerArrowStyle" parent="@style/Widget.AppCompat.DrawerArrowToggle">
     <item name="spinBars">true</item>
-    <item name="color">#FF4081</item>
+    <item name="color">#8bc34a</item>
   </style>
 
   <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
-    <item name="colorAccent">#FF4081</item>
+    <item name="colorAccent">#8bc34a</item>
   </style>
   <!--<style name="DrawerIcon" parent="Widget.AppCompat.DrawerArrowToggle">
     <item name="color">@android:color/white</item>

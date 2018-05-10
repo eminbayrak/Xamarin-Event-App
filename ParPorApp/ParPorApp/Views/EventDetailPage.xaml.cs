@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Globalization;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Acr.UserDialogs;
+using Android;
+using Android.App;
 using Android.App.Usage;
+using Android.Widget;
 using ParPorApp.Helpers;
 using ParPorApp.Models;
 using ParPorApp.ViewModels;
@@ -22,39 +26,18 @@ namespace ParPorApp.Views
 		{
             InitializeComponent ();
             BindingContext = item ?? throw new ArgumentNullException();
-		    ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.FromHex("#b1cfff");
-		    ((NavigationPage)Application.Current.MainPage).BarTextColor = Color.OrangeRed;
-        }
-
-        
-
-	    //public ICommand TakeMeThereCommand
-     //   {
-	    //    get
-	    //    {
-	    //        return new Command(async () =>
-	    //        {
-	    //            var latitude = fullAddress.Text;
-	                
-     //               Console.WriteLine(latitude);
+		}
 
 
-	    //        });
-	    //    }
-	    //}
         private void TakeMeThere_Clicked(object sender, EventArgs e)
         {
-            var longitude = fullAddress.Text;
-            string[] words = longitude.Split(',');
-            foreach (var word in words)
-            {
-                System.Console.WriteLine($"<{word}>");
-            }
+            var latitude = Convert.ToDouble(locationLatitude.Text);
+            var longitude = Convert.ToDouble(locationLongitude.Text);
 
             try
             {
 
-                //CrossExternalMaps.Current.NavigateTo(longitude);
+                CrossExternalMaps.Current.NavigateTo("", latitude, longitude);
             }
             catch (Exception ex)
             {
@@ -62,23 +45,30 @@ namespace ParPorApp.Views
             }
         }
 
-        //private double lat = -122.3491;
-        //private async Task TakeMeThere_Clicked(Event nav)
-        //{
-        //       await CrossExternalMaps.Current.NavigateTo(nav.Name, "Adress", "City", "State", "ZipCode", "Country", "Country");
-        //}
         private void Share_onClicked(object sender, EventArgs e)
-	    {
-	        CrossShare.Current.Share(new Plugin.Share.Abstractions.ShareMessage
+        {
+            CrossShare.Current.Share(new Plugin.Share.Abstractions.ShareMessage
 	        {
-	            Text = "We have a game!",
-	            Title = "GAME"
-	        });
+	            Title = "We have a " + eventType.Text,
+	            Text = "Location: " + eventFullAddress.Text + "\nDate: " + eventDate.Text + " " + eventTime.Text
+            });
 	    }
 
 	    private async Task Weather_OnClicked(object sender, EventArgs e)
 	    {
-	        await Navigation.PushModalAsync(new WeatherWebPage());
+	        await Navigation.PushAsync(new WeatherWebPage());
 	    }
+
+	    private async Task ClosePageIcon_Tabbed(object sender, EventArgs e)
+	    {
+	        await Navigation.PopModalAsync(true);
+	    }
+
+	    private async Task AddCommentButton_Clicked(object sender, EventArgs e)
+	    {
+	        await Navigation.PushAsync(new AddCommentPage());
+	    }
+
+        
     }
 }

@@ -21,8 +21,15 @@ namespace ParPorApp.Views
             InitializeComponent();
             EmailEntry.Completed += (sender, args) => { PasswordEntry.Focus(); };
             PasswordEntry.Completed += (sender, args) => { LoginButton.Focus(); };
+            this.AnimationView.IsVisible = false;
+            this.LoginButton.Clicked += LoginButton_Clicked;
+        }
 
-            
+        private void LoginButton_Clicked(object sender, EventArgs e)
+        {
+
+            this.AnimationView.IsVisible = true;
+            LogoIcon.IsVisible = false;
         }
 
 

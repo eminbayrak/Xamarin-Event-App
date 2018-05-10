@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:xfGloss="clr-namespace:XFGloss;assembly=XFGloss"
              x:Class="ParPorApp.Views.WelcomePage"
              IsBusy="{Binding IsBusy}"
              NavigationPage.HasBackButton="False"
@@ -64,7 +63,7 @@
                 0, 20, 0, 0
             </OnPlatform.iOS>
             <OnPlatform.Android>
-                0, 0, 0, 0
+                0, 20, 0, 0
             </OnPlatform.Android>
             <OnPlatform.WinPhone>
                 0, 0, 0, 0
@@ -92,7 +91,7 @@
                 <Image Source="ic_logo.png" VerticalOptions="End" />
                 <Label Text="A place where sportive parents meet..." Grid.Row="1" FontAttributes="Italic" HorizontalOptions="Center" VerticalOptions="Start"/>
                 <Label Grid.Row="1" HeightRequest="50" Margin="20,0,20,0" VerticalOptions="End" Text="Lets get you log in so you can see what your group is up to"/>
-                <Button x:Name="ButtonLogin"  Margin="20,0,20,0" Clicked="ButtonLogin_OnClicked" Text="Sign in with email" BackgroundColor="#3897F0" TextColor="White" HeightRequest="50" VerticalOptions="Start" Grid.Row="2" />
+                <Button x:Name="ButtonLogin"  Margin="20,0,20,0" Clicked="ButtonLogin_OnClicked" Text="Sign in with email" BackgroundColor="#8bc34a" TextColor="White" HeightRequest="50" VerticalOptions="Start" Grid.Row="2" />
             </Grid>
             <!--<StackLayout Grid.Row="2" BackgroundColor="#FFFFFF">
                 <Label HeightRequest="1" BackgroundColor="#E3E3E3" />

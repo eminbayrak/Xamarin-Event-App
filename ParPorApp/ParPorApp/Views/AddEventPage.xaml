@@ -6,7 +6,6 @@
              xmlns:viewModels="clr-namespace:ParPorApp.ViewModels;assembly=ParPorApp"
              xmlns:system="clr-namespace:System;assembly=netstandard"
              xmlns:placesSearchBar="clr-namespace:DurianCode.PlacesSearchBar;assembly=DurianCode.PlacesSearchBar"
-             xmlns:abstractions="clr-namespace:IconEntry.FormsPlugin.Abstractions;assembly=IconEntry.FormsPlugin.Abstractions"
              Title="Add a new event">
 
     <ContentPage.BindingContext>
@@ -14,9 +13,9 @@
     </ContentPage.BindingContext>
 
     <ScrollView>
-        <StackLayout Margin="20,0,20,0">
-            <StackLayout Spacing="0" Padding="0" Margin="0,20,0,0">
-                <placesSearchBar:PlacesBar x:Name="search_bar" Placeholder="Search for the location..." />
+        <StackLayout Margin="20,0,20,0" Spacing="30">
+            <StackLayout Spacing="0" Padding="0">
+                <placesSearchBar:PlacesBar x:Name="search_bar" Placeholder="Search for the event location..." />
                 <Image Source="powered_by_google_on_white.png" HeightRequest="10" HorizontalOptions="End" />
                 <ActivityIndicator x:Name="spinner" IsRunning="false" />
                 <ListView x:Name="results_list" IsVisible="false">
@@ -30,11 +29,11 @@
                 <Label x:Name="locLatitude" Text="{Binding LocationLatitude, Mode=TwoWay}" IsVisible="False" />
                 <Label x:Name="locLongitude" Text="{Binding LocationLongitude, Mode=TwoWay}" IsVisible="False" />
                 <Label x:Name="locPlaceId" Text="{Binding PlaceId, Mode=TwoWay}" IsVisible="False" />
-                <Label Text="Event Type" FontAttributes="Bold">Event Type</Label>
+                
             </StackLayout>
             <StackLayout>
-                
-                <Picker x:Name="pickerEvent" SelectedItem="{Binding EventType}" Title="Select the event type...">
+                <Label Text="Event type:" FontAttributes="Bold" />
+                <Picker SelectedItem="{Binding EventType}">
                     <Picker.Items>
                         <x:String>Game</x:String>
                         <x:String>Training</x:String>
@@ -54,31 +53,42 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Label Text="Time" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" />
-                    <Label Text="Date" FontAttributes="Bold" Grid.Row="0" Grid.Column="1" />
+                    <Label Text="Time:" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" />
+                    <Label Text="Date:" FontAttributes="Bold" Grid.Row="0" Grid.Column="1" />
                     <TimePicker x:Name="EventTime" Grid.Row="1" Grid.Column="0" />
                     <DatePicker DateSelected="DatePicker_DateSelected" Grid.Column="1" Grid.Row="1"
                                 MinimumDate="{x:Static system:DateTime.UtcNow}" />
-                    <Label x:Name="Time" Grid.Row="2" Grid.Column="0" FontAttributes="Bold" HorizontalOptions="Center"
-                           Text="{Binding EventTime, Mode=TwoWay}" />
-                    <Label x:Name="EventDate" Grid.Row="2" Grid.Column="1" FontAttributes="Bold"
+                    <Label x:Name="Time" Grid.Row="2" Grid.Column="0" HorizontalOptions="Center"
+                           Text="{Binding EventTime, Mode=TwoWay}" IsVisible="False"/>
+                    <Label x:Name="EventDate" Grid.Row="2" Grid.Column="1"
                            HorizontalOptions="Center"
-                           Text="{Binding EventDate, Mode=TwoWay}" />
+                           Text="{Binding EventDate, Mode=TwoWay}" IsVisible="False"/>
                 </Grid>
-                <TableView>
-                    <TableRoot>
-                        <TableSection Title="Event Detail">
-                            <EntryCell Label="Team Name: " Text="{Binding TeamName}" Keyboard="Text"/>
-                            <EntryCell Label="Oponent Team: " Text="{Binding OpponentTeamName}" Keyboard="Text"/>
-                            <EntryCell Label="Note: " Text="{Binding Note}" Keyboard="Text"/>
-                        </TableSection>
-                    </TableRoot>
-                </TableView>
+                <Grid RowSpacing="20" Margin="0,20,0,20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="80" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Team name:" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" />
+                    <Entry Text="{Binding TeamName}" Grid.Row="0" Grid.Column="1" FontSize="14" Keyboard="Text"/>
+                    <Label Text="Opponent team:" Grid.Row="1" Grid.Column="0" FontAttributes="Bold" />
+                    <Entry Text="{Binding OpponentTeamName}" Grid.Row="1" Grid.Column="1" FontSize="14" Keyboard="Text"/>
+                    <Label Text="Note:" FontAttributes="Bold" Grid.Row="2" Grid.Column="0" />
+                    <Entry Text="{Binding Note}" Grid.Row="2" Grid.Column="1" FontSize="14" Keyboard="Text"/>
+                </Grid>
+                
+                       
                 <Button Command="{Binding AddEventCommand}"
                         Clicked="ReturnEventPage_Clicked"
                         BackgroundColor="YellowGreen"
+                        FontSize="20"
                         TextColor="White"
-                        CornerRadius="2"
+                        CornerRadius="30"
                         Text="Save" />
             </StackLayout>
             <ContentView HeightRequest="1" BackgroundColor="Transparent" />

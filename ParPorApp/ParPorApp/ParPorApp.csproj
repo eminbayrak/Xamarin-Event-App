@@ -26,13 +26,35 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Resources\back.svg" />
     <None Remove="Resources\date.svg" />
+    <None Remove="Resources\ic_clipboard.svg" />
+    <None Remove="Resources\ic_close.svg" />
+    <None Remove="Resources\ic_coachhat.svg" />
+    <None Remove="Resources\ic_eventadd.svg" />
+    <None Remove="Resources\ic_fab.svg" />
+    <None Remove="Resources\ic_navigation.svg" />
+    <None Remove="Resources\ic_send.svg" />
+    <None Remove="Resources\ic_share.svg" />
+    <None Remove="Resources\ic_teambadge.svg" />
+    <None Remove="Resources\ic_weather.svg" />
     <None Remove="Resources\location.svg" />
     <None Remove="Resources\message.svg" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\back.svg" />
     <EmbeddedResource Include="Resources\date.svg" />
+    <EmbeddedResource Include="Resources\ic_clipboard.svg" />
+    <EmbeddedResource Include="Resources\ic_close.svg" />
+    <EmbeddedResource Include="Resources\ic_coachhat.svg" />
+    <EmbeddedResource Include="Resources\ic_eventadd.svg" />
+    <EmbeddedResource Include="Resources\ic_fab.svg" />
+    <EmbeddedResource Include="Resources\ic_navigation.svg" />
+    <EmbeddedResource Include="Resources\ic_send.svg" />
+    <EmbeddedResource Include="Resources\ic_share.svg" />
+    <EmbeddedResource Include="Resources\ic_teambadge.svg" />
+    <EmbeddedResource Include="Resources\ic_weather.svg" />
     <EmbeddedResource Include="Resources\location.svg" />
     <EmbeddedResource Include="Resources\message.svg" />
   </ItemGroup>
@@ -41,6 +63,7 @@
     <PackageReference Include="Acr.Notifications" Version="4.0.0" />
     <PackageReference Include="Acr.UserDialogs" Version="7.0.1" />
     <PackageReference Include="Acr.XamForms" Version="3.0.1" />
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="2.5.2.1" />
     <PackageReference Include="DurianCode.PlacesSearchBar" Version="1.0.0" />
     <PackageReference Include="Microsoft.Azure.Mobile.Client" Version="4.0.2" />
     <PackageReference Include="Microsoft.Azure.Mobile.Client.SQLiteStore" Version="4.0.2" />
@@ -70,9 +93,9 @@
     <PackageReference Include="Xam.FormsPlugin.Iconize" Version="1.5.0.13-beta" />
     <PackageReference Include="Xam.Plugin.Connectivity" Version="4.0.0.186-beta" />
     <PackageReference Include="Xam.Plugin.ExternalMaps" Version="4.0.1" />
-    <PackageReference Include="Xam.Plugin.Geolocator" Version="5.0.0.187-beta" />
+    <PackageReference Include="Xam.Plugin.Geolocator" Version="4.5.0.1" />
     <PackageReference Include="Xam.Plugin.Iconize" Version="2.0.0.37-beta" />
-    <PackageReference Include="Xam.Plugin.Media" Version="3.2.0.246-beta" />
+    <PackageReference Include="Xam.Plugin.Media" Version="3.2.1" />
     <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="2.0.2" />
     <PackageReference Include="Xam.Plugins.Notifier" Version="3.0.0-beta14" />
     <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
@@ -110,6 +133,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\AddCommentPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\AddEventPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

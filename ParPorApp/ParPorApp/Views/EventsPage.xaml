@@ -3,6 +3,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:ParPorApp.ViewModels;assembly=ParPorApp"
+             xmlns:constant="clr-namespace:ParPorApp.Constant;assembly=ParPorApp"
              x:Class="ParPorApp.Views.EventsPage"
              NavigationPage.HasBackButton="False"
              Title="Events">
@@ -13,7 +14,7 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Clicked="AddEvent_Clicked"
-                     Icon="ic_add.png"
+                     Icon="ic_eventadd.png"
                      Priority="1" />
 
     </ContentPage.ToolbarItems>
@@ -60,13 +61,13 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                             <StackLayout x:Name="firstItem" Grid.Row="0" Padding="10" Grid.Column="0"
-                                             BackgroundColor="YellowGreen" Grid.RowSpan="3" WidthRequest="50"
+                                             BackgroundColor="#E4E4E4" Grid.RowSpan="3" WidthRequest="50"
                                              HorizontalOptions="Center" VerticalOptions="Center">
-                                <Label Text="{Binding GroupDate, StringFormat='{0:dddd}'}" TextColor="White"
+                                <Label Text="{Binding GroupDate, StringFormat='{0:dddd}'}" TextColor="Black"
                                            Style="{StaticResource ProfileTagLabel}" />
-                                <Label Text="{Binding EventDate, StringFormat='{0:MMMM}'}" TextColor="White"
+                                <Label Text="{Binding EventDate, StringFormat='{0:MMMM}'}" TextColor="Black"
                                            Style="{StaticResource ProfileTagLabel}" />
-                                <Label Text="{Binding EventDate, StringFormat='{0:dd}'}" TextColor="White"
+                                <Label Text="{Binding EventDate, StringFormat='{0:dd}'}" TextColor="Black"
                                            FontSize="28" FontAttributes="Bold" HorizontalOptions="Center" />
                             </StackLayout>
                             <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
@@ -76,7 +77,7 @@
                                            HorizontalOptions="Start" VerticalOptions="Start" />
                             </Grid>
                             <BoxView HeightRequest="1" Grid.Row="1" HorizontalOptions="FillAndExpand"
-                                         Grid.Column="1" Grid.ColumnSpan="3" BackgroundColor="#DDDDDD" />
+                                         Grid.Column="1" Grid.ColumnSpan="3" BackgroundColor="#E4E4E4" />
                             <Grid Grid.Row="2" Grid.Column="1">
                                 <Label Text="{Binding  TeamName}"
                                            Font="Bold" />

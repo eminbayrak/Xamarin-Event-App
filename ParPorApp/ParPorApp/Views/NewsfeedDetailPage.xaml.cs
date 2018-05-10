@@ -17,6 +17,7 @@ namespace ParPorApp.Views
         {
             InitializeComponent();
             BindingContext = contact ?? throw new ArgumentNullException();
+
         }
 
 	    private void TakeMeThere_Clicked(object sender, EventArgs e)
