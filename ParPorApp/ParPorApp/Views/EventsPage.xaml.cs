@@ -64,9 +64,7 @@ AbsoluteLayout.SetLayoutBounds(stack, new Rectangle(1f, 1f, AbsoluteLayout.AutoS
 
         private async Task EventList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            using (UserDialogs.Instance.Loading("Loading...", null, null, true, MaskType.Black))
-            {
-                await Task.Delay(100);
+            
                 if (e.SelectedItem == null)
                     return;
                 var item = e.SelectedItem as Event;
@@ -77,7 +75,7 @@ AbsoluteLayout.SetLayoutBounds(stack, new Rectangle(1f, 1f, AbsoluteLayout.AutoS
                 ((NavigationPage) Application.Current.MainPage).BarTextColor = Color.OrangeRed;
 
                 eventListView.SelectedItem = null;
-            }
+            
         }
 
 

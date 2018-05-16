@@ -13,9 +13,9 @@
     </ContentPage.BindingContext>
 
     <ScrollView>
-        <StackLayout Margin="20,0,20,0" Spacing="30">
+        <StackLayout Margin="20,10,20,0">
             <StackLayout Spacing="0" Padding="0">
-                <placesSearchBar:PlacesBar x:Name="search_bar" Placeholder="Search for the event location..." />
+                <placesSearchBar:PlacesBar x:Name="search_bar" HeightRequest="25" FontSize="14" Placeholder="Search for the event location..." />
                 <Image Source="powered_by_google_on_white.png" HeightRequest="10" HorizontalOptions="End" />
                 <ActivityIndicator x:Name="spinner" IsRunning="false" />
                 <ListView x:Name="results_list" IsVisible="false">
@@ -56,11 +56,11 @@
                     <Label Text="Time:" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" />
                     <Label Text="Date:" FontAttributes="Bold" Grid.Row="0" Grid.Column="1" />
                     <TimePicker x:Name="EventTime" Grid.Row="1" Grid.Column="0" />
-                    <DatePicker DateSelected="DatePicker_DateSelected" Grid.Column="1" Grid.Row="1"
+                    <DatePicker x:Name="EventDate" DateSelected="DatePicker_DateSelected" Grid.Column="1" Grid.Row="1"
                                 MinimumDate="{x:Static system:DateTime.UtcNow}" />
-                    <Label x:Name="Time" Grid.Row="2" Grid.Column="0" HorizontalOptions="Center"
+                    <Label x:Name="SelectedTime" Grid.Row="2" Grid.Column="0" HorizontalOptions="Center"
                            Text="{Binding EventTime, Mode=TwoWay}" IsVisible="False"/>
-                    <Label x:Name="EventDate" Grid.Row="2" Grid.Column="1"
+                    <Label x:Name="SelectedDate" Grid.Row="2" Grid.Column="1"
                            HorizontalOptions="Center"
                            Text="{Binding EventDate, Mode=TwoWay}" IsVisible="False"/>
                 </Grid>
@@ -85,7 +85,7 @@
                        
                 <Button Command="{Binding AddEventCommand}"
                         Clicked="ReturnEventPage_Clicked"
-                        BackgroundColor="YellowGreen"
+                        BackgroundColor="#43b05c"
                         FontSize="20"
                         TextColor="White"
                         CornerRadius="30"

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Lottie.Forms;
 using ParPorApp.Helpers;
 using ParPorApp.ViewModels;
 using RestSharp.Extensions;
@@ -21,18 +22,17 @@ namespace ParPorApp.Views
             InitializeComponent();
             EmailEntry.Completed += (sender, args) => { PasswordEntry.Focus(); };
             PasswordEntry.Completed += (sender, args) => { LoginButton.Focus(); };
-            this.AnimationView.IsVisible = false;
-            this.LoginButton.Clicked += LoginButton_Clicked;
+            //this.AnimationView.IsVisible = false;
+            //this.LoginButton.Clicked += LoginButton_Clicked;
         }
 
-        private void LoginButton_Clicked(object sender, EventArgs e)
-        {
+        //private void LoginButton_Clicked(object sender, EventArgs e)
+        //{
 
-            this.AnimationView.IsVisible = true;
-            LogoIcon.IsVisible = false;
-        }
-
-
+        //    this.AnimationView.IsVisible = true;
+        //    LogoIcon.IsVisible = false;
+            
+        //}
         private void ForgotPwdButton_OnClicked(object sender, EventArgs e)
         {
             //throw new NotImplementedException();

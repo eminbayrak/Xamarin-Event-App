@@ -43,15 +43,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\back.svg" />
     <EmbeddedResource Include="Resources\date.svg" />
-    <EmbeddedResource Include="Resources\ic_clipboard.svg" />
     <EmbeddedResource Include="Resources\ic_close.svg" />
     <EmbeddedResource Include="Resources\ic_coachhat.svg" />
     <EmbeddedResource Include="Resources\ic_eventadd.svg" />
-    <EmbeddedResource Include="Resources\ic_fab.svg" />
     <EmbeddedResource Include="Resources\ic_navigation.svg" />
-    <EmbeddedResource Include="Resources\ic_send.svg" />
     <EmbeddedResource Include="Resources\ic_share.svg" />
     <EmbeddedResource Include="Resources\ic_teambadge.svg" />
     <EmbeddedResource Include="Resources\ic_weather.svg" />

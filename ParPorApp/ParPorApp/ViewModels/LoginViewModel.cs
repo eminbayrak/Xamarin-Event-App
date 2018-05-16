@@ -27,14 +27,13 @@ namespace ParPorApp.ViewModels
 	                
                     if (!string.IsNullOrEmpty(accesstoken))
                     {
-	                    //using (UserDialogs.Instance.Loading("Hang on...", null, null, true, MaskType.Clear))
-	                    //{
-		                    await Task.Delay(2000);
+	                    using (UserDialogs.Instance.Loading("You are in...", null, null, true, MaskType.Clear))
+	                    {
 		                    Settings.Username = Username;
 		                    Settings.Password = Password;
 		                    Settings.AccessToken = accesstoken;
 		                    await Application.Current.MainPage.Navigation.PushModalAsync(new MainPage(), true);
-						//}
+						}
 						//IsBusy = true;
                         
                     }

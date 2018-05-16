@@ -20,7 +20,6 @@ namespace ParPorApp.ViewModels
         public string Id { get; set; }
         public string PlaceId { get; set; }
         public DateTime EventDate { get; set; }
-        public string EventTime { get; set; }
         public string EventType { get; set; }
         public string EventIcon { get; set; }
         public string LocationLatitude { get; set; }
@@ -38,7 +37,6 @@ namespace ParPorApp.ViewModels
                         EventType = EventType,
                         Note = Note,
                         EventDate = EventDate,
-                        EventTime = EventTime,
                         GroupId = GroupId,
                         PlaceId = PlaceId,
                         EventIcon = EventIcon,

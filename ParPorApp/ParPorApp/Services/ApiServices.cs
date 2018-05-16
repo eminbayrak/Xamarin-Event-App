@@ -170,7 +170,7 @@ namespace ParPorApp.Services
 			    {
 			        ToastConfig toastConfig = new ToastConfig("Event created :)");
 			        toastConfig.SetDuration(3000);
-			        toastConfig.SetBackgroundColor(Color.FromHex("#8bc34a"));
+			        toastConfig.SetBackgroundColor(Color.FromHex("#43b05c"));
 			        UserDialogs.Instance.Toast(toastConfig);
                 }
 				

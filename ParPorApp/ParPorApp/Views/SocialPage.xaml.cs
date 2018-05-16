@@ -17,8 +17,10 @@ namespace ParPorApp.Views
             
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
+//            if (Device.OS == TargetPlatform.Android)
+//                NavigationPage.SetTitleIcon(this, "ic_face.png");
             // Setting Color of selected Text and Icon
-            BarTextColor = Color.FromHex("#8bc34a"); 
+            BarTextColor = Color.FromHex("#43b05c"); 
             FixedMode = true;
             
             //Dark theme for bottom navigation bar

@@ -35,13 +35,12 @@ namespace ParPorApp.Views
 
         private void DatePicker_DateSelected(object sender, DateChangedEventArgs e)
         {
-            //string sourceDateText = e.NewDate.Month.ToString(CultureInfo.InvariantCulture) + "/" + e.NewDate.Day.ToString(CultureInfo.InvariantCulture) + "/" + e.NewDate.Year.ToString(CultureInfo.InvariantCulture) + " " + StartTime.Time;
-            var date = EventDate.Text = e.NewDate.Month + "/" + e.NewDate.Day + "/" + e.NewDate.Year;
-            EventDate.Text = date;
+            var eventDate = (e.NewDate.Date).ToShortDateString();
             var pickertime = EventTime.Time;
             var dt = Convert.ToDateTime(pickertime.ToString());
-            var time = dt.ToString("h:mm tt");
-            Time.Text = time;
+            var time = dt.ToShortTimeString();
+            SelectedDate.Text = eventDate + " " + time;
+
         }
 
         private async Task ReturnEventPage_Clicked(object sender, EventArgs e)

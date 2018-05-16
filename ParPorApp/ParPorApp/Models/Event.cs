@@ -25,8 +25,6 @@ namespace ParPorApp.Models
 
         [JsonProperty("EventIcon")] public string EventIcon { get; set; }
 
-        [JsonProperty("EventTime")] public string EventTime { get; set; }
-
         [JsonProperty("LocationLatitude")] public string LocationLatitude { get; set; }
 
         [JsonProperty("LocationLongitude")] public string LocationLongitude { get; set; }
@@ -36,8 +34,11 @@ namespace ParPorApp.Models
         [JsonProperty("OpponentTeamName")] public string OpponentTeamName { get; set; }
 
         public string GroupDate => EventDate.Date.Day == DateTime.Now.Date.Day ? "Today" : EventDate.ToString("dddd");
-        public string EventFullDate => this.EventDate.ToString(CultureInfo.InvariantCulture) + " " + this.EventTime;
 
+        //This can be implemented for the user in defferent regions
+        public string EventFullDate => this.EventDate.ToString(CultureInfo.InvariantCulture);
+
+        //Could be use for to show event post datetime
         public static string TimeAgo(DateTime dateTime)
         {
             string result;
