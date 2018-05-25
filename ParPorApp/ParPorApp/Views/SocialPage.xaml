@@ -24,10 +24,10 @@
             <viewModels:HomePage/>
         </x:Arguments>
     </NavigationPage>
-    <NavigationPage BarTextColor="Black" Title="Events" Icon="ic_event_black.png">
+    <NavigationPage BarTextColor="Black" Title="Schedule" Icon="ic_event_black.png">
             
             <x:Arguments>
-                <views:EventsPage />
+                <views:SchedulePage />
             </x:Arguments>
         </NavigationPage>
     <NavigationPage BarTextColor="Black" Title="Group" Icon="ic_group.png">

@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Threading.Tasks;
 using DurianCode.PlacesSearchBar;
+using Plugin.LocalNotifications;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -45,9 +46,7 @@ namespace ParPorApp.Views
 
         private async Task ReturnEventPage_Clicked(object sender, EventArgs e)
         {
-            await Task.Delay(3000);
-            await Navigation.PushAsync(new EventsPage());
-            //CrossLocalNotifications.Current.Show("New Event!", "A new content has posted.", 1, UtcNow.AddSeconds(8));
+            await Navigation.PopAsync();
         }
 
         private void Search_Bar_PlacesRetrieved(object sender, AutoCompleteResult result)

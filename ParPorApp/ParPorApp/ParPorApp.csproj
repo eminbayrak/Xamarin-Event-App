@@ -26,8 +26,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Resources\back.svg" />
     <None Remove="Resources\date.svg" />
+    <None Remove="Resources\ic_calendar.svg" />
     <None Remove="Resources\ic_clipboard.svg" />
     <None Remove="Resources\ic_close.svg" />
     <None Remove="Resources\ic_coachhat.svg" />
@@ -44,6 +44,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\date.svg" />
+    <EmbeddedResource Include="Resources\ic_calendar.svg" />
     <EmbeddedResource Include="Resources\ic_close.svg" />
     <EmbeddedResource Include="Resources\ic_coachhat.svg" />
     <EmbeddedResource Include="Resources\ic_eventadd.svg" />
@@ -160,6 +161,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ProfilePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\TrainingPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\UserProfilePage.xaml">

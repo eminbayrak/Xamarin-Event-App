@@ -33,7 +33,7 @@
             </StackLayout>
             <StackLayout>
                 <Label Text="Event type:" FontAttributes="Bold" />
-                <Picker SelectedItem="{Binding EventType}">
+                <Picker x:Name="eventType" SelectedItem="{Binding EventType}">
                     <Picker.Items>
                         <x:String>Game</x:String>
                         <x:String>Training</x:String>
@@ -66,8 +66,8 @@
                 </Grid>
                 <Grid RowSpacing="20" Margin="0,20,0,20">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                        <RowDefinition Height="30" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                         <RowDefinition Height="80" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
@@ -79,7 +79,7 @@
                     <Label Text="Opponent team:" Grid.Row="1" Grid.Column="0" FontAttributes="Bold" />
                     <Entry Text="{Binding OpponentTeamName}" Grid.Row="1" Grid.Column="1" FontSize="14" Keyboard="Text"/>
                     <Label Text="Note:" FontAttributes="Bold" Grid.Row="2" Grid.Column="0" />
-                    <Entry Text="{Binding Note}" Grid.Row="2" Grid.Column="1" FontSize="14" Keyboard="Text"/>
+                    <Editor Text="{Binding Note}" Grid.Row="2" Grid.Column="1" FontSize="14" Keyboard="Text"/>
                 </Grid>
                 
                        
@@ -87,8 +87,8 @@
                         Clicked="ReturnEventPage_Clicked"
                         BackgroundColor="#43b05c"
                         FontSize="20"
+                        HorizontalOptions="Center"
                         TextColor="White"
-                        CornerRadius="30"
                         Text="Save" />
             </StackLayout>
             <ContentView HeightRequest="1" BackgroundColor="Transparent" />

@@ -3,19 +3,45 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using ParPorApp.Models;
+using ParPorApp.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using Xamarin.Forms.Xaml;
+using NavigationPage = Xamarin.Forms.NavigationPage;
 
 namespace ParPorApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SchedulePage : ContentPage
     {
+        private readonly EventsViewModel eventsViewModel;
         public SchedulePage()
         {
             InitializeComponent();
+            BindingContext = eventsViewModel = new EventsViewModel();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            eventsViewModel.GetAllEventsCommand.Execute(null);
+        }
+        private async Task AddEvent_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AddEventPage());
+        }
+
+        private async Task EventList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem == null)
+                return;
+            var item = e.SelectedItem as Event;
+            await Navigation.PushAsync(new EventDetailPage(item));
+            ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.FromHex("#b1cfff");
+            ((NavigationPage)Application.Current.MainPage).BarTextColor = Color.OrangeRed;
+
+            eventListView.SelectedItem = null;
         }
     }
 }

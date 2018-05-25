@@ -41,6 +41,21 @@ namespace ParPorApp.ViewModels
             } 
         }
 
+        //Fecthing all events
+        public ICommand GetAllEventsCommand
+        {
+            get
+            {
+                return new Command(async () =>
+                {
+                    var accessToken = Settings.AccessToken;
+                    Event = await _apiServices.GetAllEventsAsync(accessToken);
+
+
+                });
+            }
+        }
+        //Fecthing upcoming events that have todays and/or later date
         public ICommand GetEventsCommand
         {
             get
@@ -51,6 +66,36 @@ namespace ParPorApp.ViewModels
                   
 
               });
+            }
+        }
+
+        //Fetching training events
+        public ICommand GetTrainingsCommand
+        {
+            get
+            {
+                return new Command(async () =>
+                {
+                    var accessToken = Settings.AccessToken;
+                    Event = await _apiServices.GetTrainingsAsync(accessToken);
+
+
+                });
+            }
+        }
+
+        //Fetching game events
+        public ICommand GetGamessCommand
+        {
+            get
+            {
+                return new Command(async () =>
+                {
+                    var accessToken = Settings.AccessToken;
+                    Event = await _apiServices.GetGamesAsync(accessToken);
+
+
+                });
             }
         }
 

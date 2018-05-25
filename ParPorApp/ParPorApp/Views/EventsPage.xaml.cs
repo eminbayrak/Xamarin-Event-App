@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
-using Acr.UserDialogs;
 using ParPorApp.Models;
 using ParPorApp.ViewModels;
 using Xamarin.Forms;
@@ -18,12 +19,10 @@ namespace ParPorApp.Views
     public partial class EventsPage : ContentPage
     {
         private readonly EventsViewModel eventsViewModel;
-
         public EventsPage()
         {
             InitializeComponent();
             BindingContext = eventsViewModel = new EventsViewModel();
-
         }
 
         protected override void OnAppearing()
@@ -57,6 +56,7 @@ AbsoluteLayout.SetLayoutFlags(stack, AbsoluteLayoutFlags.PositionProportional);
 AbsoluteLayout.SetLayoutBounds(stack, new Rectangle(1f, 1f, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
 #endif
         }
+
         private async Task AddEvent_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AddEventPage());
@@ -64,21 +64,14 @@ AbsoluteLayout.SetLayoutBounds(stack, new Rectangle(1f, 1f, AbsoluteLayout.AutoS
 
         private async Task EventList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            
-                if (e.SelectedItem == null)
-                    return;
-                var item = e.SelectedItem as Event;
-                await Navigation.PushAsync(new EventDetailPage(item));
+            if (e.SelectedItem == null)
+                return;
+            var item = e.SelectedItem as Event;
+            await Navigation.PushAsync(new EventDetailPage(item));
+            ((NavigationPage) Application.Current.MainPage).BarBackgroundColor = Color.FromHex("#b1cfff");
+            ((NavigationPage) Application.Current.MainPage).BarTextColor = Color.OrangeRed;
 
-
-                ((NavigationPage) Application.Current.MainPage).BarBackgroundColor = Color.FromHex("#b1cfff");
-                ((NavigationPage) Application.Current.MainPage).BarTextColor = Color.OrangeRed;
-
-                eventListView.SelectedItem = null;
-            
+            eventListView.SelectedItem = null;
         }
-
-
-
     }
 }

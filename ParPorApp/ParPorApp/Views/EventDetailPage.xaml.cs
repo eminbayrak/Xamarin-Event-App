@@ -13,6 +13,7 @@ using ParPorApp.ViewModels;
 using Plugin.ExternalMaps;
 using Plugin.Geolocator;
 using Plugin.Geolocator.Abstractions;
+using Plugin.LocalNotifications;
 using Plugin.Share;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -26,6 +27,12 @@ namespace ParPorApp.Views
 		{
             InitializeComponent ();
             BindingContext = item ?? throw new ArgumentNullException();
+		    
+		    //var eTime = item.EventDate; // get EventDate in event model
+		    //double diff = (eTime - DateTime.Now).TotalHours; // subtract event's date with todays date
+		    //var evDate = DateTime.FromOADate(diff); // convert double to DateTime
+		    //var title = item.EventType; // assign EventType as the title 
+		    //CrossLocalNotifications.Current.Show(title, title + " will start in 15 mins!", 1, evDate.AddMinutes(-15));
         }
 
 

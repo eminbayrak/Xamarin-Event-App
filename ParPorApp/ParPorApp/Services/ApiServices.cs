@@ -126,22 +126,68 @@ namespace ParPorApp.Services
           
 	    }
 
-		// get events list
-		public async Task<List<Event>> GetEventsAsync(string accessToken)
+        //Show all of the events
+        public async Task<List<Event>> GetAllEventsAsync(string accessToken)
         {
             var client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
                 "Bearer", accessToken);
 
             var json = await client.GetStringAsync(Constants.BaseApiAddress + "api/events?sort=desc");
-
             var events = JsonConvert.DeserializeObject<List<Event>>(json);
-
+            //events = events.Where(x => x.EventType == "Game").ToList();
+            //events = events.Where(x => x.EventDate >= DateTime.Now).ToList();
+            events = events.OrderByDescending(x => x.EventDate).ToList();
             return events;
         }
-        
-		// Put event
-	    public async Task PutEventAsync(Event events, string accessToken)
+
+        // Get list of Event && OrderBy EventDate && only show events that have todays and/or later date
+        public async Task<List<Event>> GetEventsAsync(string accessToken)
+        {
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+                "Bearer", accessToken);
+
+            var json = await client.GetStringAsync(Constants.BaseApiAddress + "api/events?sort=desc");
+            var events = JsonConvert.DeserializeObject<List<Event>>(json);
+            //events = events.Where(x => x.EventType == "Game").ToList();
+            events = events.Where(x => x.EventDate >= DateTime.Now).ToList();
+            events = events.OrderBy(x => x.EventDate).ToList();
+            return events;
+        }
+
+        // Get list of Training Events && OrderBy EventDate
+        public async Task<List<Event>> GetTrainingsAsync(string accessToken)
+        {
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+                "Bearer", accessToken);
+
+            var json = await client.GetStringAsync(Constants.BaseApiAddress + "api/events?sort=desc");
+            var events = JsonConvert.DeserializeObject<List<Event>>(json);
+            events = events.Where(x => x.EventType == "Training").ToList();
+            events = events.Where(x => x.EventDate >= DateTime.Now).ToList();
+            events = events.OrderBy(x => x.EventDate).ToList();
+            return events;
+        }
+
+        // Get list of Game Events && OrderBy EventDate
+        public async Task<List<Event>> GetGamesAsync(string accessToken)
+        {
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+                "Bearer", accessToken);
+
+            var json = await client.GetStringAsync(Constants.BaseApiAddress + "api/events?sort=desc");
+            var events = JsonConvert.DeserializeObject<List<Event>>(json);
+            events = events.Where(x => x.EventType == "Game").ToList();
+            events = events.Where(x => x.EventDate >= DateTime.Now).ToList();
+            events = events.OrderBy(x => x.EventDate).ToList();
+            return events;
+        }
+
+        // Put event
+        public async Task PutEventAsync(Event events, string accessToken)
 	    {
 		    var client = new HttpClient();
 		    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
@@ -164,23 +210,30 @@ namespace ParPorApp.Services
 			HttpContent content = new StringContent(json);
 			content.Headers.ContentType = new MediaTypeHeaderValue("application/json"); 
 			var response = await client.PostAsync(Constants.BaseApiAddress + "api/events", content);
-		    if (response.IsSuccessStatusCode)
-		    {
-			    using (UserDialogs.Instance.Loading("Hang on...", null, null, true, MaskType.Black))
-			    {
-			        ToastConfig toastConfig = new ToastConfig("Event created :)");
-			        toastConfig.SetDuration(3000);
-			        toastConfig.SetBackgroundColor(Color.FromHex("#43b05c"));
-			        UserDialogs.Instance.Toast(toastConfig);
-                }
-				
-			}
-		    else
-		    {
-				UserDialogs.Instance.Alert(string.Format("Uh oh :(", "something went wrong", "please try again"));
-			    Debug.Write(response);
-			}
-			
+	        try
+	        {
+	            if (response.IsSuccessStatusCode)
+	            {
+	                using (UserDialogs.Instance.Loading("Hang on...", null, null, true, MaskType.Black))
+	                {
+	                    ToastConfig toastConfig = new ToastConfig("Event created :)");
+	                    toastConfig.SetDuration(4000);
+	                    toastConfig.SetBackgroundColor(Color.FromHex("#43b05c"));
+	                    UserDialogs.Instance.Toast(toastConfig);
+	                }
+
+	            }
+	            else
+	            {
+	                UserDialogs.Instance.Alert(string.Format("Uh oh :( something went wrong, please try again"));
+	                Debug.Write(response);
+	            }
+            }
+	        catch (Exception e)
+	        {
+	            Console.WriteLine(e);
+	            throw;
+	        }
 	    }
 
 		//public class AzureDataService

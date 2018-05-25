@@ -16,13 +16,9 @@ namespace ParPorApp.ViewModels
         {
             InitializeComponent();
 
-            Children.Add(new FABPage() { Title = "Mon" });
-            Children.Add(new FABPage() { Title = "Tue"});
-            Children.Add(new FABPage() { Title = "Wed" });
-            Children.Add(new FABPage() { Title = "Thu" });
-            Children.Add(new FABPage() { Title = "Fri"});
-            Children.Add(new FABPage() { Title = "Sat"});
-            Children.Add(new FABPage() { Title = "Sun"});
+            Children.Add(new EventsPage() { Title = "All" });
+            Children.Add(new GamesPage() { Title = "Games"});
+            Children.Add(new TrainingPage() { Title = "Trainings" });
             //NavigationPage.SetHasNavigationBar(this, false);
         }
     }
