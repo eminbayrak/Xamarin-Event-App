@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Android.Service.Autofill;
 using ParPorApp.Models;
 using ParPorApp.ViewModels;
 using Xamarin.Forms;
@@ -62,15 +63,27 @@ AbsoluteLayout.SetLayoutBounds(stack, new Rectangle(1f, 1f, AbsoluteLayout.AutoS
             await Navigation.PushAsync(new AddEventPage());
         }
 
+        //navigating to event detail page
         private async Task EventList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
+            var item = e.SelectedItem as Event;
             if (e.SelectedItem == null)
                 return;
-            var item = e.SelectedItem as Event;
-            await Navigation.PushAsync(new EventDetailPage(item));
-            ((NavigationPage) Application.Current.MainPage).BarBackgroundColor = Color.FromHex("#b1cfff");
-            ((NavigationPage) Application.Current.MainPage).BarTextColor = Color.OrangeRed;
 
+            //Training detail page
+            if (item != null && item.EventType == "Training")
+            {
+                await Navigation.PushAsync(new TrainingDetailPage(item));
+                //((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.FromHex("#b1cfff");
+                //((NavigationPage)Application.Current.MainPage).BarTextColor = Color.OrangeRed;
+            }
+
+            //Game detail page
+            if (item != null && item.EventType == "Game")
+            {
+                await Navigation.PushAsync(new EventDetailPage(item));
+                //await DisplayAlert("Games", "you tabbed on a game", "Ok");
+            }
             eventListView.SelectedItem = null;
         }
     }
