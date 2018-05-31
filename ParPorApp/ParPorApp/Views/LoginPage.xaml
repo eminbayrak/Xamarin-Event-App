@@ -108,6 +108,7 @@
                             <RowDefinition Height="40"/>
                             <RowDefinition Height="40"/>
                             <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <Image x:Name="LogoIcon" Source="ic_logo.png" HeightRequest="110" WidthRequest="110"/>
@@ -140,8 +141,18 @@
                             <Label BackgroundColor="#bababa" Grid.Column="2" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center" />
                         </Grid>
                         <StackLayout Orientation="Horizontal" Grid.Row="6" HorizontalOptions="Center">
-                            <Label FontFamily="{StaticResource AwesomeFont}" Text="{x:Static constant:FontAwesomeConstant.Google}" TextColor="#43b05c" FontSize="30" />
-                            <Label Text="Log in with Google" TextColor="#43b05c" VerticalOptions="Center"/>
+                            <Label FontFamily="{StaticResource AwesomeFont}" Text="{x:Static constant:FontAwesomeConstant.Google}" TextColor="#DB4437" FontSize="30" />
+                            <Label Text="Log in with Google" TextColor="#DB4437" VerticalOptions="Center"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding LoginGoogleCommand}" CommandParameter="1"  NumberOfTapsRequired="1" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Grid.Row="7" HorizontalOptions="Center">
+                            <Label FontFamily="{StaticResource AwesomeFont}" Text="{x:Static constant:FontAwesomeConstant.Facebook}" TextColor="#3B5998" FontSize="30" />
+                            <Label Text="Log in with Facebook" TextColor="#3B5998" VerticalOptions="Center"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding LoginFacebookCommand}" CommandParameter="1"  NumberOfTapsRequired="1" />
+                            </StackLayout.GestureRecognizers>
                         </StackLayout>
                     </Grid>
                     <!--<StackLayout Grid.Row="2" BackgroundColor="#FFFFFF">

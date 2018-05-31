@@ -2,4 +2,5 @@
 <resources>
 	<string name="hello">Hello World, Click Me!</string>
 	<string name="app_name">ParPorApp.Droid</string>
+  <string name="facebook_app_id">574590519394493</string>
 </resources>

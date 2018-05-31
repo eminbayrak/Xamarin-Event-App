@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Facebook.CoreKit;
 using FFImageLoading.Forms.Touch;
 using Foundation;
+using Google.SignIn;
+using ParPorApp.Services;
 using UIKit;
 using UserNotifications;
+using Xamarin.Forms;
 
 namespace ParPorApp.iOS
 {
@@ -24,6 +28,13 @@ namespace ParPorApp.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+
+            //google auth config
+            DependencyService.Register<IGoogleManager, GoogleManager>();
+            var googleServiceDictionary = NSDictionary.FromFile("auth-google.plist");
+            SignIn.SharedInstance.ClientID = googleServiceDictionary["CLIENT_ID"].ToString();
+
+            DependencyService.Register<IFacebookManager, FacebookManager>();
 
             if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
             {
@@ -55,6 +66,18 @@ namespace ParPorApp.iOS
             LoadApplication(new App());
             return base.FinishedLaunching(app, options);
             
+        }
+
+        public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
+        {
+            //return base.OpenUrl(application, url, sourceApplication, annotation);
+            return ApplicationDelegate.SharedInstance.OpenUrl(application, url, sourceApplication, annotation);
+        }
+
+        public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
+        {
+            var openUrlOptions = new UIApplicationOpenUrlOptions(options);
+            return SignIn.SharedInstance.HandleUrl(url, openUrlOptions.SourceApplication, openUrlOptions.Annotation);
         }
     }
 }

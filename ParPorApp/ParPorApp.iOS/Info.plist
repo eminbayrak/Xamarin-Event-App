@@ -64,5 +64,29 @@
 	</array>
 	<key>UIStatusBarStyle</key>
 	<string>Transparent black</string>
+  <key>CFBundleURLTypes</key>
+  <array>
+    <dict>
+      <key>CFBundleURLSchemes</key>
+      <array>
+        <string>com.googleusercontent.apps.199198031536-1t6h09dn3hqhf3slivuufkfadcqs5bhf</string>
+        <string>com.yourcompany.ParPorApp</string>
+        <string>fb574590519394493</string>
+      </array>
+      <key>CFBundleURLTypes</key>
+      <string>Editor</string>
+    </dict>
+  </array>
+  <key>FacebookAppID</key>
+  <string>574590519394493</string>
+  <key>FacebookDisplayName</key>
+  <string>BuenFin</string>
+  <key>LSApplicationQueriesSchemes</key>
+  <array>
+    <string>fbapi</string>
+    <string>fb-messenger-api</string>
+    <string>fbauth2</string>
+    <string>fbshareextension</string>
+  </array>
 </dict>
 </plist>
