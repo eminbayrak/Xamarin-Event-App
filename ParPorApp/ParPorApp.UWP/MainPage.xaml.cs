@@ -12,6 +12,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using FFImageLoading.Forms.WinUWP;
+using FFImageLoading.Svg.Forms;
 
 namespace ParPorApp.UWP
 {
@@ -20,7 +22,8 @@ namespace ParPorApp.UWP
         public MainPage()
         {
             this.InitializeComponent();
-
+            CachedImageRenderer.Init();
+            var ignore = typeof(SvgCachedImage);
             LoadApplication(new ParPorApp.App());
         }
     }

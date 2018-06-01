@@ -3,39 +3,22 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:ParPorApp.ViewModels;assembly=ParPorApp"
-             xmlns:abstractions="clr-namespace:IconEntry.FormsPlugin.Abstractions;assembly=IconEntry.FormsPlugin.Abstractions"
-             xmlns:xfGloss="clr-namespace:XFGloss;assembly=XFGloss"
              xmlns:constant="clr-namespace:ParPorApp.Constant;assembly=ParPorApp"
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              x:Class="ParPorApp.Views.LoginPage"
              BackgroundColor="White"
              NavigationPage.HasBackButton="False"
              NavigationPage.HasNavigationBar="False">
 
-    <!--<xfGloss:ContentPageGloss.BackgroundGradient>
-        <xfGloss:Gradient Rotation="180">
-            <xfGloss:GradientStep StepColor="White" StepPercentage="0" />
-            <xfGloss:GradientStep StepColor="White" StepPercentage=".5" />
-            <xfGloss:GradientStep StepColor="#ccd9ff" StepPercentage="1" />
-        </xfGloss:Gradient>
-    </xfGloss:ContentPageGloss.BackgroundGradient>-->
-
     <ContentPage.BindingContext>
         <viewModels:LoginViewModel />
     </ContentPage.BindingContext>
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <OnPlatform x:TypeArguments="x:String" x:Key="AwesomeFont">
-                <On Platform="Android" Value="fontawesome.ttf#FontAwesome" />
-                <On Platform="UWP" Value="/Assets/fontawesome.ttf#FontAwesome" />
-                <On Platform="iOS" Value="fontawesome.ttf" />
-            </OnPlatform>
-        </ResourceDictionary>
-    </ContentPage.Resources>
+   
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
             <OnPlatform.Platforms>
                 <On Platform="iOS" Value="0, 20, 0, 0" />
-                <On Platform="Android" Value="0, 0, 0, 0" />
+                <On Platform="Android" Value="0, 20, 0, 0" />
                 <On Platform="UWP" Value="0, 0, 0, 0" />
             </OnPlatform.Platforms>
         </OnPlatform>
@@ -127,11 +110,25 @@
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <Image x:Name="LogoIcon" Source="ic_logo.png" HeightRequest="140" WidthRequest="140"/>
+                        <Image x:Name="LogoIcon" Source="ic_logo.png" HeightRequest="110" WidthRequest="110"/>
                         <Entry x:Name="EmailEntry" Grid.Row="1" Placeholder="Email" PlaceholderColor="#bababa" Text="{Binding Username}" FontSize="16" Keyboard="Email" />
                         <Entry x:Name="PasswordEntry" Grid.Row="2" Placeholder="Password" Text="{Binding Password}" PlaceholderColor="#bababa" FontSize="16" IsPassword="True"/>
-                        <Button x:Name="LoginButton" Command="{Binding LoginCommand}" Text="Log In" BackgroundColor="#3897F0" TextColor="White" HeightRequest="50" VerticalOptions="Start" Grid.Row="3" />
-                        <Label Text="Forgot your login details? Get help signing in." HorizontalOptions="Center" Grid.Row="4" Margin="0,10,0,0" FontSize="12" />
+                        <Button x:Name="LoginButton" Command="{Binding LoginCommand}" Text="Log In" BackgroundColor="#43b05c" TextColor="White" HeightRequest="50" VerticalOptions="Start" Grid.Row="3" />
+                        <!--<forms:AnimationView 
+                            x:Name="AnimationView"
+                            Animation="dribbble_bouncing_ball.json"
+                            AutoPlay="True"
+                            Loop="True"
+                            VerticalOptions="FillAndExpand"
+                            HorizontalOptions="FillAndExpand"
+                            Scale="1"/>-->
+                        <!--<Label Text="Forgot your login details? Get help signing in." HorizontalOptions="Center" Grid.Row="4" Margin="0,10,0,0" FontSize="12" />-->
+                        <Label HorizontalOptions="Center" Grid.Row="4" Margin="0,10,0,0" FontSize="12" 
+                               Text="Forgot your login details? Get help signing in.">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
                         <Grid Grid.Row="5">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
@@ -143,8 +140,8 @@
                             <Label BackgroundColor="#bababa" Grid.Column="2" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center" />
                         </Grid>
                         <StackLayout Orientation="Horizontal" Grid.Row="6" HorizontalOptions="Center">
-                            <Label FontFamily="{StaticResource AwesomeFont}" Text="{x:Static constant:FontAwesomeConstant.Google}" TextColor="#0099FF" FontSize="30" />
-                            <Label Text="Log in with Google" TextColor="#0099FF" VerticalOptions="Center"/>
+                            <Label FontFamily="{StaticResource AwesomeFont}" Text="{x:Static constant:FontAwesomeConstant.Google}" TextColor="#43b05c" FontSize="30" />
+                            <Label Text="Log in with Google" TextColor="#43b05c" VerticalOptions="Center"/>
                         </StackLayout>
                     </Grid>
                     <!--<StackLayout Grid.Row="2" BackgroundColor="#FFFFFF">
@@ -152,12 +149,7 @@
                         <Label Text="Don't have an account? Sign up." VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
                     </StackLayout>-->
                 </Grid>
-                <!--<StackLayout Padding="30">
-                    <abstractions:IconEntry Text="{Binding Username}" Icon="ic_email.png" x:Name="EmailEntry" Placeholder="Email" Keyboard="Email"/>
-                    <abstractions:IconEntry Text="{Binding Password}" Icon="ic_https.png" x:Name="PasswordEntry" Placeholder="Password" IsPassword="True"/>
-                    <Button x:Name="LoginButton" Command="{Binding LoginCommand}" Style="{StaticResource MessageButton}" Text="Log In" />
-                    <Button Text="Forgot password?" BackgroundColor="Transparent" Clicked="ForgotPwdButton_OnClicked"/>
-                </StackLayout>-->
+                
 
             </StackLayout>
         </ScrollView>

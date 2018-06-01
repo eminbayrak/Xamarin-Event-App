@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace ParPorApp.Droid
 {
-    [Activity(MainLauncher = true, NoHistory = true, Icon = "@drawable/icon", Theme = "@style/LaunchTheme",
+    [Activity(MainLauncher = true, NoHistory = true, Icon = "@drawable/ic_launcher", Theme = "@style/LaunchTheme",
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class LaunchActivity : Activity
     {

@@ -4,45 +4,47 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:xamarinForms="clr-namespace:BottomBar.XamarinForms;assembly=BottomBar.XamarinForms"
             xmlns:views="clr-namespace:ParPorApp.Views;assembly=ParPorApp"
+            xmlns:viewModels="clr-namespace:ParPorApp.ViewModels;assembly=ParPorApp"
             x:Class="ParPorApp.Views.SocialPage"
-                            BarTextColor="WhiteSmoke"
+                            BarTextColor="#43b05c"
             NavigationPage.HasBackButton="False">
 
     <!--<ContentPage xamarinForms:BottomBarPageExtensions.TabColor="#cfefa7"/>-->
     <!--<xamarinForms:BottomBarPage.BarTextColor>WhiteSmoke</xamarinForms:BottomBarPage.BarTextColor>-->
-    <xamarinForms:BottomBarPage.Children >
+    
             <!--<NavigationPage Title="Home" Icon="ic_home.png" 
                             xamarinForms:BottomBarPageExtensions.TabColor="MediumSlateBlue">
             <x:Arguments>
                 <views:NewsfeedPage/>
             </x:Arguments>
             </NavigationPage>-->
-        <NavigationPage Title="Home" Icon="ic_home.png">
-            <x:Arguments>
-                <views:NewsfeedPage/>
-            </x:Arguments>
-        </NavigationPage>
-        <NavigationPage Title="Events" Icon="ic_event_black.png">
+    <!--<views:NewsfeedPage Title="Home" Icon="ic_home.png"></views:NewsfeedPage>-->
+    <NavigationPage BarTextColor="Black" Title="Home" Icon="ic_home.png">
+        <x:Arguments>
+            <viewModels:HomePage/>
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage BarTextColor="Black" Title="Schedule" Icon="ic_event_black.png">
             
             <x:Arguments>
-                <views:EventsPage />
+                <views:SchedulePage />
             </x:Arguments>
         </NavigationPage>
-        <NavigationPage Title="Groups" Icon="ic_groups.png">
+    <NavigationPage BarTextColor="Black" Title="Group" Icon="ic_group.png">
             <x:Arguments>
                 <views:GroupPage />
             </x:Arguments>
         </NavigationPage>
-        <NavigationPage Title="Chat" Icon="ic_message.png" >
+    <NavigationPage BarTextColor="Black" Title="Social" Icon="ic_message.png" >
             <x:Arguments>
                 <views:FABPage />
             </x:Arguments>
         </NavigationPage>
-        <NavigationPage Title="Profile" Icon="ic_face.png" >
+        <!--<NavigationPage Title="Profile" Icon="ic_face.png" >
             <x:Arguments>
                 <views:UserProfilePage />
             </x:Arguments>
-        </NavigationPage>
-    </xamarinForms:BottomBarPage.Children>
+        </NavigationPage>-->
 
+    
 </xamarinForms:BottomBarPage>

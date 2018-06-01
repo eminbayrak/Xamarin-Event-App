@@ -3,9 +3,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:ParPorApp.ViewModels;assembly=ParPorApp"
-             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
              xmlns:constant="clr-namespace:ParPorApp.Constant;assembly=ParPorApp"
-             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
              Title="Profile"
              x:Class="ParPorApp.Views.UserProfilePage">
 
@@ -13,137 +12,61 @@
         <viewModels:UserViewModel />
     </ContentPage.BindingContext>
 
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <OnPlatform x:TypeArguments="x:String" x:Key="AwesomeFont">
-                <On Platform="Android" Value="fontawesome.ttf#FontAwesome" />
-                <On Platform="UWP" Value="/Assets/fontawesome.ttf#FontAwesome" />
-                <On Platform="iOS" Value="FontAwesome" />
-            </OnPlatform>
-            <Style x:Key="FontAwesomeTextStyle" TargetType="Label">
-                <Setter Property="TextColor" Value="White" />
-                <Setter Property="Opacity" Value="0.90" />
-            </Style>
-            <Style x:Key="FontAwesomeStyle" TargetType="Label">
-                <Setter Property="FontFamily" Value="{StaticResource AwesomeFont}" />
-                
-                <Setter Property="TextColor" Value="Black" />
-                <Setter Property="Opacity" Value="1" />
-                <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="HorizontalTextAlignment" Value="Center" />
-                <Setter Property="VerticalTextAlignment" Value="Center" />
-            </Style>
-            <Style x:Key="FontAwesomeIconStyle" TargetType="Label">
-                <Setter Property="FontFamily" Value="{StaticResource AwesomeFont}" />
-               
-                <Setter Property="TextColor" Value="Black" />
-                <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="HorizontalTextAlignment" Value="Center" />
-                <Setter Property="VerticalTextAlignment" Value="Center" />
-            </Style>
-            <Style x:Key="FontAwesomeStyleBtn" TargetType="Label">
-                <Setter Property="FontFamily" Value="{StaticResource AwesomeFont}" />
-                
-                <Setter Property="TextColor" Value="White" />
-                <Setter Property="VerticalOptions" Value="Start" />
-                <Setter Property="HorizontalOptions" Value="End" />
-                <Setter Property="HorizontalTextAlignment" Value="Start" />
-                <Setter Property="VerticalTextAlignment" Value="Start" />
-                <Setter Property="BackgroundColor" Value="Transparent" />
-            </Style>
-            <Style x:Key="FontAwesomeStyleBtnBot" TargetType="Label">
-                <Setter Property="FontFamily" Value="{StaticResource AwesomeFont}" />
-                
-                <Setter Property="TextColor" Value="Black" />
-                <Setter Property="VerticalOptions" Value="End" />
-                <Setter Property="HorizontalOptions" Value="Start" />
-                <Setter Property="HorizontalTextAlignment" Value="Start" />
-                <Setter Property="VerticalTextAlignment" Value="Start" />
-                <Setter Property="BackgroundColor" Value="Transparent" />
-            </Style>
-        </ResourceDictionary>
-    </ContentPage.Resources>
-    <ScrollView>
-        <Grid ColumnSpacing="0" RowSpacing="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="230" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-
-            <BoxView Grid.Row="0" BackgroundColor="CornflowerBlue"/>
+    <Grid BackgroundColor="#FEFEFE" Margin="0,10,0,00">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <StackLayout Margin="20,20,0,00" Grid.Row="0">
             <ListView ItemsSource="{Binding Users}"
-                          Grid.Row="0"
-                          Margin="0,50,0,00"
+                                   HeightRequest="120"
+                                   
                           SeparatorVisibility="None"
-                          HorizontalOptions="Center"
-                          VerticalOptions="Center"
                           IsEnabled="False"
                           HasUnevenRows="True">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout>
-                                    <abstractions:CircleImage HeightRequest="100"
-                                                              HorizontalOptions="Center"
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout >
+                                <abstractions:CircleImage HeightRequest="50"
+                                                              HorizontalOptions="Start"
                                                               Source="{Binding Avatar}"
                                                               BorderColor="White"
                                                               BorderThickness="2"
-                                                              WidthRequest="100" />
-                                    <Label FontAttributes="Bold" HorizontalOptions="Center"
-                                           Text="{Binding FullName}" Style="{StaticResource FontAwesomeTextStyle}" />
-                                    <Label HorizontalOptions="Center" Style="{StaticResource FontAwesomeTextStyle}"
-                                           Text="{Binding Email}" />
-                                    <BoxView HeightRequest="5" BackgroundColor="Transparent" />
-                                </StackLayout>
+                                                              WidthRequest="50" />
+                                <Label FontAttributes="Bold" Text="{Binding FullName}" TextColor="#000000" Style="{StaticResource BoldLabel}" FontSize="18" />
+                                <Label Text="{Binding Email}" TextColor="#6d747a" FontSize="14"/>
 
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-   
-            <Grid Grid.Row="1" ColumnSpacing="0" RowSpacing="0" Margin="0,30,0,00" >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        <BoxView Grid.Row="1" HeightRequest="0.2" BackgroundColor="#E8EBED" />
+        <ScrollView Grid.Row="2" Margin="10,0,0,00">
+            <StackLayout>
 
-                <StackLayout>
-                    <Label Style="{StaticResource FontAwesomeIconStyle}"
-                           Text="{x:Static constant:FontAwesomeConstant.Messages}" />
-                    <Label Style="{StaticResource FontAwesomeStyle}" Text="0" />
-                </StackLayout>
-
-                <StackLayout Grid.Column="1">
-                    <Label Style="{StaticResource FontAwesomeIconStyle}"
-                           Text="{x:Static constant:FontAwesomeConstant.Contacts}" />
-                    <Label Style="{StaticResource FontAwesomeStyle}" Text="0" />
-                </StackLayout>
-
-                <StackLayout Grid.Column="2">
-                    <Label Style="{StaticResource FontAwesomeIconStyle}"
-                           Text="{x:Static constant:FontAwesomeConstant.Notifications}" />
-                    <Label Style="{StaticResource FontAwesomeStyle}" Text="0" />
-                </StackLayout>
-            </Grid>
-
-            <Button Grid.Row="0" Style="{StaticResource FontAwesomeStyleBtn}"
-                    Text="{x:Static constant:FontAwesomeConstant.Signout}"
-                    FontSize="20"
-                    Command="{Binding LogoutCommand}"
-                    Clicked="LogoutMenuItem_Clicked" />
-            <StackLayout Grid.Row="4" VerticalOptions="End" Margin="20,0,0,00" HorizontalOptions="Start">
                 <Button Style="{StaticResource FontAwesomeStyleBtnBot}"
-                        Text="{x:Static constant:FontAwesomeConstant.Account}" />
+                            Text="{x:Static constant:FontAwesomeConstant.Messages}" />
                 <Button Style="{StaticResource FontAwesomeStyleBtnBot}"
-                        Text="{x:Static constant:FontAwesomeConstant.Help}"/>
+                            Text="{x:Static constant:FontAwesomeConstant.Contacts}" />
+
+                <Button Style="{StaticResource FontAwesomeStyleBtnBot}"
+                            Text="{x:Static constant:FontAwesomeConstant.Account}" />
+                <Button Style="{StaticResource FontAwesomeStyleBtnBot}"
+                            Text="{x:Static constant:FontAwesomeConstant.Help}" />
             </StackLayout>
-            
-        </Grid>
-    </ScrollView>
+        </ScrollView>
+        <BoxView Grid.Row="3" HeightRequest="0.2" VerticalOptions="End" BackgroundColor="#E8EBED"/>
+        <Button Margin="10,0,0,00" Grid.Row="4" Style="{StaticResource FontAwesomeStyleBtnBot}"
+                Text="{x:Static constant:FontAwesomeConstant.Signout}"
+                VerticalOptions="End"
+                TextColor="Red"
+                Command="{Binding LogoutCommand}"
+                Clicked="LogoutMenuItem_Clicked" />
+    </Grid>
 </ContentPage>

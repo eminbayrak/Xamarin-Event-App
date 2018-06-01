@@ -15,7 +15,7 @@ namespace ParPorApp.Views
         public MainPage()
         {
             InitializeComponent();
-            MasterPage.ListView.ItemSelected += ListView_ItemSelected;
+            //MasterPage.ListView.ItemSelected += ListView_ItemSelected;
 
 
         }
@@ -32,7 +32,7 @@ namespace ParPorApp.Views
             Detail = new NavigationPage(page);
             IsPresented = false;
 
-            MasterPage.ListView.SelectedItem = null;
+            //MasterPage.ListView.SelectedItem = null;
         }
     }
 }

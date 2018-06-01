@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using FFImageLoading.Forms.Touch;
 using Foundation;
-using ScnViewGestures.Plugin.Forms.iOS.Renderers;
 using UIKit;
 using UserNotifications;
 
@@ -49,11 +48,10 @@ namespace ParPorApp.iOS
             // Set app theme
             UITabBar.Appearance.BarTintColor = UIColor.LightTextColor;
             UITabBar.Appearance.TintColor = UIColor.White;
-            UIProgressView.Appearance.TintColor = UIColor.FromRGB(188, 75, 75);
+            UIProgressView.Appearance.TintColor = UIColor.FromRGB(255, 255, 255);
             CachedImageRenderer.Init();
-            UINavigationBar.Appearance.BarTintColor = UIColor.FromRGB(255, 20, 153);
+            UINavigationBar.Appearance.BarTintColor = UIColor.FromRGB(255, 255, 255);
             UINavigationBar.Appearance.TintColor = UIColor.White;
-            ViewGesturesRenderer.Init();
             LoadApplication(new App());
             return base.FinishedLaunching(app, options);
             

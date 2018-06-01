@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:ParPorApp.ViewModels;assembly=ParPorApp"
-             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
              x:Class="ParPorApp.Views.EventsPage"
              NavigationPage.HasBackButton="False"
              Title="Events">
@@ -13,30 +13,25 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Clicked="AddEvent_Clicked"
-                     Icon="ic_add.png"
-                     Priority="2"/>
-        <ToolbarItem Icon="ic_search.png"
-                     Priority="1"/>
+                     Icon="ic_eventadd.png"
+                     Priority="1" />
+
     </ContentPage.ToolbarItems>
-    <ListView 
+    <ListView x:Name="eventListView"
               HasUnevenRows="True"
               ItemsSource="{Binding Event}"
-              SeparatorVisibility = "None" 
+              ItemSelected="EventList_ItemSelected"
+              SeparatorVisibility="None"
               CachingStrategy="RecycleElement">
-
-
         <ListView.ItemTemplate>
-
             <DataTemplate>
-
                 <ViewCell>
                     <Frame IsClippedToBounds="True"
-                           HasShadow="True"
-                           BackgroundColor="White">
+                           HasShadow="False">
                         <Frame.OutlineColor>
                             <OnPlatform x:TypeArguments="Color"
-                                        Android="Gray"
-                                        iOS="Gray" />
+                                        Android="#e4e4e4"
+                                        iOS="#e4e4e4" />
                         </Frame.OutlineColor>
                         <Frame.Margin>
                             <OnPlatform x:TypeArguments="Thickness"
@@ -44,103 +39,74 @@
                         </Frame.Margin>
                         <Frame.Padding>
                             <OnPlatform x:TypeArguments="Thickness"
-                                        Android="5" iOS="7" />
+                                        Android="4" iOS="4" />
                         </Frame.Padding>
-                        <StackLayout Orientation="Horizontal" Padding="10">
+                        <StackLayout BackgroundColor="Transparent">
 
                             <Grid VerticalOptions="CenterAndExpand"
-                                  Padding="0"
-                                  HorizontalOptions="FillAndExpand"
-                                  BackgroundColor="Transparent">
+                                  HorizontalOptions="FillAndExpand">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
                                     <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="60" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
-
-                                <!--<StackLayout Orientation="Horizontal" VerticalOptions="Start">
-                                    <abstractions:CircleImage Source="{Binding ImageUrl}"
-                                                              VerticalOptions="Start" HeightRequest="30"
-                                                              WidthRequest="30" />
-                                    <Label FontAttributes="None" Grid.Row="0"
-                                           HorizontalTextAlignment="Start"
-                                           VerticalTextAlignment="Center"
-                                           FontSize="12"
-                                           Text="{Binding First}" TextColor="Gray" />
-                                    <Label FontAttributes="None" Grid.Row="0"
-                                           HorizontalTextAlignment="End"
-                                           VerticalTextAlignment="Center"
-                                           FontSize="12"
-                                           Text="{Binding PostDate}" TextColor="Gray" />
-                                </StackLayout>-->
-
-                                <Grid Grid.Row="0">
-
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="{Binding  Name}"
+                                <!--<forms:SvgCachedImage Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" HeightRequest="80"
+                                                  Source="resource://ParPorApp.Resources.ic_calendar.svg">
+                            </forms:SvgCachedImage>-->
+                                <Frame IsClippedToBounds="True"
+                                       Grid.Row="0" Grid.Column="0" Grid.RowSpan="3"
+                                       HasShadow="False">
+                                    <Frame.Padding>
+                                        <OnPlatform x:TypeArguments="Thickness"
+                                                    Android="0" iOS="0" />
+                                    </Frame.Padding>
+                                    <Frame.OutlineColor>
+                                        <OnPlatform x:TypeArguments="Color"
+                                                    Android="#e4e4e4"
+                                                    iOS="#e4e4e4" />
+                                    </Frame.OutlineColor>
+                                    <StackLayout BackgroundColor="Transparent">
+                                        <Label Text="{Binding EventDate, StringFormat='{0:MMM}'}" HeightRequest="20"
+                                               VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                                               BackgroundColor="#478afa" TextColor="White"
+                                               Style="{StaticResource ProfileTagLabel}" />
+                                        <Label Text="{Binding EventDate, StringFormat='{0:dd}'}" TextColor="Black"
                                                Style="{StaticResource ProfileNameLabel}"
-                                               HorizontalOptions="Start" VerticalOptions="Start"/>
-
-                                    </StackLayout>
-                                </Grid>
-                                <Grid Grid.Row="1">
-
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="{Binding  Description}"
+                                               FontSize="28" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                                        <Label Text="{Binding EventDate, StringFormat='{0:ddd}'}" TextColor="Black"
+                                               VerticalTextAlignment="Center"
                                                Style="{StaticResource ProfileTagLabel}"
-                                               HorizontalOptions="Start" VerticalOptions="Start"/>
+                                               HorizontalTextAlignment="Center" />
                                     </StackLayout>
+                                </Frame>
+                                <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" BackgroundColor="#E8EBED"
+                                      HeightRequest="20">
+                                    <!--<Label Text="{Binding EventIcon, Source={Binding EventType}}" />-->
+                                    <Label Text="{Binding  EventType, StringFormat=' Upcoming: {0}'}"
+                                           Style="{StaticResource ProfileTagLabel}"
+                                           HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
                                 </Grid>
-                                <Grid Grid.Row="2" Grid.Column="0">
-
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Start Date"
-                                               Style="{StaticResource ProfileTagLabel}"
-                                               HorizontalOptions="Start" VerticalOptions="Start"/>
-                                    </StackLayout>
+                                <!--<BoxView HeightRequest="0.2" Grid.Row="1" HorizontalOptions="FillAndExpand"
+                                         Grid.Column="1" Grid.ColumnSpan="3" BackgroundColor="#E8EBED" />-->
+                                <Grid Grid.Row="1" Grid.Column="1">
+                                    <Label Text="{Binding  TeamName}"
+                                           Font="Bold" HorizontalTextAlignment="Center" />
                                 </Grid>
-                                <Grid Grid.Row="3" Grid.Column="0">
-
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="{Binding  StartDateTime, StringFormat='\{0:ddd, MMM d \\a\\t h:mm tt\}'}"
-                                               Font="Bold, 16"
-                                               HorizontalOptions="Start" VerticalOptions="Start"/>
-                                    </StackLayout>
+                                <Grid Grid.Row="1" Grid.Column="2">
+                                    <Label Text="{Binding EventDate, StringFormat='{0:h:mm tt}'}"
+                                           Font="Bold" HorizontalTextAlignment="Center"
+                                           Style="{StaticResource ProfileNameLabel}" />
                                 </Grid>
-                                <Grid Grid.Row="2" Grid.Column="1">
-
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="End Date"
-                                               Style="{StaticResource ProfileTagLabel}"
-                                               HorizontalOptions="Start" VerticalOptions="Start"/>
-                                    </StackLayout>
+                                <Grid Grid.Row="1" Grid.Column="3">
+                                    <Label Text="{Binding  OpponentTeamName}" HorizontalTextAlignment="Center"
+                                           Font="Bold" />
                                 </Grid>
-
-                                <Grid Grid.Row="3" Grid.Column="1">
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="{Binding EndDateTime, StringFormat='{}{0:hh\\:mm}'}" Font="Bold, 16"/>
-                                    </StackLayout>
-                                </Grid>
-
-                                <!--<Grid Grid.Row="3" BackgroundColor="Transparent" Padding="5">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
-                                    </Grid.RowDefinitions>
-
-                                    <Image Grid.Row="0" Grid.Column="0" HeightRequest="200" Source="{Binding GameIcon}"
-                                           Aspect="AspectFill" />
-                                </Grid>-->
-
-
                             </Grid>
                         </StackLayout>
                     </Frame>
@@ -148,23 +114,4 @@
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
-    <!--<StackLayout Padding="20">
-        <ListView ItemsSource="{Binding Event}"
-                  HasUnevenRows="True">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Padding="0,10">
-                            <Label Text="{Binding Description}"
-                                   FontSize="24"
-                                   TextColor="RoyalBlue" />
-                            <Label Text="{Binding StartDateTime}" />
-                            <Label Text="{Binding EndDateTime}" />
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>-->
-
 </ContentPage>

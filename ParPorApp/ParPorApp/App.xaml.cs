@@ -3,6 +3,8 @@ using ParPorApp.Helpers;
 using ParPorApp.ViewModels;
 using Xamarin.Forms;
 using System;
+using System.Globalization;
+
 //using Com.OneSignal;
 
 namespace ParPorApp
@@ -27,8 +29,8 @@ namespace ParPorApp
                     var loginViewModel = new LoginViewModel();
                     loginViewModel.LoginCommand.Execute(null);
                 }
-                MainPage = new NavigationPage(new SocialPage()){
-                    BarBackgroundColor = Color.Accent
+                MainPage = new NavigationPage(new MainPage()){
+                    //BarBackgroundColor = Color.Accent
                 };
             }
             else if (!string.IsNullOrEmpty(Settings.Username)

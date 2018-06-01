@@ -11,38 +11,44 @@ using Xamarin.Forms;
 
 namespace ParPorApp.ViewModels
 {
-    class AddEventViewModel
+    internal class AddEventViewModel
     {
-		ApiServices _apiServices = new ApiServices();
-	    public string Description { get; set; }
-	    public string EndDateTime { get; set; }
-	    public string GroupId { get; set; }
-	    public string Id { get; set; }
-	    public string LocationId { get; set; }
-	    public string StartDateTime { get; set; }
-	    public string Name { get; set; }
-
+        private readonly ApiServices _apiServices = new ApiServices();
+        public string Note { get; set; }
+        public string LocationAddress { get; set; }
+        public string GroupId { get; set; }
+        public string Id { get; set; }
+        public string PlaceId { get; set; }
+        public DateTime EventDate { get; set; }
+        public string EventType { get; set; }
+        public string EventIcon { get; set; }
+        public string LocationLatitude { get; set; }
+        public string LocationLongitude { get; set; }
+        public string TeamName { get; set; }
+        public string OpponentTeamName { get; set; }
         public ICommand AddEventCommand
-	    {
-		    get
-		    {
-				return new Command(async () =>
-				{
-					
-						var events = new Event()
-						{
-
-							Name = Name,
-                            Description = Description,
-							StartDateTime = StartDateTime,
-							EndDateTime = EndDateTime,
-                            GroupId = GroupId
-						};
-						await _apiServices.PostEventAsync(events, Settings.AccessToken);
-					
-				});
-		    }
-	    }
-
+        {
+            get
+            {
+                return new Command(async () =>
+                {
+                    var events = new Event
+                    {
+                        EventType = EventType,
+                        Note = Note,
+                        EventDate = EventDate,
+                        GroupId = GroupId,
+                        PlaceId = PlaceId,
+                        EventIcon = EventIcon,
+                        LocationAddress = LocationAddress,
+                        LocationLatitude = LocationLatitude,
+                        LocationLongitude = LocationLongitude,
+                        TeamName = TeamName,
+                        OpponentTeamName = OpponentTeamName
+                    };
+                    await _apiServices.PostEventAsync(events, Settings.AccessToken);
+                });
+            }
+        }
     }
 }

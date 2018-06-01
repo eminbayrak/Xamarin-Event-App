@@ -14,9 +14,18 @@ namespace ParPorApp.Views
     {
         public SocialPage()
         {
+            
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
+//            if (Device.OS == TargetPlatform.Android)
+//                NavigationPage.SetTitleIcon(this, "ic_face.png");
+            // Setting Color of selected Text and Icon
+            BarTextColor = Color.FromHex("#43b05c"); 
+            FixedMode = true;
             
+            //Dark theme for bottom navigation bar
+            //BarTheme = BottomBarPage.BarThemeTypes.DarkWithAlpha;
+
             //Children.Add(new NewsfeedPage() { Title="Newsfeed", Icon = "ic_home.png" });
             //Children.Add(new GroupPage() { Title="Groups", Icon="ic_groups.png"});
             //Children.Add(new EventsPage() { Title = "Events", Icon = "ic_event_black.png"});
@@ -26,5 +35,7 @@ namespace ParPorApp.Views
 
             //NavigationPage.SetHasNavigationBar(this, false);
         }
+
+        
     }
 }

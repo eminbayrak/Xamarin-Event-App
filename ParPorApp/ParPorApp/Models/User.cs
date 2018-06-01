@@ -21,9 +21,6 @@ namespace ParPorApp.Models
         [JsonProperty("LoginProvider")] public string LoginProvider { get; set; }
 
         [JsonProperty("Avatar")] public string Avatar { get; set; }
-        public string FullName
-        {
-            get { return this.FirstName + " " + this.LastName; }
-        }
+        public string FullName => this.FirstName + " " + this.LastName;
     }
 }
