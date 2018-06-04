@@ -96,7 +96,7 @@
     <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="2.0.2" />
     <PackageReference Include="Xam.Plugins.Notifier" Version="3.0.0-beta14" />
     <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
-    <PackageReference Include="Xamarin.FFImageLoading" Version="2.3.6" />
+    <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.1.823" />
     <PackageReference Include="Xamarin.FFImageLoading.Svg" Version="2.3.6" />
     <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.3.6" />
     <PackageReference Include="Xamarin.Forms" Version="3.0.0.427558-pre4" />

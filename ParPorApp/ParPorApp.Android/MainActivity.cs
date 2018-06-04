@@ -36,7 +36,7 @@ namespace ParPorApp.Droid
             this.Window.AddFlags(WindowManagerFlags.TranslucentStatus);
             Forms.Init(this, bundle);
             LocalNotificationsImplementation.NotificationIconId = Resource.Drawable.ic_launcher;
-            CachedImageRenderer.Init(true);
+            //CachedImageRenderer.Init(true);
             AnimationViewRenderer.Init();
             var ignore = typeof(SvgCachedImage);
             //Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
