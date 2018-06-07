@@ -12,6 +12,7 @@ namespace ParPorApp.Views
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             Title = "Welcome!";
+            SignInFunction();
         }
 
         private async void ButtonLogin_OnClicked(object sender, EventArgs e)
@@ -19,5 +20,21 @@ namespace ParPorApp.Views
             await Navigation.PushAsync(new LoginPage());
 
         }
+
+        private async void ButtonRegister_OnClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new RegisterPage());
+
+        }
+
+        void SignInFunction()
+        {
+            signInLbl.GestureRecognizers.Add(new TapGestureRecognizer()
+            {
+                Command = new Command(() => { Application.Current.MainPage = new LoginPage(); })
+            });
+        }
+
+       
     }
 }

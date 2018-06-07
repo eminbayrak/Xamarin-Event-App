@@ -50,9 +50,14 @@ namespace ParPorApp.Services
 
             if (response.IsSuccessStatusCode)
             {
+                ToastConfig toastConfig = new ToastConfig("Your account has been registered :)");
+                toastConfig.SetDuration(4000);
+                toastConfig.SetBackgroundColor(Color.FromHex("#43b05c"));
+                UserDialogs.Instance.Toast(toastConfig);
                 return true;
             }
 
+            await UserDialogs.Instance.AlertAsync("Something went wrong, please try again", "Uh oh!", "Ok");
             return false;
         }
 

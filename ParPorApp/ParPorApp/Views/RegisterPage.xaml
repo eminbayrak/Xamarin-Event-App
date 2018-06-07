@@ -3,8 +3,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:ParPorApp.ViewModels;assembly=ParPorApp"
+             xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              x:Class="ParPorApp.Views.RegisterPage"
-             NavigationPage.HasBackButton="False"
+             BackgroundColor="#F1836E"
              NavigationPage.HasNavigationBar="False">
 
     <ContentPage.BindingContext>
@@ -12,28 +13,31 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <ScrollView>
-        <StackLayout BackgroundColor="LightSlateGray">
-            <Image x:Name="LogoIcon" Source="logo.png" Margin="20,40,20,40" />
-            <StackLayout.Padding>
-                <OnIdiom x:TypeArguments="Thickness">
-                    <OnIdiom.Phone>
-                        40,0,40,140
-                    </OnIdiom.Phone>
-                    <OnIdiom.Tablet>
-                        140,150,140,0
-                    </OnIdiom.Tablet>
-                </OnIdiom>
-            </StackLayout.Padding>
-            <Entry Text="{Binding Email}" Placeholder="Email"></Entry>
-            <Entry Text="{Binding Password}" Placeholder="Password" IsPassword="True"/>
-            <Entry Text="{Binding ConfirmPassword}" Placeholder="ConfirmPassword" IsPassword="True"/>
+            <StackLayout Margin="15,35">
+                <forms:SvgCachedImage WidthRequest="22" HeightRequest="22" HorizontalOptions="Start"
+                                      Source="resource://ParPorApp.Resources.ic_back.svg">
+                    <forms:SvgCachedImage.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ReturnWelcome_OnClicked" />
+                    </forms:SvgCachedImage.GestureRecognizers>
+                </forms:SvgCachedImage>
+                <StackLayout Padding="30">
+                    <BoxView HeightRequest="10" BackgroundColor="Transparent" />
+                    <Label Text="Howdy!" FontSize="30" TextColor="White" />
+                    <Entry Text="{Binding Email}" TextColor="White" Placeholder="Email" />
+                    <Entry Text="{Binding Password}" TextColor="White" Placeholder="Password" IsPassword="True" />
+                    <Entry Text="{Binding ConfirmPassword}" TextColor="White" Placeholder="Confirm password"
+                           IsPassword="True" />
 
-            <Button Command="{Binding RegisterCommand}" BorderWidth="2" BorderRadius="5" BorderColor="#9c27cd"
-                    BackgroundColor="#9c27cd" TextColor="White" Text="Sign up">
-            </Button>
+                    <Button Command="{Binding RegisterCommand}" BackgroundColor="White" TextColor="#F1836E"
+                            FontSize="20"
+                            Text="Sign up">
+                    </Button>
 
-            <Button Text="Go to Login" BackgroundColor="#F1836E" TextColor="White" Clicked="Button_OnClicked"></Button>
-        </StackLayout>
+                    <!--<Button Text="Go to Login" BackgroundColor="White" TextColor="#F1836E" FontSize="20"
+                        Clicked="Button_OnClicked">
+                </Button>-->
+                </StackLayout>
+            </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

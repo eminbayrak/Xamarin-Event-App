@@ -106,9 +106,6 @@
                             <RowDefinition Height="50"/>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="40"/>
-                            <RowDefinition Height="40"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <Image x:Name="LogoIcon" Source="ic_logo.png" HeightRequest="110" WidthRequest="110"/>
                         <Entry x:Name="EmailEntry" Grid.Row="1" Placeholder="Email" PlaceholderColor="#bababa" Text="{Binding Username}" FontSize="16" Keyboard="Email" />
@@ -129,7 +126,7 @@
                                 <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}" />
                             </Label.GestureRecognizers>
                         </Label>
-                        <Grid Grid.Row="5">
+                        <!--<Grid Grid.Row="5">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
@@ -142,7 +139,7 @@
                         <StackLayout Orientation="Horizontal" Grid.Row="6" HorizontalOptions="Center">
                             <Label FontFamily="{StaticResource AwesomeFont}" Text="{x:Static constant:FontAwesomeConstant.Google}" TextColor="#43b05c" FontSize="30" />
                             <Label Text="Log in with Google" TextColor="#43b05c" VerticalOptions="Center"/>
-                        </StackLayout>
+                        </StackLayout>-->
                     </Grid>
                     <!--<StackLayout Grid.Row="2" BackgroundColor="#FFFFFF">
                         <Label HeightRequest="1" BackgroundColor="#E3E3E3" />

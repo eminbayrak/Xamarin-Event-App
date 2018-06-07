@@ -28,5 +28,11 @@ namespace ParPorApp.Views
             await Navigation.PushAsync(new LoginPage());
 
         }
+
+        private async void ReturnWelcome_OnClicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+
+        }
     }
 }

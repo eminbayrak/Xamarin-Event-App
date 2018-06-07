@@ -27,6 +27,7 @@
 
   <ItemGroup>
     <None Remove="Resources\date.svg" />
+    <None Remove="Resources\ic_back.svg" />
     <None Remove="Resources\ic_calendar.svg" />
     <None Remove="Resources\ic_clipboard.svg" />
     <None Remove="Resources\ic_close.svg" />
@@ -44,6 +45,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\date.svg" />
+    <EmbeddedResource Include="Resources\ic_back.svg" />
     <EmbeddedResource Include="Resources\ic_calendar.svg" />
     <EmbeddedResource Include="Resources\ic_close.svg" />
     <EmbeddedResource Include="Resources\ic_coachhat.svg" />
