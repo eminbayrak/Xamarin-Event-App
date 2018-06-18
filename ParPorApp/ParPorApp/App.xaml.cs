@@ -33,7 +33,7 @@ namespace ParPorApp
                     //BarBackgroundColor = Color.Accent
                 };
             }
-            else if (!string.IsNullOrEmpty(Settings.Username)
+            else if (!string.IsNullOrEmpty(Settings.Email)
                   && !string.IsNullOrEmpty(Settings.Password))
             {
                 MainPage = new NavigationPage(new WelcomePage());

@@ -23,6 +23,8 @@
                 <StackLayout Padding="30">
                     <BoxView HeightRequest="10" BackgroundColor="Transparent" />
                     <Label Text="Howdy!" FontSize="30" TextColor="White" />
+                    <Entry Text="{Binding FirstName}" TextColor="White" Placeholder="First name" />
+                    <Entry Text="{Binding LastName}" TextColor="White" Placeholder="Last name" />
                     <Entry Text="{Binding Email}" TextColor="White" Placeholder="Email" />
                     <Entry Text="{Binding Password}" TextColor="White" Placeholder="Password" IsPassword="True" />
                     <Entry Text="{Binding ConfirmPassword}" TextColor="White" Placeholder="Confirm password"

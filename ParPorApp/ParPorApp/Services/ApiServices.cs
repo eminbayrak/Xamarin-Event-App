@@ -27,15 +27,17 @@ namespace ParPorApp.Services
 {
     internal class ApiServices
     {
+        // Register account
         public async Task<bool> RegisterUserAsync(
-            string email, string password, string confirmPassword)
+            string email, string password, string confirmPassword, string firstName, string lastName)
         {
             var client = new HttpClient();
-
-            var model = new RegisterBindingModel
+            var model = new Register
             {
                 Email = email,
                 Password = password,
+                FirstName = firstName,
+                LastName = lastName,
                 ConfirmPassword = confirmPassword
             };
 
@@ -50,12 +52,17 @@ namespace ParPorApp.Services
 
             if (response.IsSuccessStatusCode)
             {
-                ToastConfig toastConfig = new ToastConfig("Your account has been registered :)");
-                toastConfig.SetDuration(4000);
-                toastConfig.SetBackgroundColor(Color.FromHex("#43b05c"));
-                UserDialogs.Instance.Toast(toastConfig);
+                using (UserDialogs.Instance.Loading("Hang on...", null, null, true, MaskType.Black))
+                {
+                    ToastConfig toastConfig = new ToastConfig("Your account has been registered :)");
+                    toastConfig.SetDuration(4000);
+                    toastConfig.SetBackgroundColor(Color.FromHex("#43b05c"));
+                    UserDialogs.Instance.Toast(toastConfig);
+                }
                 return true;
             }
+
+            Console.WriteLine(response);
 
             await UserDialogs.Instance.AlertAsync("Something went wrong, please try again", "Uh oh!", "Ok");
             return false;
@@ -89,11 +96,7 @@ namespace ParPorApp.Services
             var accessToken = jwtDynamic.Value<string>("access_token");
 
             Settings.AccessTokenExpirationDate = accessTokenExpiration;
-
-            Debug.WriteLine(accessTokenExpiration);
-
-            Debug.WriteLine(content);
-
+            
             return accessToken;
         }
 
@@ -103,12 +106,8 @@ namespace ParPorApp.Services
             var client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
                 "Bearer", accessToken);
-
             var json = await client.GetStringAsync(Constants.BaseApiAddress + "api/groups");
-
             var group = JsonConvert.DeserializeObject<List<Group>>(json);
-
-
             return group;
         }
 

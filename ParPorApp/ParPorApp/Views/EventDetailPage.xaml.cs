@@ -75,7 +75,5 @@ namespace ParPorApp.Views
 	    {
 	        await Navigation.PushAsync(new AddCommentPage());
 	    }
-
-        
-    }
+	}
 }

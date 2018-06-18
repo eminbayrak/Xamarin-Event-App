@@ -13,7 +13,7 @@ namespace ParPorApp.ViewModels
     public class LoginViewModel : Page
     {
         [Required]
-        public string Username { get; set; }
+        public string Email { get; set; }
         [Required]
         public string Password { get; set; }
 
@@ -23,13 +23,13 @@ namespace ParPorApp.ViewModels
             {
                 return new Command(async () =>
                 {
-                    var accesstoken = await ApiServices.LoginAsync(Username, Password);
+                    var accesstoken = await ApiServices.LoginAsync(Email, Password);
 	                
                     if (!string.IsNullOrEmpty(accesstoken))
                     {
 	                    using (UserDialogs.Instance.Loading("You are in...", null, null, true, MaskType.Clear))
 	                    {
-		                    Settings.Username = Username;
+		                    Settings.Email = Email;
 		                    Settings.Password = Password;
 		                    Settings.AccessToken = accesstoken;
 		                    await Application.Current.MainPage.Navigation.PushModalAsync(new MainPage(), true);
@@ -56,8 +56,8 @@ namespace ParPorApp.ViewModels
 
         public LoginViewModel()
         {
-	        if (string.IsNullOrEmpty(Settings.Username)) return;
-	        Username = Settings.Username;
+	        if (string.IsNullOrEmpty(Settings.Email)) return;
+	        Email = Settings.Email;
 	        Settings.AccessToken = string.Empty;
 
         }
