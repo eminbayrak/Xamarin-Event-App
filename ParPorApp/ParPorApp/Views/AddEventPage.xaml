@@ -30,6 +30,7 @@
                 <Label x:Name="locLongitude" Text="{Binding LocationLongitude, Mode=TwoWay}" IsVisible="False" />
                 <Label x:Name="locPlaceId" Text="{Binding PlaceId, Mode=TwoWay}" IsVisible="False" />
                 
+                
             </StackLayout>
             <StackLayout>
                 <Label Text="Event type:" FontAttributes="Bold" />
@@ -57,7 +58,7 @@
                     <Label Text="Date:" FontAttributes="Bold" Grid.Row="0" Grid.Column="1" />
                     <TimePicker x:Name="EventTime" Grid.Row="1" Grid.Column="0" />
                     <DatePicker x:Name="EventDate" DateSelected="DatePicker_DateSelected" Grid.Column="1" Grid.Row="1"
-                                MinimumDate="{x:Static system:DateTime.UtcNow}" />
+                                MinimumDate="{x:Static system:DateTime.Today, system:TimeZone.CurrentTimeZone}" />
                     <Label x:Name="SelectedTime" Grid.Row="2" Grid.Column="0" HorizontalOptions="Center"
                            Text="{Binding EventTime, Mode=TwoWay}" IsVisible="False"/>
                     <Label x:Name="SelectedDate" Grid.Row="2" Grid.Column="1"

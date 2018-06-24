@@ -43,7 +43,6 @@ namespace ParPorApp.Views
 
             try
             {
-
                 CrossExternalMaps.Current.NavigateTo("", latitude, longitude);
             }
             catch (Exception ex)

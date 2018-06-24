@@ -5,7 +5,7 @@
              xmlns:viewModels="clr-namespace:ParPorApp.ViewModels;assembly=ParPorApp"
              xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              x:Class="ParPorApp.Views.RegisterPage"
-             BackgroundColor="#F1836E"
+             BackgroundColor="#d5939b"
              NavigationPage.HasNavigationBar="False">
 
     <ContentPage.BindingContext>
@@ -22,17 +22,17 @@
                 </forms:SvgCachedImage>
                 <StackLayout Padding="30">
                     <BoxView HeightRequest="10" BackgroundColor="Transparent" />
-                    <Label Text="Howdy!" FontSize="30" TextColor="White" />
-                    <Entry Text="{Binding FirstName}" TextColor="White" Placeholder="First name" />
-                    <Entry Text="{Binding LastName}" TextColor="White" Placeholder="Last name" />
-                    <Entry Text="{Binding Email}" TextColor="White" Placeholder="Email" />
-                    <Entry Text="{Binding Password}" TextColor="White" Placeholder="Password" IsPassword="True" />
+                    <Label Text="Howdy!" FontSize="30" />
+                    <Label Text="Let's get you an account" FontSize="16" />
+                    <Entry Text="{Binding FirstName}" Placeholder="First name" />
+                    <Entry Text="{Binding LastName}" Placeholder="Last name" />
+                    <Entry Text="{Binding Email}" Placeholder="Email" />
+                    <Entry Text="{Binding Password}" Placeholder="Password" IsPassword="True" />
                     <Entry Text="{Binding ConfirmPassword}" TextColor="White" Placeholder="Confirm password"
                            IsPassword="True" />
-
-                    <Button Command="{Binding RegisterCommand}" BackgroundColor="White" TextColor="#F1836E"
+                    <Button Command="{Binding RegisterCommand}" BackgroundColor="#8c2f39"
                             FontSize="20"
-                            Text="Sign up">
+                            Text="Register">
                     </Button>
 
                     <!--<Button Text="Go to Login" BackgroundColor="White" TextColor="#F1836E" FontSize="20"

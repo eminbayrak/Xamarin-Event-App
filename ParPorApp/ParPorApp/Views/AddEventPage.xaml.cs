@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Threading.Tasks;
 using DurianCode.PlacesSearchBar;
 using Plugin.LocalNotifications;
+using Plugin.Notifications;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

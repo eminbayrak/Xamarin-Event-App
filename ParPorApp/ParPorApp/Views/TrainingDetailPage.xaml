@@ -47,7 +47,7 @@
                        TextColor="White" FontAttributes="Bold" FontSize="18" />
                 <Label x:Name="eventTime" Text="{Binding EventDate, StringFormat='{0:h:mm tt}'}" Grid.Column="1"
                        Grid.Row="1" HorizontalOptions="Center"
-                       VerticalOptions="Center" TextColor="White" FontSize="20" FontAttributes="Bold" />
+                       VerticalOptions="Center" TextColor="White" FontSize="Large" FontAttributes="Bold" />
                 <!--<Label Text="{Binding OpponentTeamName}" Grid.Row="1" Grid.Column="2" HorizontalTextAlignment="Center"
                        VerticalTextAlignment="Center" TextColor="White" />-->
             </Grid>
@@ -124,11 +124,10 @@
                     </forms:SvgCachedImage.GestureRecognizers>
                 </forms:SvgCachedImage>
                 <Label x:Name="eventDate" Grid.Row="0" Grid.Column="1" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Start"
-                       FontSize="18" FontAttributes="Bold"
+                       FontAttributes="Bold"
                        Text="{Binding EventDate, StringFormat='{0:dddd - MMMM dd, yyyy}'}" />
                 <Label Grid.Row="2" Grid.Column="1"
                        FontAttributes="Bold"
-                       FontSize="16"
                        HorizontalOptions="StartAndExpand"
                        Text="{Binding LocationAddress}" />
                 <forms:SvgCachedImage Grid.Row="4" Grid.Column="0" WidthRequest="18" HeightRequest="18"
@@ -136,7 +135,7 @@
                                       Source="resource://ParPorApp.Resources.ic_coachhat.svg" />
                 <ScrollView Grid.Row="4" Grid.Column="1">
                     <Label Text="{Binding Note}" FontAttributes="Bold"
-                           FontSize="16" VerticalTextAlignment="Start"
+                           VerticalTextAlignment="Start"
                            HorizontalOptions="StartAndExpand" />
                 </ScrollView>
             </Grid>

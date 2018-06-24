@@ -74,14 +74,15 @@ AbsoluteLayout.SetLayoutBounds(stack, new Rectangle(1f, 1f, AbsoluteLayout.AutoS
             if (item != null && item.EventType == "Training")
             {
                 await Navigation.PushAsync(new TrainingDetailPage(item));
-                //((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.FromHex("#b1cfff");
+                
+                ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.FromHex("#b1cfff");
                 //((NavigationPage)Application.Current.MainPage).BarTextColor = Color.OrangeRed;
             }
 
             //Game detail page
             if (item != null && item.EventType == "Game")
             {
-                await Navigation.PushAsync(new EventDetailPage(item));
+                await Navigation.PushModalAsync(new EventDetailPage(item));
                 //await DisplayAlert("Games", "you tabbed on a game", "Ok");
             }
             eventListView.SelectedItem = null;
