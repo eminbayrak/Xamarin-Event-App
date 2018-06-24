@@ -26,14 +26,12 @@
 
 
             <!--  profile image  -->
-            <abstractions:CircleImage Grid.Row="0"
+            <Image Grid.Row="0"
                                       HeightRequest="80"
                                       HorizontalOptions="Center"
                                       Source="{Binding ImageUrl}"
                                       TranslationY="40"
                                       VerticalOptions="End"
-                                      BorderColor="DimGray"
-                                      BorderThickness="1"
                                       WidthRequest="80" />
 
             <!--  Info Section  -->

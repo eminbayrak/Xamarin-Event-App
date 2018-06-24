@@ -15,12 +15,10 @@
             <DataTemplate>
                 <ViewCell>
                     <StackLayout Orientation="Horizontal" Padding="20">
-                        <abstractions:CircleImage
+                        <Image
                             Source="{Binding ImageUrl}"
                             WidthRequest="55"
                             HeightRequest="55"
-                            BorderColor="#C0C0C0"
-                            BorderThickness="2"
                             Aspect="AspectFill"/>
                         <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="Center">
                             <Label Text="{Binding Name}" FontSize="18" FontAttributes="Bold"/>

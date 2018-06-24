@@ -31,11 +31,9 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout >
-                                <abstractions:CircleImage HeightRequest="50"
+                                <Image HeightRequest="50"
                                                               HorizontalOptions="Start"
                                                               Source="{Binding Avatar}"
-                                                              BorderColor="White"
-                                                              BorderThickness="2"
                                                               WidthRequest="50" />
                                 <Label FontAttributes="Bold" Text="{Binding FullName}" TextColor="#000000" Style="{StaticResource BoldLabel}" FontSize="18" />
                                 <Label Text="{Binding Email}" TextColor="#6d747a" FontSize="14"/>
