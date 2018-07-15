@@ -23,7 +23,7 @@ namespace ParPorApp.Views
 
         private async void ButtonRegister_OnClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new RegisterPage());
+            await Navigation.PushAsync(new AccountChoicePage());
 
         }
 

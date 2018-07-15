@@ -1,41 +1,68 @@
 ﻿using System;
-using System.Globalization;
 using System.Threading.Tasks;
-using System.Windows.Input;
 using Acr.UserDialogs;
-using Android;
-using Android.App;
-using Android.App.Usage;
-using Android.Widget;
-using ParPorApp.Helpers;
 using ParPorApp.Models;
-using ParPorApp.ViewModels;
 using Plugin.ExternalMaps;
-using Plugin.Geolocator;
-using Plugin.Geolocator.Abstractions;
 using Plugin.LocalNotifications;
+using Plugin.Notifications;
 using Plugin.Share;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace ParPorApp.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class EventDetailPage : ContentPage
 	{
-	    public EventDetailPage (Event item)
+        public bool IsRunning { get; private set; }
+        
+
+        public EventDetailPage (Event item)
 		{
-            InitializeComponent ();
+            InitializeComponent ();           
             BindingContext = item ?? throw new ArgumentNullException();
-		    
-		    //var eTime = item.EventDate; // get EventDate in event model
-		    //double diff = (eTime - DateTime.Now).TotalHours; // subtract event's date with todays date
-		    //var evDate = DateTime.FromOADate(diff); // convert double to DateTime
-		    //var title = item.EventType; // assign EventType as the title 
-		    //CrossLocalNotifications.Current.Show(title, title + " will start in 15 mins!", 1, evDate.AddMinutes(-15));
+            IsRunning = !IsRunning;
+            var list = CrossNotifications.Current.GetScheduledNotifications();
+            Console.WriteLine(list);
+            //var eTime = item.EventDate; // get EventDate in event model
+            //double diff = (eTime - DateTime.Now).TotalHours; // subtract event's date with todays date
+            //var evDate = DateTime.FromOADate(diff); // convert double to DateTime
+            //var title = item.EventType; // assign EventType as the title 
+            //CrossLocalNotifications.Current.Show(title, title + " will start in 15 mins!", 1, evDate.AddMinutes(-15));
         }
 
+        private async void Notification_onClickedAsync(object sender, EventArgs e)
+        {
+            var notId = Convert.ToInt16(notificationId.Text);
+            var eDate = Convert.ToDateTime(eventTime.Text);
+            
+            try
+            {
+                if (IsRunning)
+                {
+                    //CrossLocalNotifications.Current.Show(eventType.Text, eventType + " will start in 15 mins!", notId, eDate.AddMinutes(-15));
+                    UserDialogs.Instance.Toast("You will be notified for this event");
+                    await CrossNotifications.Current.Send(new Notification
+                    {
+                        Id = notId,
+                        Title = gameVS.Text + " - " + eventTime.Text,
+                        Message = eventType.Text + " will start in 15 mins!",
+                        Date = eDate,
+                        Vibrate = true                        
+                    });
+                }
+                else
+                {                    
+                    await CrossNotifications.Current.Cancel(notId);
+                    UserDialogs.Instance.Toast("It's removed");
+                }
+            }
+            catch (Exception ex)
+            {
+                UserDialogs.Instance.Toast(ex.Message);
+            }
 
+        }
         private void TakeMeThere_Clicked(object sender, EventArgs e)
         {
             var latitude = Convert.ToDouble(locationLatitude.Text);

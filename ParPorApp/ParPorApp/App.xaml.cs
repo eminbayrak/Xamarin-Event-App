@@ -16,7 +16,11 @@ namespace ParPorApp
             InitializeComponent();
             SetMainPage();
             //OneSignal.Current.StartInit("9fde7b73-f47b-459e-aae9-39756cccebf1").EndInit();
+            //Background color
+            MainPage.SetValue(NavigationPage.BarBackgroundColorProperty, Color.FromHex("#43b05c"));
 
+            //Title color
+            //MainPage.SetValue(NavigationPage.BarTextColorProperty, Color.FromHex("#43b05c"));
 
         }
 

@@ -2,10 +2,8 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewModels="clr-namespace:ParPorApp.ViewModels;assembly=ParPorApp"
              xmlns:views="clr-namespace:ParPorApp.Views;assembly=ParPorApp"
              xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
-             xmlns:constant="clr-namespace:ParPorApp.Constant;assembly=ParPorApp"
              x:Class="ParPorApp.Views.EventDetailPage"
              BackgroundColor="#43b05c"
              Title="Event Detail">
@@ -14,18 +12,30 @@
         <views:EventsPage />
     </ContentPage.BindingContext>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Icon="ic_share.png" Clicked="Share_onClicked" Priority="0" />
-    </ContentPage.ToolbarItems>
+        <ToolbarItem Icon="ic_share.png" Clicked="Share_onClicked" Priority="0" />        
+        <ToolbarItem 
+         Priority="1"
+         Clicked="Notification_onClickedAsync"
+         x:Name="NotificationOn">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource"
+                iOS="ic_notification_off.png"
+                Android="ic_notification_off.png" />
+            </ToolbarItem.Icon>
+        </ToolbarItem>
 
-    <ContentPage.Padding>
-        <OnPlatform x:TypeArguments="Thickness">
-            <OnPlatform.Platforms>
-                <On Platform="iOS" Value="0, 20, 0, 0" />
-                <On Platform="Android" Value="0, 20, 0, 0" />
-                <On Platform="UWP" Value="0, 0, 0, 0" />
-            </OnPlatform.Platforms>
-        </OnPlatform>
-    </ContentPage.Padding>
+        <ToolbarItem 
+             Priority="1"
+             Clicked="Notification_onClickedAsync"
+             x:Name="NotificationOff">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource"
+                iOS="ic_notification_on.png"
+                Android="ic_notification_on.png" />
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
     <ContentPage.Content>
         <StackLayout Padding="0" BackgroundColor="#FFFFFF">
             <Grid Padding="30" ColumnSpacing="20" Margin="0,-20" BackgroundColor="#43b05c">
@@ -38,6 +48,7 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
+                
                 <Label Text="{Binding TeamName}" Grid.Column="0" Grid.Row="1" HorizontalTextAlignment="Center"
                        VerticalTextAlignment="Center" TextColor="White" />
                 <forms:SvgCachedImage Grid.Column="0" Grid.Row="0" HorizontalOptions="Center" HeightRequest="50"
@@ -54,8 +65,9 @@
                        VerticalOptions="Center" TextColor="White" FontAttributes="Bold" />
                 <Label Text="{Binding OpponentTeamName}" Grid.Row="1" Grid.Column="2" HorizontalTextAlignment="Center"
                        VerticalTextAlignment="Center" TextColor="White" />
+                <Label x:Name="gameVS" Text="{Binding GameVS}" IsVisible="False"/>
             </Grid>
-            <Label x:Name="eventId" Text="{Binding Id, Mode=TwoWay}" IsVisible="False" />
+            
             <!--<Grid Grid.Row="4" Grid.Column="0" BackgroundColor="#FFFFFF" Padding="30">
                     
                     <Grid.RowDefinitions>
@@ -126,6 +138,7 @@
                         <TapGestureRecognizer Tapped="Weather_OnClicked" />
                     </forms:SvgCachedImage.GestureRecognizers>
                 </forms:SvgCachedImage>
+                <Label x:Name="notificationId" Text="{Binding NotificationId}" IsVisible="False"/>
                 <Label x:Name="eventDate" Grid.Row="0" Grid.Column="1" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Start"
                        FontAttributes="Bold"
                        Text="{Binding EventDate, StringFormat='{0:dddd - MMMM dd, yyyy}'}" />

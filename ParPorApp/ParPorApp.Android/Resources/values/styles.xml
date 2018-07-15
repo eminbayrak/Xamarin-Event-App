@@ -42,7 +42,7 @@
   <!--Changing navigationbar icon color-->
   <style name="DrawerArrowStyle" parent="@style/Widget.AppCompat.DrawerArrowToggle">
     <item name="spinBars">true</item>
-    <item name="color">#43b05c</item>
+    <item name="color">#ffffff</item>
   </style>
 
   <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">

@@ -93,9 +93,6 @@
     <PackageReference Include="Newtonsoft.Json">
       <Version>11.0.2</Version>
     </PackageReference>
-    <PackageReference Include="PCLCrypto">
-      <Version>2.0.147</Version>
-    </PackageReference>
     <PackageReference Include="Plugin.ProXamTabs">
       <Version>1.5.7</Version>
     </PackageReference>
@@ -141,20 +138,14 @@
     <PackageReference Include="Validation">
       <Version>2.4.18</Version>
     </PackageReference>
-    <PackageReference Include="Xam.FormsPlugin.Iconize">
-      <Version>1.0.10</Version>
-    </PackageReference>
     <PackageReference Include="Xam.Plugin.Connectivity">
-      <Version>3.1.1</Version>
+      <Version>4.0.0.186-beta</Version>
     </PackageReference>
     <PackageReference Include="Xam.Plugin.ExternalMaps">
       <Version>4.0.1</Version>
     </PackageReference>
     <PackageReference Include="Xam.Plugin.Geolocator">
       <Version>4.5.0.6</Version>
-    </PackageReference>
-    <PackageReference Include="Xam.Plugin.Iconize">
-      <Version>1.0.10</Version>
     </PackageReference>
     <PackageReference Include="Xam.Plugin.Media">
       <Version>4.0.1.1</Version>
@@ -762,6 +753,18 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Renderers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_notification_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_notification_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\teamcoach.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\teamparent.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
