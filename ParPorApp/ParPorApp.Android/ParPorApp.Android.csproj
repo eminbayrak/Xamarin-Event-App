@@ -766,5 +766,8 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\teamparent.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\pagebg.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

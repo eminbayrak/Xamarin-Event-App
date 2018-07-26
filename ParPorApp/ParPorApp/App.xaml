@@ -23,7 +23,9 @@
                 <On Platform="UWP" Value="/Assets/fontawesome.ttf#FontAwesome" />
                 <On Platform="iOS" Value="FontAwesome" />
             </OnPlatform>
-
+            
+                
+            
             <Style x:Key="FontAwesomeTextStyle" TargetType="Label">
                 <Setter Property="TextColor" Value="White" />
                 <Setter Property="Opacity" Value="0.90" />

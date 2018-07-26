@@ -659,4 +659,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\teamparent.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pagebg.png" />
+  </ItemGroup>
 </Project>

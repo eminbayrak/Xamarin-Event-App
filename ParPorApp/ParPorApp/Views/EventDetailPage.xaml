@@ -142,6 +142,7 @@
                 <Label x:Name="eventDate" Grid.Row="0" Grid.Column="1" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Start"
                        FontAttributes="Bold"
                        Text="{Binding EventDate, StringFormat='{0:dddd - MMMM dd, yyyy}'}" />
+                <Label x:Name="evDate" Text="{Binding EventDate}" IsVisible="False"/>
                 <Label Grid.Row="2" Grid.Column="1"
                        FontAttributes="Bold"
                        HorizontalOptions="StartAndExpand"

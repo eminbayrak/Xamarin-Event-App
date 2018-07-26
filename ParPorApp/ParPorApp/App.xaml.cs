@@ -11,6 +11,7 @@ namespace ParPorApp
 {
     public partial class App : Application
     {
+        public static bool IsInBackgrounded { get; private set; }
         public App()
         {
             InitializeComponent();
@@ -56,11 +57,13 @@ namespace ParPorApp
         protected override void OnSleep()
         {
             // Handle when your app sleeps
+            App.IsInBackgrounded = true;
         }
 
         protected override void OnResume()
         {
             // Handle when your app resumes
+            App.IsInBackgrounded = false;
         }
     }
 }

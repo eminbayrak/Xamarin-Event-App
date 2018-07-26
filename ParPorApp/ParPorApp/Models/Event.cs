@@ -13,7 +13,7 @@ namespace ParPorApp.Models
 
         [JsonProperty("LocationAddress")] public string LocationAddress { get; set; }
 
-        [JsonProperty("GroupId")] public string GroupId { get; set; }
+        [JsonProperty("UserId")] public int UserId { get; set; }
 
         [JsonProperty("Id")] public int Id { get; set; }
 

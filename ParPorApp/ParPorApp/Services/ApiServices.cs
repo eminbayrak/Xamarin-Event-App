@@ -91,13 +91,16 @@ namespace ParPorApp.Services
             var content = await response.Content.ReadAsStringAsync();
 
             JObject jwtDynamic = JsonConvert.DeserializeObject<dynamic>(content);
-
             var accessTokenExpiration = jwtDynamic.Value<DateTime>(".expires");
-            var accessToken = jwtDynamic.Value<string>("access_token");
-
-            Settings.AccessTokenExpirationDate = accessTokenExpiration;
-            
-            return accessToken;
+            var accessToken = jwtDynamic.Value<string>("access_token");            
+            if (response.IsSuccessStatusCode)
+            {
+                Settings.AccessTokenExpirationDate = accessTokenExpiration;
+                UserDialogs.Instance.Toast("You are in");
+            }       
+            else
+                UserDialogs.Instance.Alert(content.ToString(), "Error");
+                return accessToken;
         }
 
         // get group list
@@ -106,7 +109,7 @@ namespace ParPorApp.Services
             var client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
                 "Bearer", accessToken);
-            var json = await client.GetStringAsync(Constants.BaseApiAddress + "api/groups");
+            var json = await client.GetStringAsync(Constants.BaseApiAddress + "api/groups/");
             var group = JsonConvert.DeserializeObject<List<Group>>(json);
             return group;
         }

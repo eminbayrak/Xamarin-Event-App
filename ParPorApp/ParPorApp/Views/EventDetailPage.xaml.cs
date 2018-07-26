@@ -34,22 +34,25 @@ namespace ParPorApp.Views
         private async void Notification_onClickedAsync(object sender, EventArgs e)
         {
             var notId = Convert.ToInt16(notificationId.Text);
-            var eDate = Convert.ToDateTime(eventTime.Text);
+            var eDate = Convert.ToDateTime(evDate.Text);
             
             try
             {
                 if (IsRunning)
                 {
-                    //CrossLocalNotifications.Current.Show(eventType.Text, eventType + " will start in 15 mins!", notId, eDate.AddMinutes(-15));
+                    CrossLocalNotifications.Current.Show(eventType.Text, eventType + " will start in 15 mins!", notId, eDate.AddMinutes(-15));
                     UserDialogs.Instance.Toast("You will be notified for this event");
-                    await CrossNotifications.Current.Send(new Notification
+                    Notification notification = new Notification
                     {
                         Id = notId,
                         Title = gameVS.Text + " - " + eventTime.Text,
                         Message = eventType.Text + " will start in 15 mins!",
                         Date = eDate,
                         Vibrate = true                        
-                    });
+                    };
+                    await CrossNotifications.Current.Send(notification);
+                    //var list = await CrossNotifications.Current.GetScheduledNotifications();
+                    
                 }
                 else
                 {                    

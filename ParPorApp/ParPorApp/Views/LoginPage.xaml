@@ -6,147 +6,54 @@
              xmlns:constant="clr-namespace:ParPorApp.Constant;assembly=ParPorApp"
              xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              x:Class="ParPorApp.Views.LoginPage"
-             BackgroundColor="White"
+             BackgroundImage="pagebg.png"             
              NavigationPage.HasBackButton="False"
              NavigationPage.HasNavigationBar="False">
 
     <ContentPage.BindingContext>
         <viewModels:LoginViewModel />
-    </ContentPage.BindingContext>
-   
-    <ContentPage.Padding>
-        <OnPlatform x:TypeArguments="Thickness">
-            <OnPlatform.Platforms>
-                <On Platform="iOS" Value="0, 20, 0, 0" />
-                <On Platform="Android" Value="0, 20, 0, 0" />
-                <On Platform="UWP" Value="0, 0, 0, 0" />
-            </OnPlatform.Platforms>
-        </OnPlatform>
-    </ContentPage.Padding>
+    </ContentPage.BindingContext>  
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Spacing="10" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                
-                <StackLayout.Padding>
-                    <OnIdiom x:TypeArguments="Thickness">
-                        
-                        <OnIdiom.Phone>
-                            40,0,40,140
-                        </OnIdiom.Phone>
-                        <OnIdiom.Tablet>
-                            140,150,140,0
-                        </OnIdiom.Tablet>
-                    </OnIdiom>
-                </StackLayout.Padding>
-                <!--<Frame BackgroundColor="Transparent" HasShadow="False">
-                    <Grid >
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-
-                        <Label FontFamily="{StaticResource AwesomeFont}"
-                               Grid.Row="0" Grid.Column="0"
-                               HorizontalOptions="FillAndExpand"
-                               VerticalOptions="FillAndExpand"
-                               VerticalTextAlignment="Center"
-                               HorizontalTextAlignment="Center"
-                               FontSize="18"
-                               Text="{x:Static constant:FontAwesomeConstant.Email}" />
-                        <Entry Grid.Row="0" Grid.Column="1" x:Name="EmailEntry"
-                               HorizontalOptions="FillAndExpand" Text="{Binding Username}"
-
-                               Placeholder="Email" Keyboard="Email" />
-                        <Label FontFamily="{StaticResource AwesomeFont}"
-                               Grid.Row="1" Grid.Column="0"
-                               HorizontalOptions="FillAndExpand"
-                               VerticalOptions="FillAndExpand"
-                               VerticalTextAlignment="Center"
-                               HorizontalTextAlignment="Center"
-                               FontSize="18"
-                               Text="{x:Static constant:FontAwesomeConstant.Email}" />
-                        <Entry Grid.Row="1" Grid.Column="1" HorizontalOptions="FillAndExpand" x:Name="PasswordEntry"
-                               Text="{Binding Password}"
-                               Placeholder="Password" IsPassword="True" />
-                        <StackLayout Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
-                                     HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="200" WidthRequest="250">
-                            <Button x:Name="LoginButton" Command="{Binding LoginCommand}"
-                                    Style="{StaticResource MessageButton}" Text="Log In" />
-                            <BoxView BackgroundColor="DarkGray" HeightRequest="1" />
-                            <Button Text="Forgot password?" BackgroundColor="Transparent"
-                                    Clicked="ForgotPwdButton_OnClicked" />
-                        </StackLayout>
-
-
-                    </Grid>
-                </Frame>-->
-
+            <StackLayout Padding="40">
                 <Grid BackgroundColor="Transparent">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="80" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="50" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,10,0,0">
-                        <Label Text="English (United States)" />
-                        <Image Source="down_arrow.png" Opacity="0.6" VerticalOptions="Start" Margin="0,3,0,0" />
-                    </StackLayout>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
 
-                    <Grid Grid.Row="1" Margin="20,0,20,0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="50" />
-                            <RowDefinition Height="50"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="40"/>
-                        </Grid.RowDefinitions>
-                        <Image x:Name="LogoIcon" Source="ic_logo.png" HeightRequest="110" WidthRequest="110"/>
-                        <Entry x:Name="EmailEntry" Grid.Row="1" Placeholder="Email" PlaceholderColor="#bababa" Text="{Binding Email}" FontSize="16" Keyboard="Email" />
-                        <Entry x:Name="PasswordEntry" Grid.Row="2" Placeholder="Password" Text="{Binding Password}" PlaceholderColor="#bababa" FontSize="16" IsPassword="True"/>
-                        <Button x:Name="LoginButton" Command="{Binding LoginCommand}" Text="Log In" BackgroundColor="#43b05c" TextColor="White" HeightRequest="50" VerticalOptions="Start" Grid.Row="3" />
-                        <!--<forms:AnimationView 
+                    <Label Text="Greetings!" TextColor="White" FontSize="26" FontAttributes="Bold"/>
+
+
+                    <!--<Image x:Name="LogoIcon" Source="ic_logo.png" HeightRequest="110" WidthRequest="110"/>-->
+                    <Label Text="Ready to sign in?" TextColor="White" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Entry x:Name="EmailEntry" Grid.Row="2" Placeholder="Email" Text="{Binding Email}" FontSize="Large" Keyboard="Email" Grid.Column="0" Grid.ColumnSpan="2" />
+                    <Entry x:Name="PasswordEntry" Grid.Row="3" Placeholder="Password" Text="{Binding Password}" FontSize="Large" IsPassword="True" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Button x:Name="LoginButton" Command="{Binding LoginCommand}" Text="Log in" BackgroundColor="#fba707" TextColor="White" FontSize="Large" FontAttributes="Bold" HeightRequest="50" VerticalOptions="End" Grid.Row="4" Grid.Column="1" />
+                    
+                    <!--<forms:AnimationView 
                             x:Name="AnimationView"
                             Animation="dribbble_bouncing_ball.json"
                             AutoPlay="True"
                             Loop="True"
-                            VerticalOptions="FillAndExpand"
-                            HorizontalOptions="FillAndExpand"
-                            Scale="1"/>-->
-                        <!--<Label Text="Forgot your login details? Get help signing in." HorizontalOptions="Center" Grid.Row="4" Margin="0,10,0,0" FontSize="12" />-->
-                        <Label HorizontalOptions="Center" Grid.Row="4" Margin="0,10,0,0" FontSize="12" 
-                               Text="Forgot your login details? Get help signing in.">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}" />
-                            </Label.GestureRecognizers>
-                        </Label>
-                        <!--<Grid Grid.Row="5">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Label BackgroundColor="#bababa" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center" />
-                            <Label Text="OR" Grid.Column="1" VerticalOptions="Center" Margin="10,0,10,0" />
-                            <Label BackgroundColor="#bababa" Grid.Column="2" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center" />
-                        </Grid>
-                        <StackLayout Orientation="Horizontal" Grid.Row="6" HorizontalOptions="Center">
-                            <Label FontFamily="{StaticResource AwesomeFont}" Text="{x:Static constant:FontAwesomeConstant.Google}" TextColor="#43b05c" FontSize="30" />
-                            <Label Text="Log in with Google" TextColor="#43b05c" VerticalOptions="Center"/>
-                        </StackLayout>-->
-                    </Grid>
-                    <!--<StackLayout Grid.Row="2" BackgroundColor="#FFFFFF">
-                        <Label HeightRequest="1" BackgroundColor="#E3E3E3" />
-                        <Label Text="Don't have an account? Sign up." VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
-                    </StackLayout>-->
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="CenterAndExpand"
+                            Scale="1.5"/>-->
+                    <!--<Label Text="Forgot your login details? Get help signing in." HorizontalOptions="Center" Grid.Row="4" Margin="0,10,0,0" FontSize="12" />-->
+                    <Label VerticalOptions="Center" Grid.Row="4" Grid.Column="0" Text="Forgot your login details?" TextColor="White">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
                 </Grid>
-                
 
             </StackLayout>
         </ScrollView>
