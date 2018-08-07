@@ -68,35 +68,6 @@
                 <Label x:Name="gameVS" Text="{Binding GameVS}" IsVisible="False"/>
             </Grid>
             
-            <!--<Grid Grid.Row="4" Grid.Column="0" BackgroundColor="#FFFFFF" Padding="30">
-                    
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="20" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    --><!--<Entry Placeholder="Add a comment" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="14" />
-                    <forms:SvgCachedImage Grid.Row="0" Grid.Column="1" WidthRequest="18" HeightRequest="18" Margin="0,0,6,0" HorizontalOptions="End" Source="resource://ParPorApp.Resources.ic_send.svg">
-                        <forms:SvgCachedImage.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding AddEventCommand}" />
-                        </forms:SvgCachedImage.GestureRecognizers>
-                    </forms:SvgCachedImage>--><!--
-                    <forms:SvgCachedImage Grid.Row="0" Grid.Column="0" WidthRequest="16" HeightRequest="16"
-                                          HorizontalOptions="Start"
-                                          Source="resource://ParPorApp.Resources.ic_clipboard.svg" />
-                    <Label Text="Comments:" Grid.Row="0" Grid.Column="1" FontSize="14" BackgroundColor="#E8EBED"
-                           HorizontalOptions="Start" VerticalOptions="Center" />
-                    <ScrollView Grid.Row="1" Grid.Column="1">
-                        <Label Text="{Binding Note}" />
-                    </ScrollView>
-                    <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="Add a comment" TextColor="Black"
-                            Clicked="AddCommentButton_Clicked" VerticalOptions="End" />
-                </Grid>-->
-
             <Grid Padding="20" Margin="0,10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />

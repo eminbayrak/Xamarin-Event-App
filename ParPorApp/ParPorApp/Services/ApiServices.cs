@@ -96,7 +96,7 @@ namespace ParPorApp.Services
             if (response.IsSuccessStatusCode)
             {
                 Settings.AccessTokenExpirationDate = accessTokenExpiration;
-                UserDialogs.Instance.Toast("You are in");
+                //UserDialogs.Instance.Toast("You are in");
             }       
             else
                 UserDialogs.Instance.Alert(content.ToString(), "Error");
@@ -109,7 +109,7 @@ namespace ParPorApp.Services
             var client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
                 "Bearer", accessToken);
-            var json = await client.GetStringAsync(Constants.BaseApiAddress + "api/groups/");
+            var json = await client.GetStringAsync(Constants.BaseApiAddress + "api/Groups");
             var group = JsonConvert.DeserializeObject<List<Group>>(json);
             return group;
         }

@@ -37,7 +37,7 @@
                     <Label Text="Ready to sign in?" TextColor="White" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
                     <Entry x:Name="EmailEntry" Grid.Row="2" Placeholder="Email" Text="{Binding Email}" FontSize="Large" Keyboard="Email" Grid.Column="0" Grid.ColumnSpan="2" />
                     <Entry x:Name="PasswordEntry" Grid.Row="3" Placeholder="Password" Text="{Binding Password}" FontSize="Large" IsPassword="True" Grid.Column="0" Grid.ColumnSpan="2"/>
-                    <Button x:Name="LoginButton" Command="{Binding LoginCommand}" Text="Log in" BackgroundColor="#fba707" TextColor="White" FontSize="Large" FontAttributes="Bold" HeightRequest="50" VerticalOptions="End" Grid.Row="4" Grid.Column="1" />
+                    <Button x:Name="LoginButton" Command="{Binding LoginCommand}" Text="Log in" BackgroundColor="#DD6C5C" TextColor="White" FontSize="Large" FontAttributes="Bold" HeightRequest="50" VerticalOptions="End" Grid.Row="4" Grid.Column="1" />
                     
                     <!--<forms:AnimationView 
                             x:Name="AnimationView"

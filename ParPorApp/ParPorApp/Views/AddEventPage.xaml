@@ -6,6 +6,7 @@
              xmlns:viewModels="clr-namespace:ParPorApp.ViewModels;assembly=ParPorApp"
              xmlns:system="clr-namespace:System;assembly=netstandard"
              xmlns:placesSearchBar="clr-namespace:DurianCode.PlacesSearchBar;assembly=DurianCode.PlacesSearchBar"
+             BackgroundColor="#ECF0E2"
              Title="Add a new event">
 
     <ContentPage.BindingContext>
@@ -28,9 +29,7 @@
                 <Label x:Name="selectedLocation" Text="{Binding LocationAddress, Mode=TwoWay}" />
                 <Label x:Name="locLatitude" Text="{Binding LocationLatitude, Mode=TwoWay}" IsVisible="False" />
                 <Label x:Name="locLongitude" Text="{Binding LocationLongitude, Mode=TwoWay}" IsVisible="False" />
-                <Label x:Name="locPlaceId" Text="{Binding PlaceId, Mode=TwoWay}" IsVisible="False" />
-                
-                
+                <Label x:Name="locPlaceId" Text="{Binding PlaceId, Mode=TwoWay}" IsVisible="False" />                            
             </StackLayout>
             <StackLayout>
                 <Label Text="Event type:" FontAttributes="Bold" />
@@ -86,15 +85,12 @@
                        
                 <Button Command="{Binding AddEventCommand}"
                         Clicked="ReturnEventPage_Clicked"
-                        BackgroundColor="#43b05c"
+                        BackgroundColor="#DD6C5C"
                         FontSize="20"
                         HorizontalOptions="Center"
                         TextColor="White"
                         Text="Save" />
-            </StackLayout>
-            <ContentView HeightRequest="1" BackgroundColor="Transparent" />
-            
-            
+            </StackLayout>            
         </StackLayout>
     </ScrollView>
 
