@@ -1,10 +1,23 @@
 ﻿using Acr.UserDialogs;
+using FormsToolkit;
+using ParPorApp.Helpers;
 using ParPorApp.Models;
+using ParPorApp.ViewModels;
+using Plugin.Calendars;
+using Plugin.Calendars.Abstractions;
 using Plugin.ExternalMaps;
+using Plugin.Geolocator;
 using Plugin.Notifications;
+using Plugin.Permissions;
+using Plugin.Permissions.Abstractions;
 using Plugin.Share;
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,11 +26,14 @@ namespace ParPorApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EventDetailPage : ContentPage
     {
+        public ObservableCollection<Grouping<string, Calendar>> _groupedCalendars;
+        private Calendar calendar;
+
         public bool IsRunning { get; private set; }
 
         public EventDetailPage(Event item)
         {
-            InitializeComponent();
+            InitializeComponent();            
             BindingContext = item ?? throw new ArgumentNullException();
             IsRunning = !IsRunning;
             var list = CrossNotifications.Current.GetScheduledNotifications();
@@ -77,6 +93,90 @@ namespace ParPorApp.Views
                 UserDialogs.Instance.Toast(ex.Message);
             }
         }
+        private async void AddToMyCalAsync_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Calendar);
+
+                if (status != PermissionStatus.Granted)
+                {
+                    if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.Calendar))
+                    {
+                        await DisplayAlert("Need location", "Gunna need that location", "OK");
+                    }
+
+                    var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Calendar);
+                    //Best practice to always check that the key exists
+                    if (results.ContainsKey(Permission.Calendar))
+                        status = results[Permission.Calendar];
+                }
+                if (status == PermissionStatus.Granted)
+                {
+                    var calendars = await CrossCalendars.Current.GetCalendarsAsync();
+
+                    CalendarEvent toAdd = new CalendarEvent();
+                    CalendarEventReminder testReminder = new CalendarEventReminder();
+                    testReminder.Method = CalendarReminderMethod.Default;
+                    testReminder.TimeBefore = new TimeSpan(0, 15, 0);                    
+                    toAdd.Name = eventType.Text;
+                    toAdd.Description = gameVS.Text;
+                    toAdd.Location = eventFullAddress.Text;
+                    toAdd.Start = Convert.ToDateTime(evDate.Text);
+                    toAdd.End = toAdd.Start.AddHours(1);
+                    //toAdd.Reminders = await CrossCalendars.Current.AddEventReminderAsync();
+
+                    Debug.WriteLine("First print");
+
+                    await CrossCalendars.Current.AddOrUpdateEventAsync(calendars[1], toAdd);
+                    Debug.WriteLine("Second print");
+                }
+                else if (status != PermissionStatus.Unknown)
+                {
+                    await DisplayAlert("Calendar access denied", "Can not continue, try again.", "OK");
+                }
+            }
+            catch (Exception ex)
+            {
+                //UserDialogs.Instance.Toast(ex.Message);
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private async void WhereAmI_OnClicked(object sender, EventArgs e)
+        {
+            try
+            {
+                var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Location);
+                if (status != PermissionStatus.Granted)
+                {
+                    if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.Location))
+                    {
+                        await DisplayAlert("Need location", "Gunna need that location", "OK");
+                    }
+
+                    var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Location);
+                    //Best practice to always check that the key exists
+                    if (results.ContainsKey(Permission.Location))
+                        status = results[Permission.Location];
+                }
+
+                if (status == PermissionStatus.Granted)
+                {
+                    var results = await CrossGeolocator.Current.GetPositionAsync();
+                    LabelGeolocation.Text = "Lat: " + results.Latitude + " Long: " + results.Longitude;
+                }
+                else if (status != PermissionStatus.Unknown)
+                {
+                    await DisplayAlert("Location Denied", "Can not continue, try again.", "OK");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                LabelGeolocation.Text = "Error: " + ex;
+            }
+        }
 
         private void Share_onClicked(object sender, EventArgs e)
         {
@@ -86,7 +186,7 @@ namespace ParPorApp.Views
                 Text = "Location: " + eventFullAddress.Text + "\nDate: " + eventDate.Text + " " + eventTime.Text
             });
         }
-
+        
         private async Task Weather_OnClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new WeatherWebPage());

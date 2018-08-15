@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Acr.UserDialogs;
+using FormsToolkit;
 using Microsoft.Build.Framework;
 using ParPorApp.Helpers;
 using ParPorApp.Services;
@@ -24,29 +25,67 @@ namespace ParPorApp.ViewModels
                 return new Command(async () =>
                 {
                     var accesstoken = await ApiServices.LoginAsync(Email, Password);
-	                
-                    if (!string.IsNullOrEmpty(accesstoken))
+
+                    if (string.IsNullOrWhiteSpace(Email))
                     {
-	                    using (UserDialogs.Instance.Loading("You are in...", null, null, true, MaskType.Clear))
-	                    {
-		                    Settings.Email = Email;
-		                    Settings.Password = Password;
-		                    Settings.AccessToken = accesstoken;
-		                    await Application.Current.MainPage.Navigation.PushModalAsync(new MainPage(), true);
-						}
-						//IsBusy = true;
-                        
+                        MessagingService.Current.SendMessage<MessagingServiceAlert>(MessageKeys.Message, new MessagingServiceAlert
+                        {
+                            Title = "Sign in Information",
+                            Message = "Email cannot be empty!",
+                            Cancel = "OK"
+                        });
+                        return;
                     }
-                    else
+                    if (string.IsNullOrWhiteSpace(Password))
                     {
-	                    await UserDialogs.Instance.AlertAsync(string.Format("Uh Oh! Please check your login info...", 3000)); //Use ShowImage instead
+                        MessagingService.Current.SendMessage<MessagingServiceAlert>(MessageKeys.Message, new MessagingServiceAlert
+                        {
+                            Title = "Sign in Information",
+                            Message = "Password cannot be empty!",
+                            Cancel = "OK"
+                        });
+                        return;
+                    }
+                    try
+                    {
+                        IsBusy = true;
+                        
+                        #if DEBUG
+                        await Task.Delay(1000);
+                        #endif
+                        if (!string.IsNullOrEmpty(accesstoken))
+                        {
+                            using (UserDialogs.Instance.Loading("You are in...", null, null, true, MaskType.Clear))
+                            {
+                                Settings.Email = Email;
+                                Settings.Password = Password;
+                                Settings.AccessToken = accesstoken;
+                                await Application.Current.MainPage.Navigation.PushModalAsync(new MainPage(), true);
+                            }
+                            //IsBusy = true;
 
-						//IsBusy = false;
-						//await UserDialogs.Instance.AlertAsync(string.Format("Wrong email or password :("));
-						//await Application.Current.MainPage.DisplayAlert("Error", "Wrong username or password", "Dismiss");
+                        }
+                        else
+                        {
+                            await UserDialogs.Instance.AlertAsync(string.Format("Uh Oh! Please check your login info...", 3000)); //Use ShowImage instead
 
-					}
-                    
+                            //IsBusy = false;
+                            //await UserDialogs.Instance.AlertAsync(string.Format("Wrong email or password :("));
+                            //await Application.Current.MainPage.DisplayAlert("Error", "Wrong username or password", "Dismiss");
+
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessagingService.Current.SendMessage<MessagingServiceAlert>(MessageKeys.Message, new MessagingServiceAlert
+                        {
+                            Title = "Unable to Sign in",
+                            Message = "The email or password provided is incorrect.",
+                            Cancel = "OK"
+                        });
+                    }
+
+
                 });
             }
         }

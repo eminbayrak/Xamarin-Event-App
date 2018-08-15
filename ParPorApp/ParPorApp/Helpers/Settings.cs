@@ -3,6 +3,7 @@ using Plugin.Settings;
 using Plugin.Settings.Abstractions;
 using System;
 using ParPorApp.ViewModels;
+using Plugin.Calendars.Abstractions;
 
 namespace ParPorApp.Helpers
 {
@@ -142,7 +143,6 @@ namespace ParPorApp.Helpers
             get => AppSettings.GetValueOrDefault(CalendarKey, CalendarDefault);
             set => AppSettings.AddOrUpdateValue(CalendarKey, value);
         }
-
-
+        public static Calendar calendar { get; internal set; }
     }
 }

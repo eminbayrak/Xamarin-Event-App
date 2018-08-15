@@ -75,6 +75,8 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
@@ -124,8 +126,11 @@
                 <ScrollView Grid.Row="4" Grid.Column="1">
                     <Label Text="{Binding Note}" FontAttributes="Bold"
                            VerticalTextAlignment="Start"
-                           HorizontalOptions="StartAndExpand" />
+                           HorizontalOptions="StartAndExpand" />                    
                 </ScrollView>
+                <Button Text="Add to calendar" Clicked="AddToMyCalAsync_Clicked" Grid.Row="5" Grid.Column="1" />
+                <Button Text="Find me" Clicked="WhereAmI_OnClicked" Grid.Row="6" Grid.Column="1" />
+                <Label x:Name="LabelGeolocation" Grid.Row="7" Grid.Column="1" />
             </Grid>
         </StackLayout>
     </ContentPage.Content>
