@@ -2,6 +2,7 @@
 using ParPorApp.Services;
 using Xamarin.Forms;
 using ParPorApp.Helpers;
+using ParPorApp.Views;
 
 namespace ParPorApp.ViewModels
 {
@@ -9,9 +10,11 @@ namespace ParPorApp.ViewModels
     {
         private readonly ApiServices _apiServices = new ApiServices();
 
-        public string Username { get; set; }
+        public string Email { get; set; }
         public string Password { get; set; }
         public string ConfirmPassword { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public string Message { get; set; }
         public ICommand RegisterCommand
         {
@@ -20,19 +23,13 @@ namespace ParPorApp.ViewModels
                 return new Command(async () =>
                 {
                     var isRegistered = await _apiServices.RegisterUserAsync
-                        (Username, Password, ConfirmPassword);
+                        (Email, Password, ConfirmPassword, FirstName, LastName);
 
-                    Settings.Username = Username;
+                    Settings.Email = Email;
                     Settings.Password = Password;
-
-                    if (isRegistered)
-                    {
-                        Message = "User succesfully registered :)";
-                    }
-                    else
-                    {
-                        Message = "Something went wrong. Please try again :(";
-                    }
+                    Settings.FirstName = FirstName;
+                    Settings.LastName = LastName;
+                    await Application.Current.MainPage.Navigation.PushModalAsync(new LoginPage(), true);
                 });
             }
         }

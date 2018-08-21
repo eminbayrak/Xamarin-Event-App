@@ -3,6 +3,7 @@ using Android.App;
 using Android.Content.PM;
 using Android.Content.Res;
 using Android.OS;
+using Android.Runtime;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
@@ -11,6 +12,7 @@ using FFImageLoading.Svg.Forms;
 using Lottie.Forms.Droid;
 using Microsoft.WindowsAzure.MobileServices;
 using Plugin.LocalNotifications;
+using Plugin.Permissions;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
@@ -29,13 +31,20 @@ namespace ParPorApp.Droid
             this.Window.AddFlags(WindowManagerFlags.TranslucentStatus);
             Forms.Init(this, bundle);
             LocalNotificationsImplementation.NotificationIconId = Resource.Drawable.ic_launcher;
-            CachedImageRenderer.Init(true);
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
             AnimationViewRenderer.Init();
             var ignore = typeof(SvgCachedImage);
             //Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
             Forms.Init(this, bundle);
+            Plugin.CurrentActivity.CrossCurrentActivity.Current.Init(this, bundle);
             CurrentPlatform.Init();
             LoadApplication(new App());
+        }
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
+        {
+            PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 }

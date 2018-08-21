@@ -20,12 +20,10 @@
         <StackLayout HeightRequest="250">
             <Button Clicked="Profile_Clicked" BackgroundColor="Transparent" VerticalOptions="Start"
                     HorizontalOptions="End" Image="ic_settings.png" />
-            <abstractions:CircleImage HeightRequest="100"
+            <Image HeightRequest="100"
                                       HorizontalOptions="Center"
                                       Source="{Binding Users}"
                                       VerticalOptions="End"
-                                      BorderColor="White"
-                                      BorderThickness="2"
                                       WidthRequest="100" />
             <BoxView BackgroundColor="Transparent" HeightRequest="5" />
 

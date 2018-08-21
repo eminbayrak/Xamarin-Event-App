@@ -30,8 +30,8 @@ namespace ParPorApp.Views
         //{
 
         //    this.AnimationView.IsVisible = true;
-        //    LogoIcon.IsVisible = false;
             
+
         //}
         private void ForgotPwdButton_OnClicked(object sender, EventArgs e)
         {

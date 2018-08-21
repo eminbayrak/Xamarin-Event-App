@@ -19,7 +19,7 @@
             </x:Arguments>
             </NavigationPage>-->
     <!--<views:NewsfeedPage Title="Home" Icon="ic_home.png"></views:NewsfeedPage>-->
-    <NavigationPage BarTextColor="Black" Title="Home" Icon="ic_home.png">
+    <NavigationPage BarTextColor="Black" Title="Upcoming" Icon="ic_home.png">
         <x:Arguments>
             <viewModels:HomePage/>
         </x:Arguments>

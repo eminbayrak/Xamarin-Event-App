@@ -3,6 +3,7 @@ using Plugin.Settings;
 using Plugin.Settings.Abstractions;
 using System;
 using ParPorApp.ViewModels;
+using Plugin.Calendars.Abstractions;
 
 namespace ParPorApp.Helpers
 {
@@ -25,7 +26,8 @@ namespace ParPorApp.Helpers
 
         private const string SettingsKey = "settings_key";
         private static readonly string SettingsDefault = string.Empty;
-
+        const string CalendarKey = "calendar_key";
+        const bool CalendarDefault = false;
         #endregion
 
 
@@ -66,15 +68,15 @@ namespace ParPorApp.Helpers
                 AppSettings.AddOrUpdateValue(SettingsKey, value);
             }
         }
-        public static string Username
+        public static string Email
         {
             get
             {
-                return AppSettings.GetValueOrDefault("Username", "");
+                return AppSettings.GetValueOrDefault("Email", "");
             }
             set
             {
-                AppSettings.AddOrUpdateValue("Username", value);
+                AppSettings.AddOrUpdateValue("Email", value);
             }
         }
         public static string Password
@@ -86,6 +88,30 @@ namespace ParPorApp.Helpers
             set
             {
                 AppSettings.AddOrUpdateValue("Password", value);
+            }
+        }
+
+        public static string FirstName
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault("FirstName", "");
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue("FirstName", value);
+            }
+        }
+
+        public static string LastName
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault("LastName", "");
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue("LastName", value);
             }
         }
         public static string AccessToken
@@ -112,6 +138,11 @@ namespace ParPorApp.Helpers
             }
         }
 
-
+        public static bool AddedToCalendar
+        {
+            get => AppSettings.GetValueOrDefault(CalendarKey, CalendarDefault);
+            set => AppSettings.AddOrUpdateValue(CalendarKey, value);
+        }
+        public static Calendar calendar { get; internal set; }
     }
 }

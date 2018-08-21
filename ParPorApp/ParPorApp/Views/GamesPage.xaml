@@ -102,7 +102,7 @@
                                 <Grid Grid.Row="1" Grid.Column="3">
                                     <Label Text="{Binding  OpponentTeamName}" HorizontalTextAlignment="Center"
                                            Font="Bold" />
-                                </Grid>
+                                </Grid>                                
                             </Grid>
                         </StackLayout>
                     </Frame>
