@@ -55,13 +55,12 @@ namespace ParPorApp.ViewModels
                         #endif
                         if (!string.IsNullOrEmpty(accesstoken))
                         {
-                            using (UserDialogs.Instance.Loading("You are in...", null, null, true, MaskType.Clear))
-                            {
+                            
                                 Settings.Email = Email;
                                 Settings.Password = Password;
                                 Settings.AccessToken = accesstoken;
                                 await Application.Current.MainPage.Navigation.PushModalAsync(new MainPage(), true);
-                            }
+                            
                             //IsBusy = true;
 
                         }

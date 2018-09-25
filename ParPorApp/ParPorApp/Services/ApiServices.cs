@@ -110,11 +110,13 @@ namespace ParPorApp.Services
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
                 "Bearer", accessToken);
             var json = await client.GetStringAsync(Constants.BaseApiAddress + "api/Groups");
+            
             var group = JsonConvert.DeserializeObject<List<Group>>(json);
+            //group = group.Where(x => x.Name == "TeamName").ToList();
             return group;
         }
 
-		//Get user list
+        //Get user list
 	    public async Task<List<User>> GetUsersAsync(string accessToken)
 	    {
 		    var client = new HttpClient();
@@ -128,7 +130,7 @@ namespace ParPorApp.Services
 
 			var user = JsonConvert.DeserializeObject<List<User>>(userJson);
 	        
-            Debug.Write(userJson);
+            //Debug.Write(userJson);
 	        return user;
           
 	    }
@@ -187,6 +189,7 @@ namespace ParPorApp.Services
 
             var json = await client.GetStringAsync(Constants.BaseApiAddress + "api/events?sort=desc");
             var events = JsonConvert.DeserializeObject<List<Event>>(json);
+            //events = events.Where(x => x.TeamName == "A Team").ToList();
             events = events.Where(x => x.EventType == "Game").ToList();
             events = events.Where(x => x.EventDate >= DateTime.Now).ToList();
             events = events.OrderBy(x => x.EventDate).ToList();
