@@ -50,7 +50,7 @@ namespace ParPorApp.ViewModels
                 {
                     var accessToken = Settings.AccessToken;
                     Event = await _apiServices.GetAllEventsAsync(accessToken);
-
+                    
 
                 });
             }
