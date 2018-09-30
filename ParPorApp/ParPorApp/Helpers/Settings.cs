@@ -114,6 +114,17 @@ namespace ParPorApp.Helpers
                 AppSettings.AddOrUpdateValue("LastName", value);
             }
         }
+        public static string TeamName
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault("TeamName", "");
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue("TeamName", value);
+            }
+        }
         public static string AccessToken
         {
             get

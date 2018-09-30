@@ -29,7 +29,7 @@ namespace ParPorApp.Services
     {
         // Register account
         public async Task<bool> RegisterUserAsync(
-            string email, string password, string confirmPassword, string firstName, string lastName)
+            string email, string password, string confirmPassword, string firstName, string lastName, string teamName)
         {
             var client = new HttpClient();
             var model = new Register
@@ -38,6 +38,7 @@ namespace ParPorApp.Services
                 Password = password,
                 FirstName = firstName,
                 LastName = lastName,
+                TeamName = teamName,
                 ConfirmPassword = confirmPassword
             };
 
@@ -99,7 +100,7 @@ namespace ParPorApp.Services
                 //UserDialogs.Instance.Toast("You are in");
             }       
             else
-                UserDialogs.Instance.Alert(content.ToString(), "Error");
+                Console.WriteLine(content.ToString());
                 return accessToken;
         }
 
@@ -112,7 +113,6 @@ namespace ParPorApp.Services
             var json = await client.GetStringAsync(Constants.BaseApiAddress + "api/Groups");
             
             var group = JsonConvert.DeserializeObject<List<Group>>(json);
-            //group = group.Where(x => x.Name == "TeamName").ToList();
             return group;
         }
 

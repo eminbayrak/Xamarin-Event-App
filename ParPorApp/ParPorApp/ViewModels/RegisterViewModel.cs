@@ -16,6 +16,7 @@ namespace ParPorApp.ViewModels
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Message { get; set; }
+        public string TeamName { get; set; }
         public ICommand RegisterCommand
         {
             get
@@ -23,13 +24,23 @@ namespace ParPorApp.ViewModels
                 return new Command(async () =>
                 {
                     var isRegistered = await _apiServices.RegisterUserAsync
-                        (Email, Password, ConfirmPassword, FirstName, LastName);
+                        (Email, Password, ConfirmPassword, FirstName, LastName, TeamName);
 
                     Settings.Email = Email;
                     Settings.Password = Password;
                     Settings.FirstName = FirstName;
                     Settings.LastName = LastName;
-                    await Application.Current.MainPage.Navigation.PushModalAsync(new LoginPage(), true);
+                    Settings.TeamName = TeamName;
+
+                    if (isRegistered)
+                    {
+                        await Application.Current.MainPage.Navigation.PushModalAsync(new LoginPage(), true);
+                        Acr.UserDialogs.UserDialogs.Instance.Toast("Cool, your account is created!");
+                    }
+                    else
+                    {
+                        Acr.UserDialogs.UserDialogs.Instance.Alert("Something went wrong :(");
+                    }
                 });
             }
         }

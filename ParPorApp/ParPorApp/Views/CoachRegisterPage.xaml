@@ -24,7 +24,7 @@
                     <BoxView HeightRequest="10" BackgroundColor="Transparent" />
                     <Label Text="Howdy coach!" FontSize="30" TextColor="#DD6C5C"/>
                     <Label Text="Let's create your team" FontSize="16" />
-                    <Entry Text="{Binding GroupName}" Placeholder="Team name" />
+                    <Entry Text="{Binding TeamName}" Placeholder="Team name" />
                     <ContentView BackgroundColor="Transparent" HeightRequest="5"/>
                     <Entry Text="{Binding FirstName}" Placeholder="First name" />
                     <Entry Text="{Binding LastName}" Placeholder="Last name" />
