@@ -116,8 +116,20 @@ namespace ParPorApp.Services
             return group;
         }
 
+        // Get account groups
+        public async Task<List<AccountGroups>> GetAccountGroupsAsync(string accessToken)
+        {
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+                "Bearer", accessToken);
+            var json = await client.GetStringAsync(Constants.BaseApiAddress + "api/AccountGroups");
+
+            var group = JsonConvert.DeserializeObject<List<AccountGroups>>(json);
+            return group;
+        }
+
         //Get user list
-	    public async Task<List<User>> GetUsersAsync(string accessToken)
+        public async Task<List<User>> GetUsersAsync(string accessToken)
 	    {
 		    var client = new HttpClient();
 	        client.MaxResponseContentBufferSize = 256000;
@@ -134,7 +146,7 @@ namespace ParPorApp.Services
 	        return user;
           
 	    }
-
+        
         //Show all of the events
         public async Task<List<Event>> GetAllEventsAsync(string accessToken)
         {
@@ -245,30 +257,5 @@ namespace ParPorApp.Services
 	            throw;
 	        }
 	    }
-
-		//public class AzureDataService
-		//{
-		//    public MobileServiceClient MobileService { get; set; }
-		//    private IMobileServiceSyncTable eventTable;
-
-		//    public async Task Initialize()
-		//    {
-		//        MobileService = new MobileServiceClient("https://parentportal.azurewebsites.net");
-		//        const string path = "syncstore.db";
-		//        //setup local sqlite store and init
-		//        var store = new MobileServiceSQLiteStore(path);
-		//        store.DefineTable();
-		//        await MobileService.SyncContext.InitializeAsync(store, new MobileServiceSyncHandler());
-		//        //get sync table that will call out azure
-		//        eventTable = MobileService.GetSyncTable();
-
-		//    }
-
-		//    public async Task SyncEvent()
-		//    {
-		//        await eventTable.PullAsync("allEvents", eventTable.CreateQuery());
-		//        await MobileService.SyncContext.PushAsync();
-		//    }
-		//}
 	}
 }

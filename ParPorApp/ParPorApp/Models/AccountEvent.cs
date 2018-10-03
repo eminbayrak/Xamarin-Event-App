@@ -6,8 +6,7 @@ namespace ParPorApp.Models
 {
     public class AccountEvent
     {
-        public string AccountId { get; set; }
-        public Account Account { get; set; }
+        public string AccountId { get; set; }        
         public int EventId { get; set; }
         public Event Event { get; set; }
     }
