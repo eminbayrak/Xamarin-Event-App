@@ -31,7 +31,7 @@ namespace ParPorApp.Models
         [JsonProperty("postDate")]
         public string postDate { get; set; }
 
-        public ICollection<AccountGroup> AccountGroups { get; set; }
+        
         public ICollection<GroupEvent> GroupEvents { get; set; }
         public ICollection<GroupStudent> GroupStudents { get; set; }
         

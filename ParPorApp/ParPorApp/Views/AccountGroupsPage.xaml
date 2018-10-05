@@ -1,22 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ParPorApp.Views.GroupMembersPage">
-
-    <ContentPage.ToolbarItems>
-       <ToolbarItem/>
-        <ToolbarItem Icon="ic_search.png"
-                     Priority="1"/>
-    </ContentPage.ToolbarItems>
-
+             xmlns:viewModels="clr-namespace:ParPorApp.ViewModels"
+             x:Class="ParPorApp.Views.AccountGroupsPage"
+             Title="{Binding TeamName}">
+    
+    <ContentPage.BindingContext>
+        <viewModels:AccountGroupsViewModel />
+    </ContentPage.BindingContext>
+    
     <ListView x:Name="membersDetailView" 
               HasUnevenRows="True"
               SeparatorVisibility = "Default"
-              ItemSelected="GroupsMemberView_OnItemSelected"
-              ItemsSource="{Binding GroupsItems}"
-              CachingStrategy="RecycleElement">
-
-        <!--Built in Cells-->
+              ItemsSource="{Binding AccountGroups}"
+              CachingStrategy="RecycleElement">        
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
@@ -27,8 +24,8 @@
                             HeightRequest="55"                            
                             Aspect="AspectFill"/>
                         <StackLayout VerticalOptions="Center">
-                            <Label Text="{Binding Name}" FontSize="18" FontAttributes="Bold"/>
-                            <Label Text="{Binding Description}"/>
+                            <Label Text="{Binding FullName}" FontSize="18" FontAttributes="Bold"/>
+                            <Label Text="{Binding Email}"/>
                         </StackLayout>
                         <Image Source="ic_keyboard_arrow_right.png" HorizontalOptions="EndAndExpand" Opacity="0.5"/>
                     </StackLayout>

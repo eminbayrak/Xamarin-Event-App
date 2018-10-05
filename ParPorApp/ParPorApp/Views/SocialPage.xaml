@@ -32,7 +32,7 @@
         </NavigationPage>
     <NavigationPage BarTextColor="Black" Title="Group" Icon="ic_group.png">
             <x:Arguments>
-                <views:GroupPage />
+                <views:GroupNavPage />
             </x:Arguments>
         </NavigationPage>
     <NavigationPage BarTextColor="Black" Title="Social" Icon="ic_message.png" >
