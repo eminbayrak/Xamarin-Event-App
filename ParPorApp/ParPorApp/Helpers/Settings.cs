@@ -79,6 +79,18 @@ namespace ParPorApp.Helpers
                 AppSettings.AddOrUpdateValue("Email", value);
             }
         }
+
+        public static string TeamCode
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault("TeamCode", "");
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue("TeamCode", value);
+            }
+        }
         public static string Password
         {
             get

@@ -29,7 +29,13 @@ namespace ParPorApp.Services
     {
         // Register account
         public async Task<bool> RegisterUserAsync(
-            string email, string password, string confirmPassword, string firstName, string lastName, string teamName)
+            string email, 
+            string password, 
+            string confirmPassword, 
+            string firstName, 
+            string lastName, 
+            string teamName, 
+            string teamCode)
         {
             var client = new HttpClient();
             var model = new Register
@@ -39,7 +45,8 @@ namespace ParPorApp.Services
                 FirstName = firstName,
                 LastName = lastName,
                 TeamName = teamName,
-                ConfirmPassword = confirmPassword
+                ConfirmPassword = confirmPassword,
+                TeamCode = teamCode
             };
 
             var json = JsonConvert.SerializeObject(model);

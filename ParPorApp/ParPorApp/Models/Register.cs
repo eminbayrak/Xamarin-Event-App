@@ -12,5 +12,16 @@ namespace ParPorApp.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string TeamName { get; set; }
+        public string TeamCode
+        {
+            get
+            {
+                return TeamName.GetHashCode().ToString();
+            }
+            set
+            {
+                TeamCode.ToString();
+            }
+        }
     }
 }

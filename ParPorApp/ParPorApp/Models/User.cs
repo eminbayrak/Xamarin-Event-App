@@ -8,6 +8,10 @@ namespace ParPorApp.Models
 
     public class User
     {
+        //private string _loadedUrl = "https://ui-avatars.com/api/?rounded=true&name=";
+        private string _loadedUrl = "https://api.adorable.io/avatars/128/";
+        //public string ImageUrl => _loadedUrl + FirstName.Substring(0, 1) + LastName.Substring(0, 1);
+        public string ImageUrl => _loadedUrl + Email + ".png";
         [JsonProperty("Email")] public string Email { get; set; }
 
         [JsonProperty("FirstName")] public string FirstName { get; set; }

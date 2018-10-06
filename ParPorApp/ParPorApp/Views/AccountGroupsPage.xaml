@@ -22,8 +22,8 @@
                             Source="{Binding ImageUrl}"
                             WidthRequest="55"
                             HeightRequest="55"                            
-                            Aspect="AspectFill"/>
-                        <StackLayout VerticalOptions="Center">
+                            />
+                        <StackLayout VerticalOptions="StartAndExpand">
                             <Label Text="{Binding FullName}" FontSize="18" FontAttributes="Bold"/>
                             <Label Text="{Binding Email}"/>
                         </StackLayout>
