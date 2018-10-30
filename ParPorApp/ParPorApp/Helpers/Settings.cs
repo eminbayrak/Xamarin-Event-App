@@ -91,6 +91,21 @@ namespace ParPorApp.Helpers
                 AppSettings.AddOrUpdateValue("TeamCode", value);
             }
         }
+
+        public static string Id
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault("Id", "");
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue("Id", value);
+            }
+        }
+
+        public static DateTime AccountDate;
+        
         public static string Password
         {
             get

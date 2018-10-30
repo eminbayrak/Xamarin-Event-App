@@ -35,7 +35,7 @@ namespace ParPorApp.Views
 			});
 		}
 
-        private async Task Weather_OnClicked(object sender, EventArgs e)
+        private async void Weather_OnClicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new WeatherWebPage());
         }

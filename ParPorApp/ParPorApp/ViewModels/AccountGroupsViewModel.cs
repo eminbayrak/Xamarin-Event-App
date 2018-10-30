@@ -13,6 +13,8 @@ namespace ParPorApp.ViewModels
 {
     class AccountGroupsViewModel : INotifyPropertyChanged
     {
+        public string EnteredCode { get; set; }
+        public string EnteredTeamName { get; set; }
         private readonly ApiServices _apiServices = new ApiServices();
         private List<AccountGroups> _accountgroups;
         public List<AccountGroups> AccountGroups
@@ -36,6 +38,36 @@ namespace ParPorApp.ViewModels
                 });
             }
         }
+
+        
+        public User User { get; set; }
+
+        public ICommand PutCommand
+        {
+            get
+            {
+                return new Command(async () =>
+                {
+                    await _apiServices.UpdateAsync(User, Settings.AccessToken);
+                });
+            }
+        }
+
+        //public ICommand UpdateUser
+        //{
+        //    get
+        //    {
+        //        return new Command(async () =>
+        //        {
+        //            var user = new User
+        //            {
+        //                TeamCode = EnteredCode,
+        //                TeamName = EnteredTeamName
+        //            };
+        //            await _apiServices.UpdateAsync(user, Settings.AccessToken);
+        //        });
+        //    }
+        //}
 
         public event PropertyChangedEventHandler PropertyChanged;
 

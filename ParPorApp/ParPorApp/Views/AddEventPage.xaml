@@ -6,7 +6,6 @@
              xmlns:viewModels="clr-namespace:ParPorApp.ViewModels;assembly=ParPorApp"
              xmlns:system="clr-namespace:System;assembly=netstandard"
              xmlns:placesSearchBar="clr-namespace:DurianCode.PlacesSearchBar;assembly=DurianCode.PlacesSearchBar"
-             BackgroundColor="#ECF0E2"
              Title="Add a new event">
 
     <ContentPage.BindingContext>

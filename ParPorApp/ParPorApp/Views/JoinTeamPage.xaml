@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:ParPorApp.ViewModels"             
+             x:Class="ParPorApp.Views.JoinTeamPage">
+    <ContentPage.BindingContext>
+        <viewModels:RegisterViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="EntCode" Placeholder="Enter the team code" Text="{Binding EnteredCode, Mode=TwoWay}"
+                   
+                   VerticalOptions="Center"
+                   Keyboard="Numeric"
+                   HorizontalOptions="CenterAndExpand" />
+            <Button x:Name="tmCodeButton" Clicked="Button_ClickedAsync" HorizontalOptions="Center" BorderRadius="50" TextColor="White"
+                            FontSize="20"                    
+                            Text="Search">                
+            </Button>
+            <Label x:Name="tmCode" HorizontalOptions="Center"/>
+            <Label x:Name="tmName" Text="{Binding TeamName, Mode=TwoWay}" HorizontalOptions="Center"/>
+
+            <Button Command="{Binding JoinTeamCommand}" Text="Join" BorderRadius="50" HorizontalOptions="Center"/>
+            <!--<ListView x:Name="list">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding TeamName}" Detail="{Binding TeamCode}">
+                        </TextCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

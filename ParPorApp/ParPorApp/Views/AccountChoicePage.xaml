@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              x:Class="ParPorApp.Views.AccountChoicePage"
              Title="Pick your role">
     <ContentPage.Content>
         <StackLayout Padding="20" HorizontalOptions="CenterAndExpand">
-        <Grid>
+            <Label Text="Here you can join a team or you can create your own team."  HorizontalTextAlignment="Center" />
+            <Grid HorizontalOptions="CenterAndExpand">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
@@ -16,27 +16,17 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
-                <Label Text="Are you a team coach or parent?"  HorizontalTextAlignment="Center"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                <ContentView BackgroundColor="Transparent" HeightRequest="10"/>
-                <Image Source="teamcoach.png" Grid.Row="1" Grid.Column="0" HeightRequest="150">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer
-                Tapped="ButtonCoach_OnClicked"
-                NumberOfTapsRequired="1" />
-                    </Image.GestureRecognizers>
-                </Image>
-
-                <Image Source="teamparent.png" Grid.Row="1" Grid.Column="1" HeightRequest="150">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer
-                Tapped="ButtonParent_OnClicked"
-                NumberOfTapsRequired="1" />
-                    </Image.GestureRecognizers>
-                </Image>
-                
-                <!--<Button Text="Team Coach" Grid.Row="1" BackgroundColor="#43b05c" HeightRequest="100" WidthRequest="150" TextColor="White" FontSize="Large" Grid.Column="0" Clicked="ButtonCoach_OnClicked" />-->
-                <!--<Button Text="Parent" Grid.Row="1" BackgroundColor="#43b05c" HeightRequest="100" WidthRequest="150" TextColor="White" FontSize="Large" Grid.Column="1" Clicked="ButtonParent_OnClicked" />-->            
-        </Grid>
+                <Button Text="Team Manager" Grid.Row="1" BackgroundColor="#43b05c" HeightRequest="100" WidthRequest="150" TextColor="White" FontSize="Large" Grid.Column="0" Clicked="ButtonCoach_OnClicked" />
+                <Button Text="Team Member" Grid.Row="1" BackgroundColor="#43b05c" HeightRequest="100" WidthRequest="150" TextColor="White" FontSize="Large" Grid.Column="1" Clicked="ButtonParent_OnClicked" />
+            </Grid>
+            <Label LineBreakMode="WordWrap">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="IMPORTANT NOTE: " TextColor="Red" FontAttributes="Bold" />
+                        <Span Text="If you are a joining member, make sure spell your team name correctly just as you got it from the team manager." />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

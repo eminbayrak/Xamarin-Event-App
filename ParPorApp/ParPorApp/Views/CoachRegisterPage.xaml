@@ -22,9 +22,9 @@
                 </forms:SvgCachedImage>
                 <StackLayout Padding="30">
                     <BoxView HeightRequest="10" BackgroundColor="Transparent" />
-                    <Label Text="Howdy coach!" FontSize="30" TextColor="#DD6C5C"/>
+                    <Label Text="Howdy!" FontSize="30" TextColor="#DD6C5C"/>
                     <Label Text="Let's create your team" FontSize="16" />
-                    <Entry Text="{Binding TeamName}" Placeholder="Team name" />
+                    <Entry x:Name="teamName" Text="{Binding TeamName}" Placeholder="Team name" />
                     <ContentView BackgroundColor="Transparent" HeightRequest="5"/>
                     <Entry Text="{Binding FirstName}" Placeholder="First name" />
                     <Entry Text="{Binding LastName}" Placeholder="Last name" />
@@ -32,11 +32,12 @@
                     <Entry Text="{Binding Password}" Placeholder="Password" IsPassword="True" />
                     <Entry Text="{Binding ConfirmPassword}" TextColor="White" Placeholder="Confirm password"
                            IsPassword="True" />
-                    <Button Command="{Binding RegisterCommand}" BackgroundColor="#6d995c"
+                    <Button Command="{Binding RegisterTeamCommand}" BackgroundColor="#6d995c"
                             FontSize="20"
                             Text="Register"
                             TextColor="White">
                     </Button>
+                    <Label x:Name="teamCode" Text="{Binding TeamName}" IsVisible="False"/>
 
                     <!--<Button Text="Go to Login" BackgroundColor="White" TextColor="#F1836E" FontSize="20"
                         Clicked="Button_OnClicked">

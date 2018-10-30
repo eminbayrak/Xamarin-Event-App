@@ -15,16 +15,18 @@ namespace ParPorApp.Views
 	public partial class AccountGroupsPage : ContentPage
 	{
         AccountGroupsViewModel accountGroups;
-		public AccountGroupsPage ()
+        
+
+        public AccountGroupsPage ()
 		{
 			InitializeComponent ();
             BindingContext = accountGroups = new AccountGroupsViewModel();
         }
-
+        
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
+            
             accountGroups.GetGroupsCommand.Execute(null);
         }
     }

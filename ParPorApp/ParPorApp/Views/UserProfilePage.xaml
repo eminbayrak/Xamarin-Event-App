@@ -4,47 +4,51 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:ParPorApp.ViewModels;assembly=ParPorApp"
              xmlns:constant="clr-namespace:ParPorApp.Constant;assembly=ParPorApp"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              Title="Profile"
+             BackgroundColor="#4A384A"
              x:Class="ParPorApp.Views.UserProfilePage">
 
     <ContentPage.BindingContext>
         <viewModels:UserViewModel />
     </ContentPage.BindingContext>
 
-    <Grid BackgroundColor="#FEFEFE" Margin="0,10,0,00">
+    <Grid Margin="0,10,0,00">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="1"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="1"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="1" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="1" />
+            <RowDefinition Height="40" />
         </Grid.RowDefinitions>
         <StackLayout Margin="20,20,0,00" Grid.Row="0">
             <ListView ItemsSource="{Binding Users}"
-                                   HeightRequest="140"
-                                   
+                                   HeightRequest="160"
+
                           SeparatorVisibility="None"
                           IsEnabled="False"
                           HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout >
-                                <Image HeightRequest="50"
-                                                              HorizontalOptions="Start"
-                                                              Source="{Binding ImageUrl}"
-                                                              WidthRequest="50" />
-                                <Label FontAttributes="Bold" Text="{Binding FullName}" TextColor="#000000" Style="{StaticResource BoldLabel}" FontSize="18" />
-                                <Label Text="{Binding Email}" TextColor="#6d747a" FontSize="14"/>
-                                <Label Text="{Binding TeamName}" TextColor="#6d747a" FontSize="14"/>
-
+                            <StackLayout Margin="10">
+                                <controls:CircleImage HeightRequest="50"
+                                                      HorizontalOptions="Start"
+                                                      Source="{Binding ImageUrl}"
+                                                      BorderColor="Black"
+                                                      BorderThickness="0.5"
+                                                      WidthRequest="50" />
+                                <Label FontAttributes="Bold" Text="{Binding FullName}" TextColor="#ffffff" Style="{StaticResource BoldLabel}" FontSize="18" />
+                                <Label Text="{Binding Email}" TextColor="#ffffff" FontSize="14" />
+                                <Label Text="{Binding TeamName}" TextColor="#ffffff" FontSize="14" />
+                                <Label Text="{Binding TeamCode}" TextColor="#ffffff" FontAttributes="Bold" FontSize="14" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
-        <BoxView Grid.Row="1" HeightRequest="0.2" BackgroundColor="#E8EBED" />
+        <BoxView Grid.Row="1" HeightRequest="0.2" BackgroundColor="Black" />
         <ScrollView Grid.Row="2" Margin="10,0,0,00">
             <StackLayout>
 
@@ -59,7 +63,7 @@
                             Text="{x:Static constant:FontAwesomeConstant.Help}" />
             </StackLayout>
         </ScrollView>
-        <BoxView Grid.Row="3" HeightRequest="0.2" VerticalOptions="End" BackgroundColor="#E8EBED"/>
+        <BoxView Grid.Row="3" HeightRequest="0.2" VerticalOptions="End" BackgroundColor="Black" />
         <Button Margin="10,0,0,00" Grid.Row="4" Style="{StaticResource FontAwesomeStyleBtnBot}"
                 Text="{x:Static constant:FontAwesomeConstant.Signout}"
                 VerticalOptions="End"

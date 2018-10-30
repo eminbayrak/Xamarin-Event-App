@@ -24,13 +24,14 @@
                     <BoxView HeightRequest="10" BackgroundColor="Transparent" />
                     <Label Text="Howdy!" FontSize="30" />
                     <Label Text="Let's get you an account" FontSize="16" />
+                    <Entry Text="{Binding FirstName}" Placeholder="Team code" />
                     <Entry Text="{Binding FirstName}" Placeholder="First name" />
                     <Entry Text="{Binding LastName}" Placeholder="Last name" />
                     <Entry Text="{Binding Email}" Placeholder="Email" />
                     <Entry Text="{Binding Password}" Placeholder="Password" IsPassword="True" />
                     <Entry Text="{Binding ConfirmPassword}" TextColor="White" Placeholder="Confirm password"
                            IsPassword="True" />
-                    <Button Command="{Binding RegisterCommand}" BackgroundColor="#8c2f39"
+                    <Button Command="{Binding RegisterTeamCommand}" BackgroundColor="#8c2f39"
                             FontSize="20"
                             Text="Register">
                     </Button>

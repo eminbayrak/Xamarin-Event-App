@@ -14,15 +14,15 @@ namespace ParPorApp.Views
     {
         public SocialPage()
         {
-            
+
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-//            if (Device.OS == TargetPlatform.Android)
-//                NavigationPage.SetTitleIcon(this, "ic_face.png");
+            //            if (Device.OS == TargetPlatform.Android)
+            //                NavigationPage.SetTitleIcon(this, "ic_face.png");
             // Setting Color of selected Text and Icon
-            BarTextColor = Color.FromHex("#43b05c"); 
+            BarTextColor = Color.FromHex("#43b05c");
             FixedMode = true;
-            
+
             //Dark theme for bottom navigation bar
             //BarTheme = BottomBarPage.BarThemeTypes.DarkWithAlpha;
 
@@ -36,6 +36,6 @@ namespace ParPorApp.Views
             //NavigationPage.SetHasNavigationBar(this, false);
         }
 
-        
+
     }
 }

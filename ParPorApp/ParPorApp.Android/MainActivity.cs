@@ -30,6 +30,7 @@ namespace ParPorApp.Droid
             base.OnCreate(bundle);
             this.Window.AddFlags(WindowManagerFlags.TranslucentStatus);
             Forms.Init(this, bundle);
+            ImageCircle.Forms.Plugin.Droid.ImageCircleRenderer.Init();
             LocalNotificationsImplementation.NotificationIconId = Resource.Drawable.ic_launcher;
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
             AnimationViewRenderer.Init();

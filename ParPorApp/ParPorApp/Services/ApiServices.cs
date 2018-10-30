@@ -1,26 +1,16 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
-using Microsoft.WindowsAzure.MobileServices;
-using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
-using Microsoft.WindowsAzure.MobileServices.Sync;
-using ParPorApp.ViewModels;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using ParPorApp.Helpers;
 using ParPorApp.Models;
-using ParPorApp.Views;
 using Xamarin.Forms;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using Acr.UserDialogs;
-using Encoding = System.Text.Encoding;
 
 namespace ParPorApp.Services
 
@@ -29,13 +19,14 @@ namespace ParPorApp.Services
     {
         // Register account
         public async Task<bool> RegisterUserAsync(
-            string email, 
-            string password, 
-            string confirmPassword, 
-            string firstName, 
-            string lastName, 
-            string teamName, 
-            string teamCode)
+            string email,
+            string password,
+            string confirmPassword,
+            string firstName,
+            string lastName,
+            string teamName,
+            string teamCode,
+            DateTime accountDate)
         {
             var client = new HttpClient();
             var model = new Register
@@ -46,7 +37,8 @@ namespace ParPorApp.Services
                 LastName = lastName,
                 TeamName = teamName,
                 ConfirmPassword = confirmPassword,
-                TeamCode = teamCode
+                TeamCode = teamCode,
+                AccountDate = accountDate
             };
 
             var json = JsonConvert.SerializeObject(model);
@@ -62,9 +54,9 @@ namespace ParPorApp.Services
             {
                 using (UserDialogs.Instance.Loading("Hang on...", null, null, true, MaskType.Black))
                 {
-                    ToastConfig toastConfig = new ToastConfig("Your account has been registered :)");
+                    ToastConfig toastConfig = new ToastConfig("Your account has been successfully registered!");
                     toastConfig.SetDuration(4000);
-                    toastConfig.SetBackgroundColor(Color.FromHex("#43b05c"));
+                    toastConfig.SetBackgroundColor(Color.OrangeRed);
                     UserDialogs.Instance.Toast(toastConfig);
                 }
                 return true;
@@ -76,6 +68,28 @@ namespace ParPorApp.Services
             return false;
         }
 
+        //Join member to team
+        public async Task<bool> JoinTeamAsync(string teamName, string teamCode)
+        {
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+                "Bearer", Settings.AccessToken);
+            var model = new Register
+            {
+                TeamName = teamName,
+                TeamCode = teamCode,
+                //Id = id
+            };
+            var json = JsonConvert.SerializeObject(model);
+            
+            HttpContent httpContent = new StringContent(json);
+
+            httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            var response = await client.PostAsync(
+                Constants.BaseApiAddress + "api/Account/Update", httpContent);
+            return true;
+        }
 
         // Login user
         public async Task<string> LoginAsync(string userName, string password)
@@ -122,7 +136,7 @@ namespace ParPorApp.Services
             var group = JsonConvert.DeserializeObject<List<Group>>(json);
             return group;
         }
-
+        
         // Get account groups
         public async Task<List<AccountGroups>> GetAccountGroupsAsync(string accessToken)
         {
@@ -214,7 +228,19 @@ namespace ParPorApp.Services
             events = events.OrderBy(x => x.EventDate).ToList();
             return events;
         }
+        // Update User
+        public async Task UpdateAsync(User user, string accessToken)
+        {
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
+            var json = JsonConvert.SerializeObject(user);
+            HttpContent content = new StringContent(json);
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            var response = await client.PutAsync(
+                Constants.BaseApiAddress + "api/Account/Update" + user.Id, content);
+        }
         // Put event
         public async Task PutEventAsync(Event events, string accessToken)
 	    {

@@ -14,11 +14,13 @@ namespace ParPorApp
         public static bool IsInBackgrounded { get; private set; }
         public App()
         {
+            
             InitializeComponent();
             SetMainPage();
+            
             //OneSignal.Current.StartInit("9fde7b73-f47b-459e-aae9-39756cccebf1").EndInit();
             //Background color
-            MainPage.SetValue(NavigationPage.BarBackgroundColorProperty, Color.FromHex("#43b05c"));
+            MainPage.SetValue(NavigationPage.BarBackgroundColorProperty, Color.FromHex("#4A384A"));
 
             //Title color
             //MainPage.SetValue(NavigationPage.BarTextColorProperty, Color.FromHex("#43b05c"));

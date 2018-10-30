@@ -25,13 +25,13 @@ namespace ParPorApp.Views
 	        base.OnAppearing();
 	        eventsViewModel.GetTrainingsCommand.Execute(null);
 	    }
-	    private async Task AddEvent_Clicked(object sender, EventArgs e)
+	    private async void AddEvent_Clicked(object sender, EventArgs e)
 	    {
 	        await Navigation.PushAsync(new AddEventPage());
 	    }
 
 	    //navigating to event detail page
-	    private async Task EventList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+	    private async void EventList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
 	    {
 	        var item = e.SelectedItem as Event;
 	        if (e.SelectedItem == null)
