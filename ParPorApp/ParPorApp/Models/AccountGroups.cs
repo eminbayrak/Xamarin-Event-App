@@ -23,19 +23,7 @@ namespace ParPorApp.Models
         //public string ImageUrl => _loadedUrl + Email + ".png";
         public string TeamName { get; set; }
         public string TeamCode { get; set; }
-        //public string EnterCode { get; set; }
-
-        //public string EnteredCode
-        //{
-        //    get => TeamCode;
-        //    set
-        //    {
-        //        TeamCode = value;
-        //    }
-        //}
-
         public string FullName => FirstName.Trim() + " " + LastName.Trim();
-
 
     }
 

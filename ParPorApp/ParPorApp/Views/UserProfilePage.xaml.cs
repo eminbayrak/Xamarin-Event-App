@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ParPorApp.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -19,18 +15,22 @@ namespace ParPorApp.Views
             InitializeComponent();
             BindingContext = usersViewModel = new UserViewModel();
             NavigationPage.SetHasNavigationBar(this, false);
+            //var isvis = adminLbl.Text;
+            //if (isvis == "False")
+            //{
+            //    addEventBtn.IsVisible = false;
+            //}
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
-            usersViewModel.GetUserCommand.Execute(null);
+            usersViewModel.GetUserCommand.Execute(null);      
         }
 
-        private async void gotoGroupPage_clicked(object sender, EventArgs e)
+        private async void addEventBtn_clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new GroupDetailPage());
+            await Navigation.PushModalAsync(new AddEventPage());
         }
 
         private async void LogoutMenuItem_Clicked(object sender, EventArgs e)

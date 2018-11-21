@@ -28,7 +28,7 @@ namespace ParPorApp.Droid
             ToolbarResource = Resource.Layout.Toolbar;
             UserDialogs.Init(this);
             base.OnCreate(bundle);
-            this.Window.AddFlags(WindowManagerFlags.TranslucentStatus);
+            Window.AddFlags(WindowManagerFlags.TranslucentStatus);
             Forms.Init(this, bundle);
             ImageCircle.Forms.Plugin.Droid.ImageCircleRenderer.Init();
             LocalNotificationsImplementation.NotificationIconId = Resource.Drawable.ic_launcher;

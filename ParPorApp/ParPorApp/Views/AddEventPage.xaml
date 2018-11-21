@@ -73,8 +73,8 @@
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Label Text="Team name:" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" />
-                    <Entry Text="{Binding TeamName}" Grid.Row="0" Grid.Column="1" FontSize="14" Keyboard="Text"/>
+                    <!--<Label Text="Team name:" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" />
+                    <Entry Text="{Binding TeamName}" Grid.Row="0" Grid.Column="1" FontSize="14" Keyboard="Text"/>-->
                     <Label Text="Opponent team:" Grid.Row="1" Grid.Column="0" FontAttributes="Bold" />
                     <Entry Text="{Binding OpponentTeamName}" Grid.Row="1" Grid.Column="1" FontSize="14" Keyboard="Text"/>
                     <Label Text="Note:" FontAttributes="Bold" Grid.Row="2" Grid.Column="0" />

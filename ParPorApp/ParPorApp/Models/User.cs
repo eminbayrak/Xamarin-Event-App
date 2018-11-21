@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
 
@@ -25,7 +26,10 @@ namespace ParPorApp.Models
         [JsonProperty("LoginProvider")] public string LoginProvider { get; set; }
         [JsonProperty("TeamName")] public string TeamName { get; set; }
         [JsonProperty("TeamCode")] public string TeamCode { get; set; }
+        [JsonProperty("IsAdmin")] public string IsAdmin { get; set; }
 
+        public string IsAdminNull => IsAdmin.Trim().ToString();
+                
         [JsonProperty("Avatar")] public string Avatar { get; set; }
 
         public string FullName => FirstName + " " + LastName;

@@ -34,11 +34,10 @@ namespace ParPorApp.ViewModels
                 return new Command(async () =>
                 {
                     var accessToken = Settings.AccessToken;
-                    AccountGroups = await _apiServices.GetAccountGroupsAsync(accessToken);
+                    AccountGroups = await _apiServices.GetTeamMembersAsync(accessToken);
                 });
             }
         }
-
         
         public User User { get; set; }
 
@@ -52,23 +51,7 @@ namespace ParPorApp.ViewModels
                 });
             }
         }
-
-        //public ICommand UpdateUser
-        //{
-        //    get
-        //    {
-        //        return new Command(async () =>
-        //        {
-        //            var user = new User
-        //            {
-        //                TeamCode = EnteredCode,
-        //                TeamName = EnteredTeamName
-        //            };
-        //            await _apiServices.UpdateAsync(user, Settings.AccessToken);
-        //        });
-        //    }
-        //}
-
+        
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

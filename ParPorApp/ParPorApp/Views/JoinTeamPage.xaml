@@ -2,33 +2,55 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:ParPorApp.ViewModels"             
-             x:Class="ParPorApp.Views.JoinTeamPage">
+             x:Class="ParPorApp.Views.JoinTeamPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#2e86ab">
     <ContentPage.BindingContext>
         <viewModels:RegisterViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout>
-            <Entry x:Name="EntCode" Placeholder="Enter the team code" Text="{Binding EnteredCode, Mode=TwoWay}"
+        <StackLayout Padding="70">
+            <Image Source="link.png" HorizontalOptions="Center" HeightRequest="152" WidthRequest="152"/>
+            <Label Text="Enter the team code that you received from the team manager" FontSize="Micro" FontAttributes="Italic" TextColor="White" HorizontalTextAlignment="Center"/>
+            <BoxView HeightRequest="20" BackgroundColor="Transparent"/>
+            <Entry x:Name="EntCode" Placeholder="The team code" PlaceholderColor="White" TextColor="White" Text="{Binding EnteredCode, Mode=TwoWay}"
                    
                    VerticalOptions="Center"
                    Keyboard="Numeric"
                    HorizontalOptions="CenterAndExpand" />
-            <Button x:Name="tmCodeButton" Clicked="Button_ClickedAsync" HorizontalOptions="Center" BorderRadius="50" TextColor="White"
-                            FontSize="20"                    
-                            Text="Search">                
-            </Button>
+            <Label x:Name="emptyErrorMsg" HorizontalOptions="CenterAndExpand" TextColor="Red" FontSize="Medium">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="This field cannot be empty!" FontAttributes="Bold"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            
+            <Button x:Name="tmCodeButton" 
+                    Text="Search"
+                    TextColor="#2e86ab"
+                    Clicked="Button_Clicked" 
+                    HorizontalOptions="Center" 
+                    BorderRadius="50"
+                    BackgroundColor="White"
+                    FontSize="20"/>
             <Label x:Name="tmCode" HorizontalOptions="Center"/>
-            <Label x:Name="tmName" Text="{Binding TeamName, Mode=TwoWay}" HorizontalOptions="Center"/>
+            <Label x:Name="tmName" Text="{Binding TeamName, Mode=TwoWay}" FontSize="Large" TextColor="White" HorizontalOptions="Center"/>
 
-            <Button Command="{Binding JoinTeamCommand}" Text="Join" BorderRadius="50" HorizontalOptions="Center"/>
-            <!--<ListView x:Name="list">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell Text="{Binding TeamName}" Detail="{Binding TeamCode}">
-                        </TextCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>-->
+            <Button x:Name="joinButton" 
+                    Command="{Binding JoinTeamCommand}" 
+                    Text="Join" 
+                    TextColor="#2e86ab" 
+                    BackgroundColor="White" 
+                    BorderRadius="50" 
+                    HorizontalOptions="Center"/>
+            <Button x:Name="tryAgainBtn" 
+                    Clicked="tryAgainBtn_ClickedAsync" 
+                    Text="Try again" 
+                    TextColor="Blue" 
+                    BackgroundColor="Transparent" 
+                    BorderRadius="50" 
+                    HorizontalOptions="Center"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

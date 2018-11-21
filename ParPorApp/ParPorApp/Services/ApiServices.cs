@@ -77,8 +77,7 @@ namespace ParPorApp.Services
             var model = new Register
             {
                 TeamName = teamName,
-                TeamCode = teamCode,
-                //Id = id
+                TeamCode = teamCode
             };
             var json = JsonConvert.SerializeObject(model);
             
@@ -149,6 +148,18 @@ namespace ParPorApp.Services
             return group;
         }
 
+        // Get team members
+        public async Task<List<AccountGroups>> GetTeamMembersAsync(string accessToken)
+        {
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+                "Bearer", accessToken);
+            var json = await client.GetStringAsync(Constants.BaseApiAddress + "api/AccountGroups/TeamMembers");
+
+            var group = JsonConvert.DeserializeObject<List<AccountGroups>>(json);
+            return group;
+        }
+
         //Get user list
         public async Task<List<User>> GetUsersAsync(string accessToken)
 	    {
@@ -163,9 +174,8 @@ namespace ParPorApp.Services
 
 			var user = JsonConvert.DeserializeObject<List<User>>(userJson);
 	        
-            //Debug.Write(userJson);
+            Debug.WriteLine(user);
 	        return user;
-          
 	    }
         
         //Show all of the events

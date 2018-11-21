@@ -6,6 +6,8 @@ using ParPorApp.Views;
 using System;
 using ParPorApp.Models;
 using System.Collections.Generic;
+using Acr.UserDialogs;
+using System.Threading.Tasks;
 
 namespace ParPorApp.ViewModels
 {
@@ -32,11 +34,19 @@ namespace ParPorApp.ViewModels
             {
                 return new Command(async () =>
                 {
-                    var isRegistered = await _apiServices.JoinTeamAsync(TeamName, EnteredCode);
+                    var isJoined = await _apiServices.JoinTeamAsync(TeamName, EnteredCode);
                     Settings.TeamCode = EnteredCode;
                     Settings.TeamName = TeamName;
-                    //Settings.Id = Id;
-                    //accountGroups.EnteredCode = TeamCode;
+                    UserDialogs.Instance.ShowLoading("Joinning to \n" + TeamName);
+                    await Task.Delay(2000);
+                    if (isJoined)
+                    {
+                        UserDialogs.Instance.Toast("Welcome to " + TeamName);
+                        await Application.Current.MainPage.Navigation.PushModalAsync(new MainPage(), true);
+                        UserDialogs.Instance.HideLoading();
+                    }
+                    else
+                        await UserDialogs.Instance.AlertAsync("Did you enter the code correctly?", "Try again");
                 });
             }
         }

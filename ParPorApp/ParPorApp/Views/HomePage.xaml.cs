@@ -15,7 +15,7 @@ namespace ParPorApp.ViewModels
         public HomePage()
         {
             InitializeComponent();
-
+            
             Children.Add(new GamesPage() { Title = "Games"});
             Children.Add(new TrainingPage() { Title = "Trainings" });
             //NavigationPage.SetHasNavigationBar(this, false);

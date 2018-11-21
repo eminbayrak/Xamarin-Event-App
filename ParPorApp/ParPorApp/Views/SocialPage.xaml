@@ -11,13 +11,6 @@
     <!--<ContentPage xamarinForms:BottomBarPageExtensions.TabColor="#cfefa7"/>-->
     <!--<xamarinForms:BottomBarPage.BarTextColor>WhiteSmoke</xamarinForms:BottomBarPage.BarTextColor>-->
 
-    <!--<NavigationPage Title="Home" Icon="ic_home.png" 
-                            xamarinForms:BottomBarPageExtensions.TabColor="MediumSlateBlue">
-            <x:Arguments>
-                <views:NewsfeedPage/>
-            </x:Arguments>
-            </NavigationPage>-->
-    <!--<views:NewsfeedPage Title="Home" Icon="ic_home.png"></views:NewsfeedPage>-->
     <NavigationPage BarTextColor="Black" Title="Upcoming" Icon="ic_home.png">
         <x:Arguments>
             <viewModels:HomePage/>
@@ -31,7 +24,7 @@
     </NavigationPage>
     <NavigationPage BarTextColor="Black" Title="Group" Icon="ic_group.png">
         <x:Arguments>
-            <views:GroupNavPage />
+            <views:AccountGroupsPage />
         </x:Arguments>
     </NavigationPage>
     <NavigationPage BarTextColor="Black" Title="Social" Icon="ic_message.png" >

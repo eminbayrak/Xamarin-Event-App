@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace ParPorApp.Models
 {
-    public class Event : User
+    public class Event
     {
         [JsonProperty("Note")] public string Note { get; set; }
 
@@ -31,7 +31,7 @@ namespace ParPorApp.Models
 
         [JsonProperty("LocationLongitude")] public string LocationLongitude { get; set; }
 
-        //[JsonProperty("TeamName")] public string TeamName { get; set; }
+        [JsonProperty("TeamName")] public string TeamName { get; set; }
 
         [JsonProperty("OpponentTeamName")] public string OpponentTeamName { get; set; }
         public string GameVS => TeamName + " vs " + OpponentTeamName;
