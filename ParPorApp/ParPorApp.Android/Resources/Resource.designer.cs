@@ -3463,41 +3463,41 @@ namespace ParPorApp.Droid
 			// aapt resource value: 0x7f010094
 			public const int activityChooserViewStyle = 2130772116;
 			
-			// aapt resource value: 0x7f010189
-			public const int ahBarColor = 2130772361;
-			
-			// aapt resource value: 0x7f010191
-			public const int ahBarLength = 2130772369;
+			// aapt resource value: 0x7f010188
+			public const int ahBarColor = 2130772360;
 			
 			// aapt resource value: 0x7f010190
-			public const int ahBarWidth = 2130772368;
-			
-			// aapt resource value: 0x7f01018e
-			public const int ahCircleColor = 2130772366;
-			
-			// aapt resource value: 0x7f01018d
-			public const int ahDelayMillis = 2130772365;
+			public const int ahBarLength = 2130772368;
 			
 			// aapt resource value: 0x7f01018f
-			public const int ahRadius = 2130772367;
+			public const int ahBarWidth = 2130772367;
 			
-			// aapt resource value: 0x7f01018a
-			public const int ahRimColor = 2130772362;
-			
-			// aapt resource value: 0x7f01018b
-			public const int ahRimWidth = 2130772363;
+			// aapt resource value: 0x7f01018d
+			public const int ahCircleColor = 2130772365;
 			
 			// aapt resource value: 0x7f01018c
-			public const int ahSpinSpeed = 2130772364;
+			public const int ahDelayMillis = 2130772364;
+			
+			// aapt resource value: 0x7f01018e
+			public const int ahRadius = 2130772366;
+			
+			// aapt resource value: 0x7f010189
+			public const int ahRimColor = 2130772361;
+			
+			// aapt resource value: 0x7f01018a
+			public const int ahRimWidth = 2130772362;
+			
+			// aapt resource value: 0x7f01018b
+			public const int ahSpinSpeed = 2130772363;
+			
+			// aapt resource value: 0x7f010185
+			public const int ahText = 2130772357;
 			
 			// aapt resource value: 0x7f010186
-			public const int ahText = 2130772358;
+			public const int ahTextColor = 2130772358;
 			
 			// aapt resource value: 0x7f010187
-			public const int ahTextColor = 2130772359;
-			
-			// aapt resource value: 0x7f010188
-			public const int ahTextSize = 2130772360;
+			public const int ahTextSize = 2130772359;
 			
 			// aapt resource value: 0x7f0100b9
 			public const int alertDialogButtonGroupStyle = 2130772153;
@@ -4061,10 +4061,7 @@ namespace ParPorApp.Droid
 			public const int lottie_autoPlay = 2130772348;
 			
 			// aapt resource value: 0x7f010183
-			public const int lottie_cacheStrategy = 2130772355;
-			
-			// aapt resource value: 0x7f010184
-			public const int lottie_colorFilter = 2130772356;
+			public const int lottie_colorFilter = 2130772355;
 			
 			// aapt resource value: 0x7f010182
 			public const int lottie_enableMergePathsForKitKatAndAbove = 2130772354;
@@ -4090,8 +4087,8 @@ namespace ParPorApp.Droid
 			// aapt resource value: 0x7f01017e
 			public const int lottie_repeatMode = 2130772350;
 			
-			// aapt resource value: 0x7f010185
-			public const int lottie_scale = 2130772357;
+			// aapt resource value: 0x7f010184
+			public const int lottie_scale = 2130772356;
 			
 			// aapt resource value: 0x7f01017b
 			public const int lottie_url = 2130772347;
@@ -6759,41 +6756,41 @@ namespace ParPorApp.Droid
 			// aapt resource value: 0x7f0b0040
 			public const int SYM = 2131427392;
 			
-			// aapt resource value: 0x7f0b00d0
-			public const int action0 = 2131427536;
+			// aapt resource value: 0x7f0b00ce
+			public const int action0 = 2131427534;
 			
-			// aapt resource value: 0x7f0b0088
-			public const int action_bar = 2131427464;
+			// aapt resource value: 0x7f0b0086
+			public const int action_bar = 2131427462;
 			
 			// aapt resource value: 0x7f0b0001
 			public const int action_bar_activity_content = 2131427329;
 			
-			// aapt resource value: 0x7f0b0087
-			public const int action_bar_container = 2131427463;
+			// aapt resource value: 0x7f0b0085
+			public const int action_bar_container = 2131427461;
 			
-			// aapt resource value: 0x7f0b0083
-			public const int action_bar_root = 2131427459;
+			// aapt resource value: 0x7f0b0081
+			public const int action_bar_root = 2131427457;
 			
 			// aapt resource value: 0x7f0b0002
 			public const int action_bar_spinner = 2131427330;
 			
-			// aapt resource value: 0x7f0b0067
-			public const int action_bar_subtitle = 2131427431;
+			// aapt resource value: 0x7f0b0065
+			public const int action_bar_subtitle = 2131427429;
 			
-			// aapt resource value: 0x7f0b0066
-			public const int action_bar_title = 2131427430;
+			// aapt resource value: 0x7f0b0064
+			public const int action_bar_title = 2131427428;
 			
-			// aapt resource value: 0x7f0b00cd
-			public const int action_container = 2131427533;
+			// aapt resource value: 0x7f0b00cb
+			public const int action_container = 2131427531;
 			
-			// aapt resource value: 0x7f0b0089
-			public const int action_context_bar = 2131427465;
+			// aapt resource value: 0x7f0b0087
+			public const int action_context_bar = 2131427463;
 			
-			// aapt resource value: 0x7f0b00d4
-			public const int action_divider = 2131427540;
+			// aapt resource value: 0x7f0b00d2
+			public const int action_divider = 2131427538;
 			
-			// aapt resource value: 0x7f0b00ce
-			public const int action_image = 2131427534;
+			// aapt resource value: 0x7f0b00cc
+			public const int action_image = 2131427532;
 			
 			// aapt resource value: 0x7f0b0003
 			public const int action_menu_divider = 2131427331;
@@ -6801,23 +6798,23 @@ namespace ParPorApp.Droid
 			// aapt resource value: 0x7f0b0004
 			public const int action_menu_presenter = 2131427332;
 			
-			// aapt resource value: 0x7f0b0085
-			public const int action_mode_bar = 2131427461;
+			// aapt resource value: 0x7f0b0083
+			public const int action_mode_bar = 2131427459;
 			
-			// aapt resource value: 0x7f0b0084
-			public const int action_mode_bar_stub = 2131427460;
+			// aapt resource value: 0x7f0b0082
+			public const int action_mode_bar_stub = 2131427458;
 			
-			// aapt resource value: 0x7f0b0068
-			public const int action_mode_close_button = 2131427432;
+			// aapt resource value: 0x7f0b0066
+			public const int action_mode_close_button = 2131427430;
 			
-			// aapt resource value: 0x7f0b00cf
-			public const int action_text = 2131427535;
+			// aapt resource value: 0x7f0b00cd
+			public const int action_text = 2131427533;
 			
-			// aapt resource value: 0x7f0b00dd
-			public const int actions = 2131427549;
+			// aapt resource value: 0x7f0b00db
+			public const int actions = 2131427547;
 			
-			// aapt resource value: 0x7f0b0069
-			public const int activity_chooser_view_content = 2131427433;
+			// aapt resource value: 0x7f0b0067
+			public const int activity_chooser_view_content = 2131427431;
 			
 			// aapt resource value: 0x7f0b0030
 			public const int add = 2131427376;
@@ -6828,8 +6825,8 @@ namespace ParPorApp.Droid
 			// aapt resource value: 0x7f0b001f
 			public const int adjust_width = 2131427359;
 			
-			// aapt resource value: 0x7f0b007c
-			public const int alertTitle = 2131427452;
+			// aapt resource value: 0x7f0b007a
+			public const int alertTitle = 2131427450;
 			
 			// aapt resource value: 0x7f0b005a
 			public const int all = 2131427418;
@@ -6843,32 +6840,32 @@ namespace ParPorApp.Droid
 			// aapt resource value: 0x7f0b0024
 			public const int auto = 2131427364;
 			
-			// aapt resource value: 0x7f0b009c
-			public const int bb_bottom_bar_background_overlay = 2131427484;
-			
-			// aapt resource value: 0x7f0b009b
-			public const int bb_bottom_bar_background_view = 2131427483;
-			
-			// aapt resource value: 0x7f0b009f
-			public const int bb_bottom_bar_icon = 2131427487;
-			
-			// aapt resource value: 0x7f0b009d
-			public const int bb_bottom_bar_item_container = 2131427485;
+			// aapt resource value: 0x7f0b009a
+			public const int bb_bottom_bar_background_overlay = 2131427482;
 			
 			// aapt resource value: 0x7f0b0099
-			public const int bb_bottom_bar_outer_container = 2131427481;
+			public const int bb_bottom_bar_background_view = 2131427481;
 			
-			// aapt resource value: 0x7f0b009a
-			public const int bb_bottom_bar_shadow = 2131427482;
+			// aapt resource value: 0x7f0b009d
+			public const int bb_bottom_bar_icon = 2131427485;
 			
-			// aapt resource value: 0x7f0b00a0
-			public const int bb_bottom_bar_title = 2131427488;
+			// aapt resource value: 0x7f0b009b
+			public const int bb_bottom_bar_item_container = 2131427483;
 			
-			// aapt resource value: 0x7f0b009e
-			public const int bb_tablet_right_border = 2131427486;
+			// aapt resource value: 0x7f0b0097
+			public const int bb_bottom_bar_outer_container = 2131427479;
 			
 			// aapt resource value: 0x7f0b0098
-			public const int bb_user_content_container = 2131427480;
+			public const int bb_bottom_bar_shadow = 2131427480;
+			
+			// aapt resource value: 0x7f0b009e
+			public const int bb_bottom_bar_title = 2131427486;
+			
+			// aapt resource value: 0x7f0b009c
+			public const int bb_tablet_right_border = 2131427484;
+			
+			// aapt resource value: 0x7f0b0096
+			public const int bb_user_content_container = 2131427478;
 			
 			// aapt resource value: 0x7f0b0038
 			public const int beginning = 2131427384;
@@ -6879,11 +6876,11 @@ namespace ParPorApp.Droid
 			// aapt resource value: 0x7f0b0046
 			public const int bottom = 2131427398;
 			
-			// aapt resource value: 0x7f0b006f
-			public const int buttonPanel = 2131427439;
+			// aapt resource value: 0x7f0b006d
+			public const int buttonPanel = 2131427437;
 			
-			// aapt resource value: 0x7f0b00d1
-			public const int cancel_action = 2131427537;
+			// aapt resource value: 0x7f0b00cf
+			public const int cancel_action = 2131427535;
 			
 			// aapt resource value: 0x7f0b004d
 			public const int center = 2131427405;
@@ -6894,11 +6891,11 @@ namespace ParPorApp.Droid
 			// aapt resource value: 0x7f0b004f
 			public const int center_vertical = 2131427407;
 			
-			// aapt resource value: 0x7f0b007f
-			public const int checkbox = 2131427455;
+			// aapt resource value: 0x7f0b007d
+			public const int checkbox = 2131427453;
 			
-			// aapt resource value: 0x7f0b00d9
-			public const int chronometer = 2131427545;
+			// aapt resource value: 0x7f0b00d7
+			public const int chronometer = 2131427543;
 			
 			// aapt resource value: 0x7f0b0056
 			public const int clip_horizontal = 2131427414;
@@ -6909,56 +6906,56 @@ namespace ParPorApp.Droid
 			// aapt resource value: 0x7f0b0042
 			public const int collapseActionView = 2131427394;
 			
-			// aapt resource value: 0x7f0b00a3
-			public const int container = 2131427491;
+			// aapt resource value: 0x7f0b00a1
+			public const int container = 2131427489;
 			
-			// aapt resource value: 0x7f0b0072
-			public const int contentPanel = 2131427442;
+			// aapt resource value: 0x7f0b0070
+			public const int contentPanel = 2131427440;
 			
-			// aapt resource value: 0x7f0b00a4
-			public const int coordinator = 2131427492;
+			// aapt resource value: 0x7f0b00a2
+			public const int coordinator = 2131427490;
 			
-			// aapt resource value: 0x7f0b0079
-			public const int custom = 2131427449;
+			// aapt resource value: 0x7f0b0077
+			public const int custom = 2131427447;
 			
-			// aapt resource value: 0x7f0b0078
-			public const int customPanel = 2131427448;
+			// aapt resource value: 0x7f0b0076
+			public const int customPanel = 2131427446;
 			
 			// aapt resource value: 0x7f0b0025
 			public const int dark = 2131427365;
 			
-			// aapt resource value: 0x7f0b0086
-			public const int decor_content_parent = 2131427462;
+			// aapt resource value: 0x7f0b0084
+			public const int decor_content_parent = 2131427460;
 			
-			// aapt resource value: 0x7f0b006c
-			public const int default_activity_button = 2131427436;
+			// aapt resource value: 0x7f0b006a
+			public const int default_activity_button = 2131427434;
 			
-			// aapt resource value: 0x7f0b00a6
-			public const int design_bottom_sheet = 2131427494;
-			
-			// aapt resource value: 0x7f0b00ad
-			public const int design_menu_item_action_area = 2131427501;
-			
-			// aapt resource value: 0x7f0b00ac
-			public const int design_menu_item_action_area_stub = 2131427500;
+			// aapt resource value: 0x7f0b00a4
+			public const int design_bottom_sheet = 2131427492;
 			
 			// aapt resource value: 0x7f0b00ab
-			public const int design_menu_item_text = 2131427499;
+			public const int design_menu_item_action_area = 2131427499;
 			
 			// aapt resource value: 0x7f0b00aa
-			public const int design_navigation_view = 2131427498;
+			public const int design_menu_item_action_area_stub = 2131427498;
+			
+			// aapt resource value: 0x7f0b00a9
+			public const int design_menu_item_text = 2131427497;
+			
+			// aapt resource value: 0x7f0b00a8
+			public const int design_navigation_view = 2131427496;
 			
 			// aapt resource value: 0x7f0b002a
 			public const int disableHome = 2131427370;
 			
-			// aapt resource value: 0x7f0b008a
-			public const int edit_query = 2131427466;
+			// aapt resource value: 0x7f0b0088
+			public const int edit_query = 2131427464;
 			
 			// aapt resource value: 0x7f0b0039
 			public const int end = 2131427385;
 			
-			// aapt resource value: 0x7f0b00df
-			public const int end_padder = 2131427551;
+			// aapt resource value: 0x7f0b00dd
+			public const int end_padder = 2131427549;
 			
 			// aapt resource value: 0x7f0b0048
 			public const int enterAlways = 2131427400;
@@ -6969,11 +6966,11 @@ namespace ParPorApp.Droid
 			// aapt resource value: 0x7f0b004a
 			public const int exitUntilCollapsed = 2131427402;
 			
-			// aapt resource value: 0x7f0b006a
-			public const int expand_activities_button = 2131427434;
+			// aapt resource value: 0x7f0b0068
+			public const int expand_activities_button = 2131427432;
 			
-			// aapt resource value: 0x7f0b007e
-			public const int expanded_menu = 2131427454;
+			// aapt resource value: 0x7f0b007c
+			public const int expanded_menu = 2131427452;
 			
 			// aapt resource value: 0x7f0b0058
 			public const int fill = 2131427416;
@@ -6999,11 +6996,11 @@ namespace ParPorApp.Droid
 			// aapt resource value: 0x7f0b002b
 			public const int homeAsUp = 2131427371;
 			
-			// aapt resource value: 0x7f0b006e
-			public const int icon = 2131427438;
+			// aapt resource value: 0x7f0b006c
+			public const int icon = 2131427436;
 			
-			// aapt resource value: 0x7f0b00de
-			public const int icon_group = 2131427550;
+			// aapt resource value: 0x7f0b00dc
+			public const int icon_group = 2131427548;
 			
 			// aapt resource value: 0x7f0b0021
 			public const int icon_only = 2131427361;
@@ -7011,11 +7008,11 @@ namespace ParPorApp.Droid
 			// aapt resource value: 0x7f0b0043
 			public const int ifRoom = 2131427395;
 			
-			// aapt resource value: 0x7f0b006b
-			public const int image = 2131427435;
+			// aapt resource value: 0x7f0b0069
+			public const int image = 2131427433;
 			
-			// aapt resource value: 0x7f0b00da
-			public const int info = 2131427546;
+			// aapt resource value: 0x7f0b00d8
+			public const int info = 2131427544;
 			
 			// aapt resource value: 0x7f0b0061
 			public const int italic = 2131427425;
@@ -7023,8 +7020,8 @@ namespace ParPorApp.Droid
 			// aapt resource value: 0x7f0b0000
 			public const int item_touch_helper_previous_elevation = 2131427328;
 			
-			// aapt resource value: 0x7f0b00a2
-			public const int largeLabel = 2131427490;
+			// aapt resource value: 0x7f0b00a0
+			public const int largeLabel = 2131427488;
 			
 			// aapt resource value: 0x7f0b0051
 			public const int left = 2131427409;
@@ -7041,29 +7038,29 @@ namespace ParPorApp.Droid
 			// aapt resource value: 0x7f0b0027
 			public const int listMode = 2131427367;
 			
-			// aapt resource value: 0x7f0b006d
-			public const int list_item = 2131427437;
-			
-			// aapt resource value: 0x7f0b00b1
-			public const int loadingImage = 2131427505;
+			// aapt resource value: 0x7f0b006b
+			public const int list_item = 2131427435;
 			
 			// aapt resource value: 0x7f0b00af
-			public const int loadingProgressBar = 2131427503;
+			public const int loadingImage = 2131427503;
 			
-			// aapt resource value: 0x7f0b00b2
-			public const int loadingProgressWheel = 2131427506;
+			// aapt resource value: 0x7f0b00ad
+			public const int loadingProgressBar = 2131427501;
+			
+			// aapt resource value: 0x7f0b00b0
+			public const int loadingProgressWheel = 2131427504;
 			
 			// aapt resource value: 0x7f0b001d
 			public const int lottie_layer_name = 2131427357;
 			
-			// aapt resource value: 0x7f0b00e4
-			public const int masked = 2131427556;
-			
-			// aapt resource value: 0x7f0b00d3
-			public const int media_actions = 2131427539;
-			
 			// aapt resource value: 0x7f0b00e2
-			public const int message = 2131427554;
+			public const int masked = 2131427554;
+			
+			// aapt resource value: 0x7f0b00d1
+			public const int media_actions = 2131427537;
+			
+			// aapt resource value: 0x7f0b00e0
+			public const int message = 2131427552;
 			
 			// aapt resource value: 0x7f0b003a
 			public const int middle = 2131427386;
@@ -7071,86 +7068,86 @@ namespace ParPorApp.Droid
 			// aapt resource value: 0x7f0b005b
 			public const int mini = 2131427419;
 			
-			// aapt resource value: 0x7f0b00bf
-			public const int mr_art = 2131427519;
+			// aapt resource value: 0x7f0b00bd
+			public const int mr_art = 2131427517;
 			
-			// aapt resource value: 0x7f0b00b4
-			public const int mr_chooser_list = 2131427508;
-			
-			// aapt resource value: 0x7f0b00b7
-			public const int mr_chooser_route_desc = 2131427511;
+			// aapt resource value: 0x7f0b00b2
+			public const int mr_chooser_list = 2131427506;
 			
 			// aapt resource value: 0x7f0b00b5
-			public const int mr_chooser_route_icon = 2131427509;
-			
-			// aapt resource value: 0x7f0b00b6
-			public const int mr_chooser_route_name = 2131427510;
+			public const int mr_chooser_route_desc = 2131427509;
 			
 			// aapt resource value: 0x7f0b00b3
-			public const int mr_chooser_title = 2131427507;
+			public const int mr_chooser_route_icon = 2131427507;
 			
-			// aapt resource value: 0x7f0b00bc
-			public const int mr_close = 2131427516;
+			// aapt resource value: 0x7f0b00b4
+			public const int mr_chooser_route_name = 2131427508;
 			
-			// aapt resource value: 0x7f0b00c2
-			public const int mr_control_divider = 2131427522;
-			
-			// aapt resource value: 0x7f0b00c8
-			public const int mr_control_playback_ctrl = 2131427528;
-			
-			// aapt resource value: 0x7f0b00cb
-			public const int mr_control_subtitle = 2131427531;
-			
-			// aapt resource value: 0x7f0b00ca
-			public const int mr_control_title = 2131427530;
-			
-			// aapt resource value: 0x7f0b00c9
-			public const int mr_control_title_container = 2131427529;
-			
-			// aapt resource value: 0x7f0b00bd
-			public const int mr_custom_control = 2131427517;
-			
-			// aapt resource value: 0x7f0b00be
-			public const int mr_default_control = 2131427518;
-			
-			// aapt resource value: 0x7f0b00b9
-			public const int mr_dialog_area = 2131427513;
-			
-			// aapt resource value: 0x7f0b00b8
-			public const int mr_expandable_area = 2131427512;
-			
-			// aapt resource value: 0x7f0b00cc
-			public const int mr_group_expand_collapse = 2131427532;
-			
-			// aapt resource value: 0x7f0b00c0
-			public const int mr_media_main_control = 2131427520;
-			
-			// aapt resource value: 0x7f0b00bb
-			public const int mr_name = 2131427515;
-			
-			// aapt resource value: 0x7f0b00c1
-			public const int mr_playback_control = 2131427521;
+			// aapt resource value: 0x7f0b00b1
+			public const int mr_chooser_title = 2131427505;
 			
 			// aapt resource value: 0x7f0b00ba
-			public const int mr_title_bar = 2131427514;
+			public const int mr_close = 2131427514;
 			
-			// aapt resource value: 0x7f0b00c3
-			public const int mr_volume_control = 2131427523;
-			
-			// aapt resource value: 0x7f0b00c4
-			public const int mr_volume_group_list = 2131427524;
+			// aapt resource value: 0x7f0b00c0
+			public const int mr_control_divider = 2131427520;
 			
 			// aapt resource value: 0x7f0b00c6
-			public const int mr_volume_item_icon = 2131427526;
+			public const int mr_control_playback_ctrl = 2131427526;
+			
+			// aapt resource value: 0x7f0b00c9
+			public const int mr_control_subtitle = 2131427529;
+			
+			// aapt resource value: 0x7f0b00c8
+			public const int mr_control_title = 2131427528;
 			
 			// aapt resource value: 0x7f0b00c7
-			public const int mr_volume_slider = 2131427527;
+			public const int mr_control_title_container = 2131427527;
+			
+			// aapt resource value: 0x7f0b00bb
+			public const int mr_custom_control = 2131427515;
+			
+			// aapt resource value: 0x7f0b00bc
+			public const int mr_default_control = 2131427516;
+			
+			// aapt resource value: 0x7f0b00b7
+			public const int mr_dialog_area = 2131427511;
+			
+			// aapt resource value: 0x7f0b00b6
+			public const int mr_expandable_area = 2131427510;
+			
+			// aapt resource value: 0x7f0b00ca
+			public const int mr_group_expand_collapse = 2131427530;
+			
+			// aapt resource value: 0x7f0b00be
+			public const int mr_media_main_control = 2131427518;
+			
+			// aapt resource value: 0x7f0b00b9
+			public const int mr_name = 2131427513;
+			
+			// aapt resource value: 0x7f0b00bf
+			public const int mr_playback_control = 2131427519;
+			
+			// aapt resource value: 0x7f0b00b8
+			public const int mr_title_bar = 2131427512;
+			
+			// aapt resource value: 0x7f0b00c1
+			public const int mr_volume_control = 2131427521;
+			
+			// aapt resource value: 0x7f0b00c2
+			public const int mr_volume_group_list = 2131427522;
+			
+			// aapt resource value: 0x7f0b00c4
+			public const int mr_volume_item_icon = 2131427524;
+			
+			// aapt resource value: 0x7f0b00c5
+			public const int mr_volume_slider = 2131427525;
 			
 			// aapt resource value: 0x7f0b0031
 			public const int multiply = 2131427377;
 			
-			// aapt resource value: 0x7f0b00a9
-			public const int navigation_header_container = 2131427497;
+			// aapt resource value: 0x7f0b00a7
+			public const int navigation_header_container = 2131427495;
 			
 			// aapt resource value: 0x7f0b0044
 			public const int never = 2131427396;
@@ -7161,20 +7158,20 @@ namespace ParPorApp.Droid
 			// aapt resource value: 0x7f0b0028
 			public const int normal = 2131427368;
 			
-			// aapt resource value: 0x7f0b00dc
-			public const int notification_background = 2131427548;
+			// aapt resource value: 0x7f0b00da
+			public const int notification_background = 2131427546;
 			
-			// aapt resource value: 0x7f0b00d6
-			public const int notification_main_column = 2131427542;
+			// aapt resource value: 0x7f0b00d4
+			public const int notification_main_column = 2131427540;
 			
-			// aapt resource value: 0x7f0b00d5
-			public const int notification_main_column_container = 2131427541;
+			// aapt resource value: 0x7f0b00d3
+			public const int notification_main_column_container = 2131427539;
 			
 			// aapt resource value: 0x7f0b0054
 			public const int parallax = 2131427412;
 			
-			// aapt resource value: 0x7f0b0071
-			public const int parentPanel = 2131427441;
+			// aapt resource value: 0x7f0b006f
+			public const int parentPanel = 2131427439;
 			
 			// aapt resource value: 0x7f0b000b
 			public const int parent_matrix = 2131427339;
@@ -7188,8 +7185,8 @@ namespace ParPorApp.Droid
 			// aapt resource value: 0x7f0b0007
 			public const int progress_horizontal = 2131427335;
 			
-			// aapt resource value: 0x7f0b0081
-			public const int radio = 2131427457;
+			// aapt resource value: 0x7f0b007f
+			public const int radio = 2131427455;
 			
 			// aapt resource value: 0x7f0b0062
 			public const int restart = 2131427426;
@@ -7200,11 +7197,11 @@ namespace ParPorApp.Droid
 			// aapt resource value: 0x7f0b0052
 			public const int right = 2131427410;
 			
-			// aapt resource value: 0x7f0b00db
-			public const int right_icon = 2131427547;
+			// aapt resource value: 0x7f0b00d9
+			public const int right_icon = 2131427545;
 			
-			// aapt resource value: 0x7f0b00d7
-			public const int right_side = 2131427543;
+			// aapt resource value: 0x7f0b00d5
+			public const int right_side = 2131427541;
 			
 			// aapt resource value: 0x7f0b000c
 			public const int save_image_matrix = 2131427340;
@@ -7221,53 +7218,53 @@ namespace ParPorApp.Droid
 			// aapt resource value: 0x7f0b004b
 			public const int scroll = 2131427403;
 			
-			// aapt resource value: 0x7f0b0077
-			public const int scrollIndicatorDown = 2131427447;
+			// aapt resource value: 0x7f0b0075
+			public const int scrollIndicatorDown = 2131427445;
 			
-			// aapt resource value: 0x7f0b0073
-			public const int scrollIndicatorUp = 2131427443;
+			// aapt resource value: 0x7f0b0071
+			public const int scrollIndicatorUp = 2131427441;
 			
-			// aapt resource value: 0x7f0b0074
-			public const int scrollView = 2131427444;
+			// aapt resource value: 0x7f0b0072
+			public const int scrollView = 2131427442;
 			
 			// aapt resource value: 0x7f0b005d
 			public const int scrollable = 2131427421;
 			
-			// aapt resource value: 0x7f0b008c
-			public const int search_badge = 2131427468;
+			// aapt resource value: 0x7f0b008a
+			public const int search_badge = 2131427466;
+			
+			// aapt resource value: 0x7f0b0089
+			public const int search_bar = 2131427465;
 			
 			// aapt resource value: 0x7f0b008b
-			public const int search_bar = 2131427467;
-			
-			// aapt resource value: 0x7f0b008d
-			public const int search_button = 2131427469;
-			
-			// aapt resource value: 0x7f0b0092
-			public const int search_close_btn = 2131427474;
-			
-			// aapt resource value: 0x7f0b008e
-			public const int search_edit_frame = 2131427470;
-			
-			// aapt resource value: 0x7f0b0094
-			public const int search_go_btn = 2131427476;
-			
-			// aapt resource value: 0x7f0b008f
-			public const int search_mag_icon = 2131427471;
+			public const int search_button = 2131427467;
 			
 			// aapt resource value: 0x7f0b0090
-			public const int search_plate = 2131427472;
+			public const int search_close_btn = 2131427472;
 			
-			// aapt resource value: 0x7f0b0091
-			public const int search_src_text = 2131427473;
+			// aapt resource value: 0x7f0b008c
+			public const int search_edit_frame = 2131427468;
 			
-			// aapt resource value: 0x7f0b0095
-			public const int search_voice_btn = 2131427477;
+			// aapt resource value: 0x7f0b0092
+			public const int search_go_btn = 2131427474;
 			
-			// aapt resource value: 0x7f0b0096
-			public const int select_dialog_listview = 2131427478;
+			// aapt resource value: 0x7f0b008d
+			public const int search_mag_icon = 2131427469;
 			
-			// aapt resource value: 0x7f0b0080
-			public const int shortcut = 2131427456;
+			// aapt resource value: 0x7f0b008e
+			public const int search_plate = 2131427470;
+			
+			// aapt resource value: 0x7f0b008f
+			public const int search_src_text = 2131427471;
+			
+			// aapt resource value: 0x7f0b0093
+			public const int search_voice_btn = 2131427475;
+			
+			// aapt resource value: 0x7f0b0094
+			public const int select_dialog_listview = 2131427476;
+			
+			// aapt resource value: 0x7f0b007e
+			public const int shortcut = 2131427454;
 			
 			// aapt resource value: 0x7f0b002c
 			public const int showCustom = 2131427372;
@@ -7278,23 +7275,23 @@ namespace ParPorApp.Droid
 			// aapt resource value: 0x7f0b002e
 			public const int showTitle = 2131427374;
 			
-			// aapt resource value: 0x7f0b00e0
-			public const int sliding_tabs = 2131427552;
+			// aapt resource value: 0x7f0b00de
+			public const int sliding_tabs = 2131427550;
 			
-			// aapt resource value: 0x7f0b00a1
-			public const int smallLabel = 2131427489;
+			// aapt resource value: 0x7f0b009f
+			public const int smallLabel = 2131427487;
 			
-			// aapt resource value: 0x7f0b00a8
-			public const int snackbar_action = 2131427496;
+			// aapt resource value: 0x7f0b00a6
+			public const int snackbar_action = 2131427494;
 			
-			// aapt resource value: 0x7f0b00a7
-			public const int snackbar_text = 2131427495;
+			// aapt resource value: 0x7f0b00a5
+			public const int snackbar_text = 2131427493;
 			
 			// aapt resource value: 0x7f0b004c
 			public const int snap = 2131427404;
 			
-			// aapt resource value: 0x7f0b0070
-			public const int spacer = 2131427440;
+			// aapt resource value: 0x7f0b006e
+			public const int spacer = 2131427438;
 			
 			// aapt resource value: 0x7f0b0008
 			public const int split_action_bar = 2131427336;
@@ -7314,17 +7311,14 @@ namespace ParPorApp.Droid
 			// aapt resource value: 0x7f0b0053
 			public const int start = 2131427411;
 			
-			// aapt resource value: 0x7f0b00d2
-			public const int status_bar_latest_event_content = 2131427538;
+			// aapt resource value: 0x7f0b00d0
+			public const int status_bar_latest_event_content = 2131427536;
 			
-			// aapt resource value: 0x7f0b0064
-			public const int strong = 2131427428;
+			// aapt resource value: 0x7f0b0080
+			public const int submenuarrow = 2131427456;
 			
-			// aapt resource value: 0x7f0b0082
-			public const int submenuarrow = 2131427458;
-			
-			// aapt resource value: 0x7f0b0093
-			public const int submit_area = 2131427475;
+			// aapt resource value: 0x7f0b0091
+			public const int submit_area = 2131427473;
 			
 			// aapt resource value: 0x7f0b0029
 			public const int tabMode = 2131427369;
@@ -7338,17 +7332,17 @@ namespace ParPorApp.Droid
 			// aapt resource value: 0x7f0b001b
 			public const int text2 = 2131427355;
 			
-			// aapt resource value: 0x7f0b0076
-			public const int textSpacerNoButtons = 2131427446;
+			// aapt resource value: 0x7f0b0074
+			public const int textSpacerNoButtons = 2131427444;
 			
-			// aapt resource value: 0x7f0b0075
-			public const int textSpacerNoTitle = 2131427445;
-			
-			// aapt resource value: 0x7f0b00b0
-			public const int textViewStatus = 2131427504;
+			// aapt resource value: 0x7f0b0073
+			public const int textSpacerNoTitle = 2131427443;
 			
 			// aapt resource value: 0x7f0b00ae
-			public const int text_input_password_toggle = 2131427502;
+			public const int textViewStatus = 2131427502;
+			
+			// aapt resource value: 0x7f0b00ac
+			public const int text_input_password_toggle = 2131427500;
 			
 			// aapt resource value: 0x7f0b0014
 			public const int textinput_counter = 2131427348;
@@ -7356,29 +7350,29 @@ namespace ParPorApp.Droid
 			// aapt resource value: 0x7f0b0015
 			public const int textinput_error = 2131427349;
 			
-			// aapt resource value: 0x7f0b00d8
-			public const int time = 2131427544;
+			// aapt resource value: 0x7f0b00d6
+			public const int time = 2131427542;
 			
 			// aapt resource value: 0x7f0b001c
 			public const int title = 2131427356;
 			
-			// aapt resource value: 0x7f0b007d
-			public const int titleDividerNoCustom = 2131427453;
-			
 			// aapt resource value: 0x7f0b007b
-			public const int title_template = 2131427451;
+			public const int titleDividerNoCustom = 2131427451;
 			
-			// aapt resource value: 0x7f0b00e1
-			public const int toolbar = 2131427553;
+			// aapt resource value: 0x7f0b0079
+			public const int title_template = 2131427449;
+			
+			// aapt resource value: 0x7f0b00df
+			public const int toolbar = 2131427551;
 			
 			// aapt resource value: 0x7f0b0047
 			public const int top = 2131427399;
 			
-			// aapt resource value: 0x7f0b007a
-			public const int topPanel = 2131427450;
+			// aapt resource value: 0x7f0b0078
+			public const int topPanel = 2131427448;
 			
-			// aapt resource value: 0x7f0b00a5
-			public const int touch_outside = 2131427493;
+			// aapt resource value: 0x7f0b00a3
+			public const int touch_outside = 2131427491;
 			
 			// aapt resource value: 0x7f0b000f
 			public const int transition_current_scene = 2131427343;
@@ -7407,17 +7401,14 @@ namespace ParPorApp.Droid
 			// aapt resource value: 0x7f0b0016
 			public const int view_offset_helper = 2131427350;
 			
-			// aapt resource value: 0x7f0b00e3
-			public const int visible = 2131427555;
+			// aapt resource value: 0x7f0b00e1
+			public const int visible = 2131427553;
 			
-			// aapt resource value: 0x7f0b00c5
-			public const int volume_item_container = 2131427525;
+			// aapt resource value: 0x7f0b00c3
+			public const int volume_item_container = 2131427523;
 			
-			// aapt resource value: 0x7f0b0065
-			public const int weak = 2131427429;
-			
-			// aapt resource value: 0x7f0b0097
-			public const int webview = 2131427479;
+			// aapt resource value: 0x7f0b0095
+			public const int webview = 2131427477;
 			
 			// aapt resource value: 0x7f0b0023
 			public const int wide = 2131427363;
@@ -10595,17 +10586,13 @@ namespace ParPorApp.Droid
 					2130772353,
 					2130772354,
 					2130772355,
-					2130772356,
-					2130772357};
+					2130772356};
 			
 			// aapt resource value: 3
 			public const int LottieAnimationView_lottie_autoPlay = 3;
 			
 			// aapt resource value: 10
-			public const int LottieAnimationView_lottie_cacheStrategy = 10;
-			
-			// aapt resource value: 11
-			public const int LottieAnimationView_lottie_colorFilter = 11;
+			public const int LottieAnimationView_lottie_colorFilter = 10;
 			
 			// aapt resource value: 9
 			public const int LottieAnimationView_lottie_enableMergePathsForKitKatAndAbove = 9;
@@ -10631,8 +10618,8 @@ namespace ParPorApp.Droid
 			// aapt resource value: 5
 			public const int LottieAnimationView_lottie_repeatMode = 5;
 			
-			// aapt resource value: 12
-			public const int LottieAnimationView_lottie_scale = 12;
+			// aapt resource value: 11
+			public const int LottieAnimationView_lottie_scale = 11;
 			
 			// aapt resource value: 2
 			public const int LottieAnimationView_lottie_url = 2;
@@ -10876,6 +10863,7 @@ namespace ParPorApp.Droid
 			public const int PopupWindowBackgroundState_state_above_anchor = 0;
 			
 			public static int[] ProgressWheel = new int[] {
+					2130772357,
 					2130772358,
 					2130772359,
 					2130772360,
@@ -10886,8 +10874,7 @@ namespace ParPorApp.Droid
 					2130772365,
 					2130772366,
 					2130772367,
-					2130772368,
-					2130772369};
+					2130772368};
 			
 			// aapt resource value: 3
 			public const int ProgressWheel_ahBarColor = 3;

@@ -5,7 +5,7 @@
              x:Class="ParPorApp.Views.AddEventPage"
              xmlns:viewModels="clr-namespace:ParPorApp.ViewModels;assembly=ParPorApp"
              xmlns:system="clr-namespace:System;assembly=netstandard"
-             xmlns:placesSearchBar="clr-namespace:DurianCode.PlacesSearchBar;assembly=DurianCode.PlacesSearchBar"
+             xmlns:places="clr-namespace:DurianCode.PlacesSearchBar;assembly=PlacesSearchBar"
              Title="Add a new event">
 
     <ContentPage.BindingContext>
@@ -15,7 +15,7 @@
     <ScrollView>
         <StackLayout Margin="20,10,20,0">
             <StackLayout Spacing="0" Padding="0">
-                <placesSearchBar:PlacesBar x:Name="search_bar" HeightRequest="25" FontSize="14" Placeholder="Search for the event location..." />
+                <places:PlacesBar x:Name="search_bar" HeightRequest="25" FontSize="14" Placeholder="Search for the event location..." />
                 <Image Source="powered_by_google_on_white.png" HeightRequest="10" HorizontalOptions="End" />
                 <ActivityIndicator x:Name="spinner" IsRunning="false" />
                 <ListView x:Name="results_list" IsVisible="false">
