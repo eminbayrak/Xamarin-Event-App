@@ -27,9 +27,10 @@ namespace ParPorApp.Models
         [JsonProperty("TeamName")] public string TeamName { get; set; }
         [JsonProperty("TeamCode")] public string TeamCode { get; set; }
         [JsonProperty("IsAdmin")] public string IsAdmin { get; set; }
+        public string IsAdminTrue => IsAdmin.Trim();
 
-        public string IsAdminNull => IsAdmin.Trim().ToString();
-                
+        public bool IsAdminVisible => IsAdmin.Trim().Contains("True");
+
         [JsonProperty("Avatar")] public string Avatar { get; set; }
 
         public string FullName => FirstName + " " + LastName;

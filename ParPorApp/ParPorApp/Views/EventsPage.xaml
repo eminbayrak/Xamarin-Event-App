@@ -9,14 +9,7 @@
 
     <ContentPage.BindingContext>
         <viewModels:EventsViewModel />
-    </ContentPage.BindingContext>
-
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Clicked="AddEvent_Clicked"
-                     Icon="ic_eventadd.png"
-                     Priority="1" />
-
-    </ContentPage.ToolbarItems>
+    </ContentPage.BindingContext>    
     <ListView x:Name="eventListView"
               HasUnevenRows="True"
               ItemsSource="{Binding Event}"

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Input;
 using ParPorApp.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -14,12 +15,8 @@ namespace ParPorApp.Views
         {
             InitializeComponent();
             BindingContext = usersViewModel = new UserViewModel();
-            NavigationPage.SetHasNavigationBar(this, false);
-            //var isvis = adminLbl.Text;
-            //if (isvis == "False")
-            //{
-            //    addEventBtn.IsVisible = false;
-            //}
+            //NavigationPage.SetHasNavigationBar(this, false);
+            
         }
 
         protected override void OnAppearing()
@@ -35,12 +32,13 @@ namespace ParPorApp.Views
 
         private async void LogoutMenuItem_Clicked(object sender, EventArgs e)
         {
-
-            await Navigation.PushModalAsync(new LoginPage());
+            await Navigation.PushModalAsync(new WelcomePage());
         }
         private async void Profile_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new ProfilePage());
         }
+
+        
     }
 }

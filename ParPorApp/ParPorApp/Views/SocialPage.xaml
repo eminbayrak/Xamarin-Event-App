@@ -29,7 +29,7 @@
     </NavigationPage>
     <NavigationPage BarTextColor="Black" Title="Social" Icon="ic_message.png" >
         <x:Arguments>
-            <views:JoinTeamPage />
+            <views:UserProfilePage />
         </x:Arguments>
     </NavigationPage>
     <!--<NavigationPage Title="Profile" Icon="ic_face.png" >
