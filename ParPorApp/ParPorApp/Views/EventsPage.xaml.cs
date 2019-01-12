@@ -49,7 +49,7 @@ namespace ParPorApp.Views
             //Game detail page
             if (item != null && item.EventType == "Game")
             {
-                await Navigation.PushModalAsync(new EventDetailPage(item));
+                await Navigation.PushModalAsync(new GameDetailPage(item));
                 //await DisplayAlert("Games", "you tabbed on a game", "Ok");
             }
             eventListView.SelectedItem = null;

@@ -84,7 +84,11 @@ namespace ParPorApp.Models
 
             return result;
         }
-        
+        public class Weather
+        {
+            public string Icon { get; set; }
+            public double Tempature { get; set; }
+        }
     }
 
 }

@@ -66,6 +66,7 @@
     <PackageReference Include="Acr.XamForms" Version="4.0.1" />
     <PackageReference Include="CClarke.Plugin.Calendars" Version="1.0.0" />
     <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="2.7.0" />
+    <PackageReference Include="DarkSkyApi" Version="3.3.0" />
     <PackageReference Include="DurianCode.PlacesSearchBar" Version="2.0.1" />
     <PackageReference Include="FormsToolkit" Version="2.0.1" />
     <PackageReference Include="Microsoft.Azure.Mobile.Client" Version="4.0.2" />
@@ -83,6 +84,7 @@
     <PackageReference Include="RestSharp" Version="106.5.4" />
     <PackageReference Include="SkiaSharp" Version="1.68.0" />
     <PackageReference Include="SkiaSharp.Svg" Version="1.60.0" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="1.68.0" />
     <PackageReference Include="System.AppContext" Version="4.3.0" />
     <PackageReference Include="System.Collections" Version="4.3.0" />
     <PackageReference Include="System.Collections.Concurrent" Version="4.3.0" />
@@ -90,7 +92,7 @@
     <PackageReference Include="System.Runtime.InteropServices.WindowsRuntime" Version="4.3.0" />
     <PackageReference Include="System.Runtime.WindowsRuntime.UI.Xaml" Version="4.3.0" />
     <PackageReference Include="System.Threading" Version="4.3.0" />
-    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.1" />
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.2" />
     <PackageReference Include="ThriveGmbH.BottomNavigationBar.XF" Version="1.0.2" />
     <PackageReference Include="Validation" Version="2.4.18" />
     <PackageReference Include="Xam.Plugin.Connectivity" Version="4.0.0.186-beta" />
@@ -154,6 +156,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\FABPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\GameDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\GroupDetailPage.xaml">
