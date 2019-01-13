@@ -86,8 +86,14 @@ namespace ParPorApp.Models
         }
         public class Weather
         {
-            public string Icon { get; set; }
+            List<string> Icon = new List<string>()
+            {
+                "clear-day", "clear-night", "partly-cloudy-day",
+                "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
+                "fog"
+            };
             public double Tempature { get; set; }
+            public string MyProperty { get; set; }
         }
     }
 

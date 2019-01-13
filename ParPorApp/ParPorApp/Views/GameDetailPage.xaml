@@ -50,7 +50,7 @@
                 <StackLayout>
                     <Label x:Name="eventFullAddress" 
                            Text="{Binding LocationAddress}"
-                           Style="{StaticResource StartsLabel}"/>
+                           Style="{StaticResource LabelStyle}"/>
                     <!--<forms:CachedImage Source="ic_keyboard_arrow_right.png" 
                                        HorizontalOptions="EndAndExpand" 
                                        Opacity="0.5"/>-->
@@ -65,10 +65,17 @@
             <Label x:Name="eventType" Text="{Binding EventType}" IsVisible="False" />
             <Label x:Name="eventDate" Text="{Binding EventDate, StringFormat='{0:dddd - MMMM dd, yyyy}'}" IsVisible="False" />
             <Label x:Name="eventTime" Text="{Binding EventDate, StringFormat='{0:h:mm tt}'}" IsVisible="False" />
-            <Label Text="Current Forecast (Powered by DarkSky)" Margin="10,0"/>
+            <Label Text="Current Forecast" Margin="10,0"/>
             <Frame>
                 <StackLayout>
-                    <Label x:Name="tempature" Text="{Binding Weather.Tempature}"/>
+                    <Label x:Name="tempTitle" Text="{Binding Weather.Tempature}"
+                           Style="{StaticResource LabelStyle}" />
+                    <Image x:Name="tempIcon" Source="{Binding Weather.Icon}"
+                           HorizontalOptions="Start"
+                           HeightRequest="32"
+                           WidthRequest="32"/>
+                    <Label x:Name="tempature" Text="{Binding Weather.Tempature}"
+                           Style="{StaticResource LabelStyle}" />
                 </StackLayout>
             </Frame>
         </StackLayout>

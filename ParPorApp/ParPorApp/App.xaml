@@ -116,6 +116,12 @@
                 <Setter Property="HorizontalTextAlignment" Value="Center" />
             </Style>
 
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource BodyTextColor}" />
+                <Setter Property="FontFamily" Value="{StaticResource RegularFontFamily}" />
+                <Setter Property="FontSize" Value="{StaticResource TagTextFontSize}" />
+            </Style>
+
             <Style x:Key="StatsNumberLabel" TargetType="Label">
                 <Setter Property="TextColor" Value="{StaticResource HeaderTextColor}" />
                 <Setter Property="HorizontalTextAlignment" Value="Center" />

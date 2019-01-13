@@ -34,6 +34,8 @@ namespace ParPorApp.Views
                 DateTimeOffset.Now
                 );
             tempature.Text = Convert.ToString(result.Currently.Temperature);
+            tempTitle.Text = result.Currently.Icon.ToUpper();
+            tempIcon.Source = result.Currently.Icon + ".png";
         }
         private void TakeMeThere_Clicked(object sender, EventArgs e)
         {
