@@ -185,7 +185,7 @@ namespace ParPorApp.Services
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
                 "Bearer", accessToken);
 
-            var json = await client.GetStringAsync(Constants.BaseApiAddress + "api/events?sort=desc");
+            var json = await client.GetStringAsync(Constants.BaseApiAddress + "api/events");
             var events = JsonConvert.DeserializeObject<List<Event>>(json);
             //events = events.Where(x => x.EventType == "Game").ToList();
             //events = events.Where(x => x.EventDate >= DateTime.Now).ToList();

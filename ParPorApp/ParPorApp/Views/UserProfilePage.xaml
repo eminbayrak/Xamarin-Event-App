@@ -4,6 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              xmlns:viewModels="clr-namespace:ParPorApp.ViewModels;assembly=ParPorApp"
+             xmlns:local="clr-namespace:ParPorApp.Views"
              Title="Profile"
              x:Class="ParPorApp.Views.UserProfilePage">
 
@@ -33,6 +34,7 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Margin="10">
+                                <local:InitialsView Text="{Binding ImageUrl}" HeightRequest="70" />
                                 <controls:CircleImage HeightRequest="50"
                                                       HorizontalOptions="Start"
                                                       Source="{Binding ImageUrl}"

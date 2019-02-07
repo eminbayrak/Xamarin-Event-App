@@ -54,7 +54,26 @@ namespace ParPorApp.Views
         public SKColor GetColorForText()
         {
             //TODO: determine color based on Text property
-            return SKColors.Orange;
+            string Letters = "abcdefghijklmnopqrstvuvwxyz";
+            Char[] ColorArray = Letters.ToCharArray();
+
+            foreach (Char c in ColorArray)
+            {
+                switch (c)
+                {
+                    case 'a':
+                        return SKColors.Orange;
+                    case 'b':
+                        return SKColors.MediumVioletRed;
+                    case 'c':
+                        return SKColors.CadetBlue;
+                    case 'd':
+                        return SKColors.GreenYellow;
+                    case 'e':
+                        return SKColors.PaleTurquoise;
+                }
+            }
+            return SKColors.Gray;
         }
 
         #region Bindable properties

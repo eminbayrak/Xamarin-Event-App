@@ -95,6 +95,7 @@
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <BundleResource Include="Resources\fontawesome.ttf" />
+    <BundleResource Include="Resources\Contents.json" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
@@ -423,18 +424,6 @@
     <BundleResource Include="Resources\ic_place%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\football.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\soccer.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\princeton.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\milford.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\ic_search.png" />
   </ItemGroup>
   <ItemGroup>
@@ -463,9 +452,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\basketball.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\volleyball.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ic_menu.png" />
@@ -540,42 +526,6 @@
     <BundleResource Include="Resources\ic_keyboard_arrow_right_white%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\twitter.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\socialmedia.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ic_boysbaseball.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ic_boysbasketball.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ic_boysfootball.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ic_boysrunning.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ic_boyssoccer.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ic_boysswimming.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ic_girlsbasketball.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ic_girlsrunning.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ic_girlssoccer.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ic_girlsswimming.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\ic_chat_3x.png" />
   </ItemGroup>
   <ItemGroup>
@@ -621,24 +571,6 @@
     <BundleResource Include="Resources\ic_feedback_3x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\ic_bowling.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ic_boxing.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ic_forensics.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ic_kickboxer.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ic_volleyball.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ic_wrestling.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\powered_by_google_on_white%403x.png" />
   </ItemGroup>
   <ItemGroup>
@@ -675,12 +607,45 @@
     <BundleResource Include="Resources\ic_notification_off.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\teamcoach.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\teamparent.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\pagebg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\rain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sleet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\snow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\thunderstorm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tornado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\wind.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\partly-cloudy-night.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\partly-cloudy-day.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\clear-day.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\clear-night.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cloudy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\fog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\hail.png" />
   </ItemGroup>
 </Project>

@@ -34,7 +34,7 @@ namespace ParPorApp.Models
         [JsonProperty("TeamName")] public string TeamName { get; set; }
 
         [JsonProperty("OpponentTeamName")] public string OpponentTeamName { get; set; }
-        public string GameVS => TeamName + " vs " + OpponentTeamName;
+        public string GameVS => " vs. " + OpponentTeamName;      
 
         public string GroupDate => EventDate.Date.Day == DateTime.Now.Date.Day ? "Today" : EventDate.ToString("dddd");
 

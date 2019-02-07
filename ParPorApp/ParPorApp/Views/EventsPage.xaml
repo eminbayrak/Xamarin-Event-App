@@ -97,7 +97,8 @@
                                            Style="{StaticResource ProfileNameLabel}" />
                                 </Grid>
                                 <Grid Grid.Row="1" Grid.Column="3">
-                                    <Label Text="{Binding  OpponentTeamName}" HorizontalTextAlignment="Center"
+                                    <Label Text="{Binding  OpponentTeamName}" 
+                                           HorizontalTextAlignment="Center"
                                            Font="Bold" />
                                 </Grid>
                             </Grid>

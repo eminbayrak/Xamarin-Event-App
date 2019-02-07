@@ -19,6 +19,7 @@ namespace ParPorApp.Views
         public SchedulePage()
         {
             InitializeComponent();
+            GetRandomColor();
             BindingContext = eventsViewModel = new EventsViewModel();
         }
 
@@ -32,6 +33,14 @@ namespace ParPorApp.Views
             await Navigation.PushAsync(new AddEventPage());
         }
 
+        static Random rand = new Random();
+        public static Color GetRandomColor()
+        {
+            int hue = rand.Next(255);
+            Color color = Color.FromHsla((hue / 255.0f), 1.0f, 1.0f);
+            return color;
+        }
+                
         //navigating to event detail page
         private async void EventList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
