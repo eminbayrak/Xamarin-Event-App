@@ -34,13 +34,13 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Margin="10">
-                                <local:InitialsView Text="{Binding ImageUrl}" HeightRequest="70" />
-                                <controls:CircleImage HeightRequest="50"
+                                <local:InitialsView Text="{Binding ImageUrl}" VerticalOptions="Center" HeightRequest="60" />
+                                <!--<controls:CircleImage HeightRequest="50"
                                                       HorizontalOptions="Start"
                                                       Source="{Binding ImageUrl}"
                                                       BorderColor="Black"
                                                       BorderThickness="0.5"
-                                                      WidthRequest="50" />
+                                                      WidthRequest="50" />-->
                                 <Label FontAttributes="Bold" Text="{Binding FullName}" Style="{StaticResource BoldLabel}" FontSize="18" />
                                 <Label Text="{Binding Email}" FontSize="14" />
                                 <Label Text="{Binding TeamName}" FontSize="14" />

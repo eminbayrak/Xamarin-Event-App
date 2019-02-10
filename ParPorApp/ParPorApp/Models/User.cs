@@ -11,7 +11,8 @@ namespace ParPorApp.Models
     {
         private string _loadedUrl = "https://ui-avatars.com/api/?background=4A384A&color=fff&rounded=true&name=";
         //private string _loadedUrl = "https://robohash.org/";
-        public string ImageUrl => _loadedUrl + FirstName.Substring(0, 1) + LastName.Substring(0, 1);
+        //public string ImageUrl => _loadedUrl + FirstName.Substring(0, 1) + LastName.Substring(0, 1);
+        public string ImageUrl => FirstName.Substring(0, 1) + LastName.Substring(0, 1);
         //public string ImageUrl => _loadedUrl + Email + "/set_set3/bgset_bg1/?size=128x128";
         [JsonProperty("Email")] public string Email { get; set; }
 

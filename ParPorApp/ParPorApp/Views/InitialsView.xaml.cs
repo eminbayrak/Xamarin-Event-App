@@ -14,7 +14,7 @@ namespace ParPorApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class InitialsView : ContentView
     {
-        const float TextOffset = 1.75f;
+        const float TextOffset = 1.0f;
 
         public InitialsView()
         {

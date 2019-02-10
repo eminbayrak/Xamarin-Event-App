@@ -19,7 +19,8 @@ namespace ParPorApp.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public string ImageUrl => _loadedUrl + FirstName.Substring(0, 1) + LastName.Substring(0, 1);
+        //public string ImageUrl => _loadedUrl + FirstName.Substring(0, 1) + LastName.Substring(0, 1);
+        public string ImageUrl => FirstName.Substring(0, 1) + LastName.Substring(0, 1);
         //public string ImageUrl => _loadedUrl + Email + ".png";
         public string TeamName { get; set; }
         public string TeamCode { get; set; }

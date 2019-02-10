@@ -11,6 +11,8 @@ using ParPorApp.Models;
 using Xamarin.Forms;
 using System.Linq;
 using Acr.UserDialogs;
+using Plugin.Connectivity;
+using MonkeyCache.SQLite;
 
 namespace ParPorApp.Services
 
@@ -89,10 +91,14 @@ namespace ParPorApp.Services
                 Constants.BaseApiAddress + "api/Account/Update", httpContent);
             return true;
         }
+        
+
 
         // Login user
         public async Task<string> LoginAsync(string userName, string password)
         {
+                        
+            
             var keyValues = new List<KeyValuePair<string, string>>
             {
                 new KeyValuePair<string, string>("username", userName),
@@ -100,96 +106,153 @@ namespace ParPorApp.Services
                 new KeyValuePair<string, string>("grant_type", "password")
             };
 
-            var request = new HttpRequestMessage(
-                HttpMethod.Post, Constants.BaseApiAddress + "Token")
+            try
             {
-                Content = new FormUrlEncodedContent(keyValues)
-            };
-
-            var client = new HttpClient();
-            var response = await client.SendAsync(request);
-
-            var content = await response.Content.ReadAsStringAsync();
-
-            JObject jwtDynamic = JsonConvert.DeserializeObject<dynamic>(content);
-            var accessTokenExpiration = jwtDynamic.Value<DateTime>(".expires");
-            var accessToken = jwtDynamic.Value<string>("access_token");            
-            if (response.IsSuccessStatusCode)
-            {
+                var request = new HttpRequestMessage(
+                    HttpMethod.Post, Constants.BaseApiAddress + "Token")
+                {
+                    Content = new FormUrlEncodedContent(keyValues)
+                };
+                var client = new HttpClient();
+                var response = await client.SendAsync(request);
+                var content = await response.Content.ReadAsStringAsync();
+                JObject jwtDynamic = JsonConvert.DeserializeObject<dynamic>(content);
+                var accessTokenExpiration = jwtDynamic.Value<DateTime>(".expires");
+                var accessToken = jwtDynamic.Value<string>("access_token");
                 Settings.AccessTokenExpirationDate = accessTokenExpiration;
-                //UserDialogs.Instance.Toast("You are in");
-            }       
-            else
-                Console.WriteLine(content.ToString());
                 return accessToken;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            
+            
         }
 
         // get group list
         public async Task<List<Group>> GetGroupsAsync(string accessToken)
         {
+            Barrel.ApplicationId = "Api.Groups";
+            var url = Constants.BaseApiAddress + "api/Groups";
+            if (!CrossConnectivity.Current.IsConnected)
+            {
+                return Barrel.Current.Get<List<Group>>(key: url);
+            }
+
+            //Dev handles checking if cache is expired
+            if (!Barrel.Current.IsExpired(key: url))
+            {
+                return Barrel.Current.Get<List<Group>>(key: url);
+            }
             var client = new HttpClient();
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer", accessToken);
-            var json = await client.GetStringAsync(Constants.BaseApiAddress + "api/Groups");
-            
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+            var json = await client.GetStringAsync(url);            
             var group = JsonConvert.DeserializeObject<List<Group>>(json);
+            Barrel.Current.Add(key: url, data: group, expireIn: TimeSpan.FromDays(1));
             return group;
         }
         
         // Get account groups
         public async Task<List<AccountGroups>> GetAccountGroupsAsync(string accessToken)
         {
+            Barrel.ApplicationId = "Api.AccountGroups";
             var client = new HttpClient();
+            var url = Constants.BaseApiAddress + "api/AccountGroups";
+            if (!CrossConnectivity.Current.IsConnected)
+            {
+                return Barrel.Current.Get<List<AccountGroups>>(key: url);
+            }
+
+            //Dev handles checking if cache is expired
+            if (!Barrel.Current.IsExpired(key: url))
+            {
+                return Barrel.Current.Get<List<AccountGroups>>(key: url);
+            }
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
                 "Bearer", accessToken);
-            var json = await client.GetStringAsync(Constants.BaseApiAddress + "api/AccountGroups");
+            var json = await client.GetStringAsync(url);
 
             var group = JsonConvert.DeserializeObject<List<AccountGroups>>(json);
+            Barrel.Current.Add(key: url, data: group, expireIn: TimeSpan.FromDays(1));
             return group;
         }
 
         // Get team members
         public async Task<List<AccountGroups>> GetTeamMembersAsync(string accessToken)
         {
+            Barrel.ApplicationId = "Api.AccountGroups.TeamMembers";
             var client = new HttpClient();
+            var url = Constants.BaseApiAddress + "api/AccountGroups/TeamMembers";
+            if (!CrossConnectivity.Current.IsConnected)
+            {
+                return Barrel.Current.Get<List<AccountGroups>>(key: url);
+            }
+
+            //Dev handles checking if cache is expired
+            if (!Barrel.Current.IsExpired(key: url))
+            {
+                return Barrel.Current.Get<List<AccountGroups>>(key: url);
+            }
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
                 "Bearer", accessToken);
             var json = await client.GetStringAsync(Constants.BaseApiAddress + "api/AccountGroups/TeamMembers");
-
             var group = JsonConvert.DeserializeObject<List<AccountGroups>>(json);
+            Barrel.Current.Add(key: url, data: group, expireIn: TimeSpan.FromDays(1));
             return group;
         }
 
         //Get user list
         public async Task<List<User>> GetUsersAsync(string accessToken)
 	    {
-		    var client = new HttpClient();
-	        client.MaxResponseContentBufferSize = 256000;
+            Barrel.ApplicationId = "Api.Account.UserInfo";
+            var client = new HttpClient();
+            var url = Constants.BaseApiAddress + "api/Account/UserInfo";
+            if (!CrossConnectivity.Current.IsConnected)
+            {
+                return Barrel.Current.Get<List<User>>(key: url);
+            }
 
+            //Dev handles checking if cache is expired
+            if (!Barrel.Current.IsExpired(key: url))
+            {
+                return Barrel.Current.Get<List<User>>(key: url);
+            }
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
 			    "Bearer", accessToken);
 
-		    var json = await client.GetAsync(Constants.BaseApiAddress + "api/Account/UserInfo");
+		    var json = await client.GetAsync(url);
 	        string userJson = await json.Content.ReadAsStringAsync();
-
-			var user = JsonConvert.DeserializeObject<List<User>>(userJson);
-	        
-            Debug.WriteLine(user);
-	        return user;
+            var user = JsonConvert.DeserializeObject<List<User>>(userJson);
+            Barrel.Current.Add(key: url, data: userJson, expireIn: TimeSpan.FromDays(1));
+            return user;
 	    }
         
         //Show all of the events
         public async Task<List<Event>> GetAllEventsAsync(string accessToken)
         {
+            Barrel.ApplicationId = "Api.Events";
             var client = new HttpClient();
+            var url = Constants.BaseApiAddress + "api/events";
+            if (!CrossConnectivity.Current.IsConnected)
+            {
+                return Barrel.Current.Get<List<Event>>(key: url);
+            }
+
+            //Dev handles checking if cache is expired
+            if (!Barrel.Current.IsExpired(key: url))
+            {
+                return Barrel.Current.Get<List<Event>>(key: url);
+            }
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
                 "Bearer", accessToken);
 
-            var json = await client.GetStringAsync(Constants.BaseApiAddress + "api/events");
+            var json = await client.GetStringAsync(url);
             var events = JsonConvert.DeserializeObject<List<Event>>(json);
             //events = events.Where(x => x.EventType == "Game").ToList();
             //events = events.Where(x => x.EventDate >= DateTime.Now).ToList();
             events = events.OrderByDescending(x => x.EventDate).ToList();
+            Barrel.Current.Add(key: url, data: events, expireIn: TimeSpan.FromDays(1));
             return events;
         }
 

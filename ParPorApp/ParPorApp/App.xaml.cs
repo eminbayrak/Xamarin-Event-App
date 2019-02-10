@@ -4,6 +4,7 @@ using ParPorApp.ViewModels;
 using Xamarin.Forms;
 using System;
 using System.Globalization;
+using Plugin.Connectivity;
 
 //using Com.OneSignal;
 
@@ -26,6 +27,7 @@ namespace ParPorApp
             //MainPage.SetValue(NavigationPage.BarTextColorProperty, Color.FromHex("#43b05c"));
 
         }
+
 
         private void SetMainPage()
         {
@@ -50,10 +52,27 @@ namespace ParPorApp
                 MainPage = new NavigationPage(new WelcomePage());
             }
         }
+        public bool DoIHaveInternet()
+        {
+            if (!CrossConnectivity.IsSupported)
+                return true;
 
+            var connectivity = CrossConnectivity.Current;
+
+            try
+            {
+                return connectivity.IsConnected;
+            }
+            finally
+            {
+                CrossConnectivity.Dispose();
+            }
+
+        }
         protected override void OnStart()
         {
             // Handle when your app starts
+            DoIHaveInternet();
         }
 
         protected override void OnSleep()
