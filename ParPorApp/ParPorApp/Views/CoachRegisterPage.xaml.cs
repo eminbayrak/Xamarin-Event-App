@@ -15,8 +15,9 @@ namespace ParPorApp.Views
         public CoachRegisterPage()
         {
             InitializeComponent();
-            GenerateGroupId();
+            //GenerateGroupId();
             //Init();
+            
         }
 
         //void Init()
@@ -30,11 +31,12 @@ namespace ParPorApp.Views
 
         }
         //Generating random GroupId for the group, so group members can join the group by using this GroupId
-        public string GenerateGroupId()
-        {
-            var id = Guid.NewGuid().ToString("N");
-            return id;            
-        }
+        //public string GenerateGroupId()
+        //{
+        //    var id = Guid.NewGuid().ToString("N");
+        //    return id;            
+        //}
+
         private async void ReturnWelcome_OnClicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();

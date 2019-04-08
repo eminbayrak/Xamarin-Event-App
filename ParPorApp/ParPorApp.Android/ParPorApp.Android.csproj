@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>ParPorApp.Droid</RootNamespace>
     <AssemblyName>SportiveParent.Android</AssemblyName>
-    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
@@ -33,6 +33,7 @@
     <AndroidTlsProvider>btls</AndroidTlsProvider>
     <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
     <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
+    <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -61,43 +62,52 @@
       <Version>7.0.1</Version>
     </PackageReference>
     <PackageReference Include="Acr.XamForms">
-      <Version>3.1.0</Version>
+      <Version>4.0.1</Version>
     </PackageReference>
     <PackageReference Include="CClarke.Plugin.Calendars">
-      <Version>0.7.7-beta</Version>
+      <Version>1.0.0</Version>
     </PackageReference>
     <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie">
-      <Version>2.5.4</Version>
+      <Version>2.7.0</Version>
+    </PackageReference>
+    <PackageReference Include="DarkSkyApi">
+      <Version>3.3.0</Version>
     </PackageReference>
     <PackageReference Include="DurianCode.PlacesSearchBar">
-      <Version>1.0.0</Version>
+      <Version>2.0.1</Version>
     </PackageReference>
     <PackageReference Include="FormsToolkit">
       <Version>2.0.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Azure.Mobile.Client">
-      <Version>4.0.2</Version>
+      <Version>4.1.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Azure.Mobile.Client.SQLiteStore">
-      <Version>4.0.2</Version>
+      <Version>4.1.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Bcl.Async">
       <Version>1.0.168</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Build.Framework">
-      <Version>15.7.179</Version>
+      <Version>15.9.20</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.CSharp">
       <Version>4.5.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.IdentityModel.Logging">
-      <Version>5.2.4</Version>
+      <Version>5.4.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.IdentityModel.Tokens">
-      <Version>5.2.4</Version>
+      <Version>5.4.0</Version>
+    </PackageReference>
+    <PackageReference Include="MonkeyCache">
+      <Version>1.2.0-beta</Version>
+    </PackageReference>
+    <PackageReference Include="MonkeyCache.SQLite">
+      <Version>1.2.0-beta</Version>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
-      <Version>11.0.2</Version>
+      <Version>12.0.1</Version>
     </PackageReference>
     <PackageReference Include="Plugin.Permissions">
       <Version>3.0.0.12</Version>
@@ -112,13 +122,16 @@
       <Version>1.0.0</Version>
     </PackageReference>
     <PackageReference Include="RestSharp">
-      <Version>106.3.1</Version>
+      <Version>106.6.7</Version>
     </PackageReference>
     <PackageReference Include="SkiaSharp">
-      <Version>1.60.2</Version>
+      <Version>1.68.0</Version>
     </PackageReference>
     <PackageReference Include="SkiaSharp.Svg">
       <Version>1.60.0</Version>
+    </PackageReference>
+    <PackageReference Include="SkiaSharp.Views.Forms">
+      <Version>1.68.0</Version>
     </PackageReference>
     <PackageReference Include="System.AppContext">
       <Version>4.3.0</Version>
@@ -130,7 +143,7 @@
       <Version>4.3.0</Version>
     </PackageReference>
     <PackageReference Include="System.Net.Http">
-      <Version>4.3.3</Version>
+      <Version>4.3.4</Version>
     </PackageReference>
     <PackageReference Include="System.Runtime.WindowsRuntime.UI.Xaml">
       <Version>4.3.0</Version>
@@ -139,7 +152,7 @@
       <Version>4.3.0</Version>
     </PackageReference>
     <PackageReference Include="System.Threading.Tasks.Extensions">
-      <Version>4.5.1</Version>
+      <Version>4.5.2</Version>
     </PackageReference>
     <PackageReference Include="ThriveGmbH.BottomNavigationBar.XF">
       <Version>1.0.2</Version>
@@ -148,7 +161,7 @@
       <Version>2.4.18</Version>
     </PackageReference>
     <PackageReference Include="Xam.Plugin.Connectivity">
-      <Version>4.0.0.186-beta</Version>
+      <Version>4.0.0.190-beta</Version>
     </PackageReference>
     <PackageReference Include="Xam.Plugin.ExternalMaps">
       <Version>4.0.1</Version>
@@ -157,39 +170,42 @@
       <Version>4.5.0.6</Version>
     </PackageReference>
     <PackageReference Include="Xam.Plugin.Media">
-      <Version>4.0.1.1</Version>
+      <Version>4.0.1.5</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle">
+      <Version>3.0.0.5</Version>
     </PackageReference>
     <PackageReference Include="Xam.Plugins.Notifier">
-      <Version>3.0.0</Version>
+      <Version>3.0.1</Version>
     </PackageReference>
     <PackageReference Include="Xam.Plugins.Settings">
       <Version>3.1.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Core.UI">
-      <Version>27.0.2.1</Version>
+      <Version>28.0.0.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.CustomTabs">
-      <Version>27.0.2.1</Version>
+      <Version>28.0.0.1</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Android.Support.Design" Version="27.0.2.1" />
-    <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="27.0.2.1" />
-    <PackageReference Include="Xamarin.Android.Support.v4" Version="27.0.2.1" />
-    <PackageReference Include="Xamarin.Android.Support.v7.CardView" Version="27.0.2.1" />
-    <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="27.0.2.1" />
+    <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.1" />
+    <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="28.0.0.1" />
+    <PackageReference Include="Xamarin.Android.Support.v4" Version="28.0.0.1" />
+    <PackageReference Include="Xamarin.Android.Support.v7.CardView" Version="28.0.0.1" />
+    <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="28.0.0.1" />
     <PackageReference Include="Xamarin.Essentials">
-      <Version>0.9.1-preview</Version>
+      <Version>1.0.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.FFImageLoading">
-      <Version>2.4.3.840</Version>
+      <Version>2.4.4.859</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.FFImageLoading.Svg">
-      <Version>2.4.3.840</Version>
+      <Version>2.4.4.859</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms">
-      <Version>2.4.3.840</Version>
+      <Version>2.4.4.859</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>3.1.0.637273</Version>
+      <Version>3.5.0.129452</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.GooglePlayServices.Gcm">
       <Version>60.1142.1</Version>
@@ -245,12 +261,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\account.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\CurvedMask.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\HeaderCurved.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\ic_logo.png" />
@@ -354,12 +364,6 @@
     <AndroidResource Include="Resources\drawable-hdpi\ic_email.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\football.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\soccer.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\ic_share.png" />
   </ItemGroup>
   <ItemGroup>
@@ -373,12 +377,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_share.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\milford.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\princeton.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_weather.png" />
@@ -424,12 +422,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_search.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\basketball.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\volleyball.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_menu.png" />
@@ -567,42 +559,6 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_keyboard_arrow_right.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\twitter.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\socialmedia.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ic_boysbaseball.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ic_boysbasketball.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ic_boysfootball.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ic_boysrunning.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ic_boyssoccer.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ic_boysswimming.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ic_girlsbasketball.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ic_girlsrunning.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ic_girlssoccer.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ic_girlsswimming.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_chat.png" />
   </ItemGroup>
   <ItemGroup>
@@ -678,22 +634,7 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_feedback.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ic_bowling.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ic_boxing.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\ic_forensics.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ic_kickboxer.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ic_volleyball.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ic_wrestling.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\rounded_corners.xml">
@@ -773,12 +714,6 @@
     <AndroidResource Include="Resources\drawable\ic_notification_off.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\teamcoach.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\teamparent.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\pagebg.png" />
   </ItemGroup>
   <ItemGroup>
@@ -795,6 +730,48 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\partlycloudyday.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\partlycloudynight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\rain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\sleet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\snow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\thunderstorm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\tornado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\wind.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\clearday.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\clearnight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\cloudy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\fog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\hail.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

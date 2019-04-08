@@ -25,13 +25,13 @@ namespace ParPorApp.Views
             base.OnAppearing();
             eventsViewModel.GetGamessCommand.Execute(null);
         }
-        private async Task AddEvent_Clicked(object sender, EventArgs e)
+        private async void AddEvent_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AddEventPage());
         }
 
         //navigating to event detail page
-        private async Task EventList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private async void EventList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var item = e.SelectedItem as Event;
             if (e.SelectedItem == null)
@@ -48,7 +48,7 @@ namespace ParPorApp.Views
             //Game detail page
             if (item != null && item.EventType == "Game")
             {
-                await Navigation.PushAsync(new EventDetailPage(item));
+                await Navigation.PushAsync(new GameDetailPage(item));
                 //await DisplayAlert("Games", "you tabbed on a game", "Ok");
             }
             eventListView.SelectedItem = null;

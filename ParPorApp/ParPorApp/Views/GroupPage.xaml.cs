@@ -40,7 +40,7 @@ namespace ParPorApp.Views
                 if (e.SelectedItem == null)
                     return;
                 var contact = e.SelectedItem as MembersDetail;
-                await Navigation.PushAsync(new GroupNavPage());
+                await Navigation.PushAsync(new GroupMembersPage());
                 groupsListView.SelectedItem = null;
             }
                 

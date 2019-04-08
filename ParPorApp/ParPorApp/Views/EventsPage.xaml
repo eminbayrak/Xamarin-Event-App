@@ -9,14 +9,7 @@
 
     <ContentPage.BindingContext>
         <viewModels:EventsViewModel />
-    </ContentPage.BindingContext>
-
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Clicked="AddEvent_Clicked"
-                     Icon="ic_eventadd.png"
-                     Priority="1" />
-
-    </ContentPage.ToolbarItems>
+    </ContentPage.BindingContext>    
     <ListView x:Name="eventListView"
               HasUnevenRows="True"
               ItemsSource="{Binding Event}"
@@ -104,7 +97,8 @@
                                            Style="{StaticResource ProfileNameLabel}" />
                                 </Grid>
                                 <Grid Grid.Row="1" Grid.Column="3">
-                                    <Label Text="{Binding  OpponentTeamName}" HorizontalTextAlignment="Center"
+                                    <Label Text="{Binding  OpponentTeamName}" 
+                                           HorizontalTextAlignment="Center"
                                            Font="Bold" />
                                 </Grid>
                             </Grid>

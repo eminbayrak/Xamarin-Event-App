@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace ParPorApp.Models
 {
-    public class Event : User
+    public class Event
     {
         [JsonProperty("Note")] public string Note { get; set; }
 
@@ -31,10 +31,10 @@ namespace ParPorApp.Models
 
         [JsonProperty("LocationLongitude")] public string LocationLongitude { get; set; }
 
-        //[JsonProperty("TeamName")] public string TeamName { get; set; }
+        [JsonProperty("TeamName")] public string TeamName { get; set; }
 
         [JsonProperty("OpponentTeamName")] public string OpponentTeamName { get; set; }
-        public string GameVS => this.TeamName + " vs " + this.OpponentTeamName;
+        public string GameVS => " vs. " + OpponentTeamName;      
 
         public string GroupDate => EventDate.Date.Day == DateTime.Now.Date.Day ? "Today" : EventDate.ToString("dddd");
 
@@ -84,7 +84,17 @@ namespace ParPorApp.Models
 
             return result;
         }
-        
+        public class Weather
+        {
+            List<string> Icon = new List<string>()
+            {
+                "clear-day", "clear-night", "partly-cloudy-day",
+                "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
+                "fog"
+            };
+            public double Tempature { get; set; }
+            public string MyProperty { get; set; }
+        }
     }
 
 }

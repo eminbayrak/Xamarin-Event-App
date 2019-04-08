@@ -23,17 +23,6 @@
                 Android="ic_notification_off.png" />
             </ToolbarItem.Icon>
         </ToolbarItem>
-
-        <ToolbarItem 
-             Priority="1"
-             Clicked="Notification_onClickedAsync"
-             x:Name="NotificationOff">
-            <ToolbarItem.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource"
-                iOS="ic_notification_on.png"
-                Android="ic_notification_on.png" />
-            </ToolbarItem.Icon>
-        </ToolbarItem>
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>

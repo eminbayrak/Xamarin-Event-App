@@ -13,6 +13,8 @@ namespace ParPorApp.ViewModels
 {
     class AccountGroupsViewModel : INotifyPropertyChanged
     {
+        public string EnteredCode { get; set; }
+        public string EnteredTeamName { get; set; }
         private readonly ApiServices _apiServices = new ApiServices();
         private List<AccountGroups> _accountgroups;
         public List<AccountGroups> AccountGroups
@@ -32,11 +34,24 @@ namespace ParPorApp.ViewModels
                 return new Command(async () =>
                 {
                     var accessToken = Settings.AccessToken;
-                    AccountGroups = await _apiServices.GetAccountGroupsAsync(accessToken);
+                    AccountGroups = await _apiServices.GetTeamMembersAsync(accessToken);
                 });
             }
         }
+        
+        public User User { get; set; }
 
+        public ICommand PutCommand
+        {
+            get
+            {
+                return new Command(async () =>
+                {
+                    await _apiServices.UpdateAsync(User, Settings.AccessToken);
+                });
+            }
+        }
+        
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

@@ -46,17 +46,17 @@ namespace ParPorApp.Views
 	        });
 	    }
 
-	    private async Task Weather_OnClicked(object sender, EventArgs e)
+	    private async void Weather_OnClicked(object sender, EventArgs e)
 	    {
 	        await Navigation.PushAsync(new WeatherWebPage());
 	    }
 
-	    private async Task ClosePageIcon_Tabbed(object sender, EventArgs e)
+	    private async void ClosePageIcon_Tabbed(object sender, EventArgs e)
 	    {
 	        await Navigation.PopModalAsync(true);
 	    }
 
-	    private async Task AddCommentButton_Clicked(object sender, EventArgs e)
+	    private async void AddCommentButton_Clicked(object sender, EventArgs e)
 	    {
 	        await Navigation.PushAsync(new AddCommentPage());
 	    }

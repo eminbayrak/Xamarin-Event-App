@@ -45,7 +45,7 @@ namespace ParPorApp.Views
 
         }
 
-        private async Task ReturnEventPage_Clicked(object sender, EventArgs e)
+        private async void ReturnEventPage_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
         }

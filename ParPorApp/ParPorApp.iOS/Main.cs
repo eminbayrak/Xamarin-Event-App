@@ -17,8 +17,10 @@ namespace ParPorApp.iOS
             // if you want to use a different Application Delegate class from "AppDelegate"
             // you can specify it here.
             AnimationViewRenderer.Init();
+            ImageCircle.Forms.Plugin.iOS.ImageCircleRenderer.Init();
             UIApplication.Main(args, null, "AppDelegate");
-            CachedImageRenderer.Init();
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
+            
             var ignore = typeof(SvgCachedImage);
         }
     }

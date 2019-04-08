@@ -26,9 +26,7 @@ namespace ParPorApp.ViewModels
 				OnPropertyChanged();
 			}
 		}
-
-
-		public ICommand GetUserCommand
+        public ICommand GetUserCommand
 		{
 			get
 			{
@@ -40,8 +38,7 @@ namespace ParPorApp.ViewModels
 			}
 		}
         
-
-	    public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
 
 	    private void OnPropertyChanged([CallerMemberName] string propertyName = null)
 		{

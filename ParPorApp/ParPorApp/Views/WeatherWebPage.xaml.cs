@@ -18,7 +18,7 @@ namespace ParPorApp.Views
 		    NavigationPage.SetHasBackButton(this, true);
         }
 
-	    private async Task NavigateBack_ClickedAsync(object sender, EventArgs e)
+	    private async void NavigateBack_ClickedAsync(object sender, EventArgs e)
 	    {
 	        await Navigation.PopAsync();
 	    }

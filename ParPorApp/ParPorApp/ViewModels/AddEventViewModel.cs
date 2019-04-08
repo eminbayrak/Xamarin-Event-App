@@ -24,7 +24,7 @@ namespace ParPorApp.ViewModels
         public string EventIcon { get; set; }
         public string LocationLatitude { get; set; }
         public string LocationLongitude { get; set; }
-        public string TeamName { get; set; }
+        //public string TeamName { get; set; }
         public string OpponentTeamName { get; set; }
         public ICommand AddEventCommand
         {
@@ -43,7 +43,7 @@ namespace ParPorApp.ViewModels
                         LocationAddress = LocationAddress,
                         LocationLatitude = LocationLatitude,
                         LocationLongitude = LocationLongitude,
-                        TeamName = TeamName,
+                        //TeamName = TeamName,
                         OpponentTeamName = OpponentTeamName
                     };
                     await _apiServices.PostEventAsync(events, Settings.AccessToken);

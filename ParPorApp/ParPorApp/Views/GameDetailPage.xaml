@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:views="clr-namespace:ParPorApp.Views"
+             Title="{Binding EventType}"
+             BackgroundColor="#DEF1FF"
+             x:Class="ParPorApp.Views.GameDetailPage">
+
+    <ContentPage.BindingContext>
+        <views:EventsPage />
+    </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="ic_share.png" 
+                     Clicked="Share_onClicked" 
+                     Priority="0" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        
+        <StackLayout HorizontalOptions="FillAndExpand">
+            <Frame>
+                <StackLayout BackgroundColor="White">
+                    <Label Text="{Binding EventDate, StringFormat='{0:MMM}'}"
+                           TextColor="Black"
+                           Style="{StaticResource ProfileTagLabel}" 
+                           Margin="0, -6"/>
+                    <Label Text="{Binding EventDate, StringFormat='{0:dd}'}" 
+                           Style="{StaticResource ProfileTagLabel}"
+                           FontSize="28" 
+                           FontAttributes="Bold" 
+                           Margin="0, -6"/>
+                    <Label Text="{Binding EventDate, StringFormat='{0:dddd}'}" 
+                           TextColor="Black"                                         
+                           Style="{StaticResource ProfileTagLabel}" 
+                           Margin="0, -6"/>
+                    <Label Text="{Binding EventDate, StringFormat='{0:h:mm tt}'}"
+                           Style="{StaticResource StatsNumberLabel}"/>
+                    <ContentView HeightRequest="5" 
+                                 BackgroundColor="Transparent"/>
+                    <Label Text="vs" Style="{StaticResource ProfileTagLabel}"/>
+                    <Label Text="{Binding OpponentTeamName}" 
+                           Margin="0, -6"
+                           Style="{StaticResource ProfileTagLabel}" 
+                           FontSize="18" 
+                           FontAttributes="Bold"/>
+                    <Button Text="Add to calendar" 
+                            Clicked="AddToMyCalAsync_Clicked" 
+                            Style="{StaticResource LabelStyle}"
+                            BackgroundColor="Transparent"
+                            TextColor="#01CCFF"/>
+                </StackLayout>
+            </Frame>
+            <Label Text="Location" Margin="10,0"/>
+            <Frame>
+                <StackLayout>
+                    <Label x:Name="eventFullAddress" 
+                           Text="{Binding LocationAddress}"
+                           Style="{StaticResource LabelStyle}"/>
+                    <!--<forms:CachedImage Source="ic_keyboard_arrow_right.png" 
+                                       HorizontalOptions="EndAndExpand" 
+                                       Opacity="0.5"/>-->
+                    <Button Text="View Map" 
+                            Style="{StaticResource RegularButton}"
+                            HorizontalOptions="End"
+                            Clicked="TakeMeThere_Clicked"/>
+                </StackLayout>
+            </Frame>
+            <Label x:Name="locationLatitude" Text="{Binding LocationLatitude}" IsVisible="False" />
+            <Label x:Name="locationLongitude" Text="{Binding LocationLongitude}" IsVisible="False" />
+            <Label x:Name="gameVS" Text="{Binding GameVS}" IsVisible="False"/>
+            <Label x:Name="evDate" Text="{Binding EventDate}" IsVisible="False"/>
+            <Label x:Name="eventType" Text="{Binding EventType}" IsVisible="False" />
+            <Label x:Name="eventDate" Text="{Binding EventDate, StringFormat='{0:dddd - MMMM dd, yyyy}'}" IsVisible="False" />
+            <Label x:Name="eventTime" Text="{Binding EventDate, StringFormat='{0:h:mm tt}'}" IsVisible="False" />
+            <Label Text="Current Forecast" Margin="10,0"/>
+            <Frame>
+                <StackLayout>
+                    <Label x:Name="tempTitle" Text="{Binding Weather.Tempature}"
+                           Style="{StaticResource LabelStyle}" />
+                    <Image x:Name="tempIcon" Source="{Binding Weather.Icon}"
+                           HorizontalOptions="Start"
+                           HeightRequest="32"
+                           WidthRequest="32"/>
+                    <Label x:Name="tempature" Text="{Binding Weather.Tempature}"
+                           Style="{StaticResource LabelStyle}" />
+                </StackLayout>
+            </Frame>
+            <Label Text="Note" Margin="10,0"/>
+            <Frame>
+                <StackLayout>
+                    <Label Text="{Binding Note}" Style="{StaticResource LabelStyle}" />
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
