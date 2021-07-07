@@ -2,6 +2,8 @@
 using System.Globalization;
 using System.Threading.Tasks;
 using DurianCode.PlacesSearchBar;
+using Plugin.LocalNotifications;
+using Plugin.Notifications;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -35,20 +37,17 @@ namespace ParPorApp.Views
 
         private void DatePicker_DateSelected(object sender, DateChangedEventArgs e)
         {
-            //string sourceDateText = e.NewDate.Month.ToString(CultureInfo.InvariantCulture) + "/" + e.NewDate.Day.ToString(CultureInfo.InvariantCulture) + "/" + e.NewDate.Year.ToString(CultureInfo.InvariantCulture) + " " + StartTime.Time;
-            var date = EventDate.Text = e.NewDate.Month + "/" + e.NewDate.Day + "/" + e.NewDate.Year;
-            EventDate.Text = date;
+            var eventDate = (e.NewDate.Date).ToShortDateString();
             var pickertime = EventTime.Time;
             var dt = Convert.ToDateTime(pickertime.ToString());
-            var time = dt.ToString("h:mm tt");
-            Time.Text = time;
+            var time = dt.ToShortTimeString();
+            SelectedDate.Text = eventDate + " " + time;
+
         }
 
-        private async Task ReturnEventPage_Clicked(object sender, EventArgs e)
+        private async void ReturnEventPage_Clicked(object sender, EventArgs e)
         {
-            await Task.Delay(3000);
-            await Navigation.PushAsync(new EventsPage());
-            //CrossLocalNotifications.Current.Show("New Event!", "A new content has posted.", 1, UtcNow.AddSeconds(8));
+            await Navigation.PopAsync();
         }
 
         private void Search_Bar_PlacesRetrieved(object sender, AutoCompleteResult result)

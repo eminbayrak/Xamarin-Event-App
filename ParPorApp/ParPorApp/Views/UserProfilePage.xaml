@@ -2,9 +2,9 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              xmlns:viewModels="clr-namespace:ParPorApp.ViewModels;assembly=ParPorApp"
-             xmlns:constant="clr-namespace:ParPorApp.Constant;assembly=ParPorApp"
-             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             xmlns:local="clr-namespace:ParPorApp.Views"
              Title="Profile"
              x:Class="ParPorApp.Views.UserProfilePage">
 
@@ -12,61 +12,53 @@
         <viewModels:UserViewModel />
     </ContentPage.BindingContext>
 
-    <Grid BackgroundColor="#FEFEFE" Margin="0,10,0,00">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Log out" Clicked="LogoutMenuItem_Clicked" Order="Secondary"/>
+    </ContentPage.ToolbarItems>
+
+    <Grid Margin="0,10,0,00">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="1"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="1"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="1" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="1" />
+            <RowDefinition Height="40" />
         </Grid.RowDefinitions>
+        
         <StackLayout Margin="20,20,0,00" Grid.Row="0">
-            <ListView ItemsSource="{Binding Users}"
-                                   HeightRequest="120"
-                                   
-                          SeparatorVisibility="None"
-                          IsEnabled="False"
-                          HasUnevenRows="True">
+            <ListView ItemsSource="{Binding Users}" 
+                      SeparatorVisibility="None"
+                      IsEnabled="False"
+                      HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout >
-                                <abstractions:CircleImage HeightRequest="50"
-                                                              HorizontalOptions="Start"
-                                                              Source="{Binding Avatar}"
-                                                              BorderColor="White"
-                                                              BorderThickness="2"
-                                                              WidthRequest="50" />
-                                <Label FontAttributes="Bold" Text="{Binding FullName}" TextColor="#000000" Style="{StaticResource BoldLabel}" FontSize="18" />
-                                <Label Text="{Binding Email}" TextColor="#6d747a" FontSize="14"/>
-
+                            <StackLayout Margin="10">
+                                <local:InitialsView Text="{Binding ImageUrl}" VerticalOptions="Center" HeightRequest="60" />
+                                <!--<controls:CircleImage HeightRequest="50"
+                                                      HorizontalOptions="Start"
+                                                      Source="{Binding ImageUrl}"
+                                                      BorderColor="Black"
+                                                      BorderThickness="0.5"
+                                                      WidthRequest="50" />-->
+                                <Label FontAttributes="Bold" Text="{Binding FullName}" Style="{StaticResource BoldLabel}" FontSize="18" />
+                                <Label Text="{Binding Email}" FontSize="14" />
+                                <Label Text="{Binding TeamName}" FontSize="14" />
+                                <!--<Label Text="{Binding TeamCode}" IsVisible="{Binding IsAdminVisible}" FontAttributes="Bold" FontSize="14" />-->
+                                <Button x:Name="addEventBtn" Text="Add Event" IsVisible="{Binding IsAdminVisible}" 
+                                        TextColor="White" CommandParameter="{Binding .}" Command="{Binding AddEventCommand}"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
-        <BoxView Grid.Row="1" HeightRequest="1" BackgroundColor="#E8EBED" />
-        <ScrollView Grid.Row="2" Margin="10,0,0,00">
-            <StackLayout>
-
-                <Button Style="{StaticResource FontAwesomeStyleBtnBot}"
-                            Text="{x:Static constant:FontAwesomeConstant.Messages}" />
-                <Button Style="{StaticResource FontAwesomeStyleBtnBot}"
-                            Text="{x:Static constant:FontAwesomeConstant.Contacts}" />
-
-                <Button Style="{StaticResource FontAwesomeStyleBtnBot}"
-                            Text="{x:Static constant:FontAwesomeConstant.Account}" />
-                <Button Style="{StaticResource FontAwesomeStyleBtnBot}"
-                            Text="{x:Static constant:FontAwesomeConstant.Help}" />
-            </StackLayout>
-        </ScrollView>
-        <BoxView Grid.Row="3" HeightRequest="1" VerticalOptions="End" BackgroundColor="#E8EBED"/>
-        <Button Margin="10,0,0,00" Grid.Row="4" Style="{StaticResource FontAwesomeStyleBtnBot}"
-                Text="{x:Static constant:FontAwesomeConstant.Signout}"
+        
+        <!--<Button Grid.Row="4"
+                Text="Sign out"
                 VerticalOptions="End"
-                TextColor="Red"
+                BackgroundColor="Red"
                 Command="{Binding LogoutCommand}"
-                Clicked="LogoutMenuItem_Clicked" />
+                Clicked="LogoutMenuItem_Clicked" />-->
     </Grid>
 </ContentPage>

@@ -2,9 +2,7 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
              xmlns:viewModels="clr-namespace:ParPorApp.ViewModels;assembly=ParPorApp"
-             xmlns:xfGloss="clr-namespace:XFGloss;assembly=XFGloss"
              x:Class="ParPorApp.Views.MainPageMaster"
              BackgroundColor="#2c2d37"
              Icon="ic_menu.png"
@@ -20,12 +18,10 @@
         <StackLayout HeightRequest="250">
             <Button Clicked="Profile_Clicked" BackgroundColor="Transparent" VerticalOptions="Start"
                     HorizontalOptions="End" Image="ic_settings.png" />
-            <abstractions:CircleImage HeightRequest="100"
+            <Image HeightRequest="100"
                                       HorizontalOptions="Center"
                                       Source="{Binding Users}"
                                       VerticalOptions="End"
-                                      BorderColor="White"
-                                      BorderThickness="2"
                                       WidthRequest="100" />
             <BoxView BackgroundColor="Transparent" HeightRequest="5" />
 

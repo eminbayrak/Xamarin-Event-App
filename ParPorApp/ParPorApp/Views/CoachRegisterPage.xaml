@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:ParPorApp.ViewModels;assembly=ParPorApp"
+             xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             x:Class="ParPorApp.Views.CoachRegisterPage"
+             BackgroundColor="#ECF0E2"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.BindingContext>
+        <viewModels:RegisterViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="15,35">
+                <forms:SvgCachedImage WidthRequest="30" HeightRequest="30" HorizontalOptions="Start" Opacity="0.3"
+                                      Source="resource://ParPorApp.Resources.ic_back1.svg">
+                    <forms:SvgCachedImage.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ReturnWelcome_OnClicked" />
+                    </forms:SvgCachedImage.GestureRecognizers>
+                </forms:SvgCachedImage>
+                <StackLayout Padding="30">
+                    <BoxView HeightRequest="10" BackgroundColor="Transparent" />
+                    <Label Text="Howdy!" FontSize="30" TextColor="#DD6C5C"/>
+                    <Label Text="Let's create your team" FontSize="16" />
+                    <Entry x:Name="teamName" Text="{Binding TeamName}" Placeholder="Team name" />
+                    <ContentView BackgroundColor="Transparent" HeightRequest="5"/>
+                    <Entry Text="{Binding FirstName}" Placeholder="First name" />
+                    <Entry Text="{Binding LastName}" Placeholder="Last name" />
+                    <Entry Text="{Binding Email}" Placeholder="Email" />
+                    <Entry Text="{Binding Password}" Placeholder="Password" IsPassword="True" />
+                    <Entry Text="{Binding ConfirmPassword}" TextColor="White" Placeholder="Confirm password"
+                           IsPassword="True" />
+                    <Button Command="{Binding RegisterTeamCommand}" BackgroundColor="#6d995c"
+                            FontSize="20"
+                            Text="Register"
+                            TextColor="White">
+                    </Button>
+                    <Label x:Name="teamCode" Text="{Binding TeamName}" IsVisible="False"/>
+
+                    <!--<Button Text="Go to Login" BackgroundColor="White" TextColor="#F1836E" FontSize="20"
+                        Clicked="Button_OnClicked">
+                </Button>-->
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

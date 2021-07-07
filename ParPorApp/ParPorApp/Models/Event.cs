@@ -13,9 +13,11 @@ namespace ParPorApp.Models
 
         [JsonProperty("LocationAddress")] public string LocationAddress { get; set; }
 
-        [JsonProperty("GroupId")] public string GroupId { get; set; }
+        [JsonProperty("UserId")] public int UserId { get; set; }
 
         [JsonProperty("Id")] public int Id { get; set; }
+
+        public string NotificationId => Convert.ToString(this.Id);
 
         [JsonProperty("PlaceId")] public string PlaceId { get; set; }
 
@@ -25,8 +27,6 @@ namespace ParPorApp.Models
 
         [JsonProperty("EventIcon")] public string EventIcon { get; set; }
 
-        [JsonProperty("EventTime")] public string EventTime { get; set; }
-
         [JsonProperty("LocationLatitude")] public string LocationLatitude { get; set; }
 
         [JsonProperty("LocationLongitude")] public string LocationLongitude { get; set; }
@@ -34,10 +34,14 @@ namespace ParPorApp.Models
         [JsonProperty("TeamName")] public string TeamName { get; set; }
 
         [JsonProperty("OpponentTeamName")] public string OpponentTeamName { get; set; }
+        public string GameVS => " vs. " + OpponentTeamName;      
 
         public string GroupDate => EventDate.Date.Day == DateTime.Now.Date.Day ? "Today" : EventDate.ToString("dddd");
-        public string EventFullDate => this.EventDate.ToString(CultureInfo.InvariantCulture) + " " + this.EventTime;
 
+        //This can be implemented for the user in defferent regions
+        public string EventFullDate => this.EventDate.ToString(CultureInfo.InvariantCulture);
+
+        //Could be use for to show event post datetime
         public static string TimeAgo(DateTime dateTime)
         {
             string result;
@@ -45,42 +49,52 @@ namespace ParPorApp.Models
 
             if (timeSpan <= TimeSpan.FromSeconds(60))
             {
-                result = string.Format("{0} seconds ago", timeSpan.Seconds);
+                result = $"{timeSpan.Seconds} seconds ago";
             }
             else if (timeSpan <= TimeSpan.FromMinutes(60))
             {
-                result = timeSpan.Minutes > 1 ?
-                    String.Format("about {0} minutes ago", timeSpan.Minutes) :
+                result = timeSpan.Minutes > 1 ? $"about {timeSpan.Minutes} minutes ago"
+                    :
                     "about a minute ago";
             }
             else if (timeSpan <= TimeSpan.FromHours(24))
             {
-                result = timeSpan.Hours > 1 ?
-                    String.Format("about {0} hours ago", timeSpan.Hours) :
+                result = timeSpan.Hours > 1 ? $"about {timeSpan.Hours} hours ago"
+                    :
                     "about an hour ago";
             }
             else if (timeSpan <= TimeSpan.FromDays(30))
             {
-                result = timeSpan.Days > 1 ?
-                    String.Format("about {0} days ago", timeSpan.Days) :
+                result = timeSpan.Days > 1 ? $"about {timeSpan.Days} days ago"
+                    :
                     "yesterday";
             }
             else if (timeSpan <= TimeSpan.FromDays(365))
             {
-                result = timeSpan.Days > 30 ?
-                    String.Format("about {0} months ago", timeSpan.Days / 30) :
+                result = timeSpan.Days > 30 ? $"about {timeSpan.Days / 30} months ago"
+                    :
                     "about a month ago";
             }
             else
             {
-                result = timeSpan.Days > 365 ?
-                    String.Format("about {0} years ago", timeSpan.Days / 365) :
+                result = timeSpan.Days > 365 ? $"about {timeSpan.Days / 365} years ago"
+                    :
                     "about a year ago";
             }
 
             return result;
         }
-        
+        public class Weather
+        {
+            List<string> Icon = new List<string>()
+            {
+                "clear-day", "clear-night", "partly-cloudy-day",
+                "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
+                "fog"
+            };
+            public double Tempature { get; set; }
+            public string MyProperty { get; set; }
+        }
     }
 
 }

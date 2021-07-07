@@ -16,8 +16,7 @@ namespace ParPorApp.Views
         {
             InitializeComponent();
             Children.Add(new GroupDetailPage() { Title="Detail"});
-            Children.Add(new GroupMembersPage() { Title = "Members" });
-            Children.Add(new SchedulePage() { Title = "Schedule" });
+            Children.Add(new AccountGroupsPage() { Title = "Members" });
         }
     }
 }

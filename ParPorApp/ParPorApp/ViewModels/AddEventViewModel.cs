@@ -16,16 +16,15 @@ namespace ParPorApp.ViewModels
         private readonly ApiServices _apiServices = new ApiServices();
         public string Note { get; set; }
         public string LocationAddress { get; set; }
-        public string GroupId { get; set; }
+        public int UserId { get; set; }
         public string Id { get; set; }
         public string PlaceId { get; set; }
         public DateTime EventDate { get; set; }
-        public string EventTime { get; set; }
         public string EventType { get; set; }
         public string EventIcon { get; set; }
         public string LocationLatitude { get; set; }
         public string LocationLongitude { get; set; }
-        public string TeamName { get; set; }
+        //public string TeamName { get; set; }
         public string OpponentTeamName { get; set; }
         public ICommand AddEventCommand
         {
@@ -38,14 +37,13 @@ namespace ParPorApp.ViewModels
                         EventType = EventType,
                         Note = Note,
                         EventDate = EventDate,
-                        EventTime = EventTime,
-                        GroupId = GroupId,
+                        UserId = UserId,
                         PlaceId = PlaceId,
                         EventIcon = EventIcon,
                         LocationAddress = LocationAddress,
                         LocationLatitude = LocationLatitude,
                         LocationLongitude = LocationLongitude,
-                        TeamName = TeamName,
+                        //TeamName = TeamName,
                         OpponentTeamName = OpponentTeamName
                     };
                     await _apiServices.PostEventAsync(events, Settings.AccessToken);

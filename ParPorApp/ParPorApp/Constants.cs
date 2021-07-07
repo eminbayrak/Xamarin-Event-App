@@ -3,20 +3,13 @@
     public static class Constants
     {
         //Azure
-        //public static string BaseApiAddress => "http://parentportalapi.azurewebsites.net/";
+        public static string BaseApiAddress => "http://sportiveportal.azurewebsites.net/";
 
-        //Home
-        //public static string BaseApiAddress => "http://192.168.29.110:5000/";
+        //Amazon WS
+        //public static string BaseApiAddress => "http://parentportalapi-dev.us-west-2.elasticbeanstalk.com/";
 
-        //Work
-        public static string BaseApiAddress => "http://10.65.234.161:5000/";
+        //DarkSky Api Key
 
-        //schools
-        //public static string BaseApiAddress => "http://10.90.229.234:5000/";
-
-		//Localhost
-	    //public static string BaseApiAddress => "http://localhost:55601/";
-
-		//public static int LogoIconHeight = 120;
+        public static string DarkSkyApi => "1726757a9cc1c0c23963aaed7cddfd8a";
     }
 }

@@ -6,8 +6,7 @@ namespace ParPorApp.Models
 {
     public class AccountStudent
     {
-        public string AccountId { get; set; }
-        public Account Account { get; set; }
+        public string AccountId { get; set; }        
         public int StudentId { get; set; }
         public Student Student { get; set; }
     }

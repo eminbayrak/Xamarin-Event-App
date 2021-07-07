@@ -2,14 +2,65 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:viewModels="clr-namespace:ParPorApp.ViewModels;assembly=ParPorApp"
+             Title="{Binding TeamName}"
              x:Class="ParPorApp.Views.SchedulePage">
-    <ContentPage.Content>
-        <StackLayout>
-            
-            <Label Text="Nothing yet." 
-                   FontSize="Large"
-                   VerticalOptions="CenterAndExpand" 
-                   HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+    <ContentPage.BindingContext>
+        <viewModels:EventsViewModel />
+    </ContentPage.BindingContext>
+
+    <ListView x:Name="eventListView"
+              HasUnevenRows="True"
+              ItemsSource="{Binding Event}"
+              ItemSelected="EventList_ItemSelected"
+              SeparatorVisibility="None"
+              CachingStrategy="RecycleElement">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout>
+                        <ContentView HeightRequest="15" BackgroundColor="Transparent"/>
+                        <Label Text="{Binding EventDate, StringFormat='{0:ddd, MMM dd}'}" 
+                               Margin="10,0,0,0"/>
+                        <Frame>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Grid.Column="0">
+                                    <Label Text="{Binding EventDate, StringFormat='{0:h:mm tt}'}"
+                                           Style="{StaticResource ProfileTagLabel}"
+                                           FontAttributes="Bold"
+                                           FontSize="14"/>
+                                </StackLayout>
+                                
+                                <StackLayout Grid.Column="1" Margin="10,0">
+                                    <Frame CornerRadius="10" 
+                                           BackgroundColor="ForestGreen"
+                                           HasShadow="False"
+                                           Padding="3"
+                                           HeightRequest="18"
+                                           WidthRequest="12">
+                                        <Label Text="{Binding EventType}"
+                                               TextColor="White"
+                                               Style="{StaticResource LabelStyle}" />
+                                    </Frame>
+                                    
+                                    <Label Text="{Binding GameVS}"
+                                           Style="{StaticResource LabelStyle}"
+                                           FontSize="12"/>
+                                </StackLayout>
+                                <forms:CachedImage Source="ic_keyboard_arrow_right.png" 
+                                       HorizontalOptions="EndAndExpand" 
+                                       Grid.Column="2"
+                                       Opacity="0.1"/>
+                            </Grid>
+                        </Frame>
+                    </StackLayout>                    
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 </ContentPage>

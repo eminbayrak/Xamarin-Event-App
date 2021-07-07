@@ -50,7 +50,7 @@ namespace ParPorApp.Views
 			await Navigation.PushAsync(new LoginPage());
 		}
 
-	    private async Task Profile_Clicked(object sender, EventArgs e)
+	    private async void Profile_Clicked(object sender, EventArgs e)
 	    {
 	        await Navigation.PushModalAsync(new ProfilePage());
 	    }
